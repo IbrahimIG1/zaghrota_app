@@ -18,7 +18,7 @@ class HomechoicesListview extends StatelessWidget {
       ],
      };
     return  SizedBox(
-      height:MediaQuery.sizeOf(context).height*0.56 ,
+      height:0.56.sh ,
       child: ListView.builder(
               
               itemBuilder: (context, index) =>Row(
