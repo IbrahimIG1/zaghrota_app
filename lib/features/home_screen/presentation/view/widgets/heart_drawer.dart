@@ -14,7 +14,7 @@ class HeartDrawer extends StatelessWidget {
               painter: HeartPainter(),
               child: Container(
                 padding: const EdgeInsets.symmetric(vertical: 10),
-                height: 300.h,
+                height: MediaQuery.sizeOf(context).height*0.35,
                 width: MediaQuery.sizeOf(context).width,
                        decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(bottomRight: Radius.circular(20),bottomLeft: Radius.circular(10)),
@@ -55,7 +55,7 @@ class HeartDrawer extends StatelessWidget {
                           child: Column(
                             children: [
                               Text("${(args.day - DateTime.now().day).abs()}",style: Textstyles.hintTextStyle,),
-                              Text("days",style: TextStyle(fontSize: 10.sp),)
+                              Text("days",style: Textstyles.heartViewTextStyle,)
                             ],
                           ),
                         ),
