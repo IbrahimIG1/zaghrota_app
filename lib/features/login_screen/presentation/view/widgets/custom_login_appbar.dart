@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zaghrota_app/core/colors/colors.dart';
 
 class CustomLoginAppbar extends StatelessWidget {
@@ -7,7 +8,7 @@ class CustomLoginAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-                    height: 42,
+                    height: 42.h,
                     decoration: const BoxDecoration(
           // color: Colors.red,
           gradient: AppColors.appBarLinearColor,

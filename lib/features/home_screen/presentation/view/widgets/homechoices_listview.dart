@@ -17,44 +17,47 @@ class HomechoicesListview extends StatelessWidget {
       "assets/images/homepage_images/St Valentine Day Couple.png"
       ],
      };
-    return  ListView.builder(
+    return  SizedBox(
+      height:MediaQuery.sizeOf(context).height*0.56 ,
+      child: ListView.builder(
               
-            itemBuilder: (context, index) =>Row(
-              
-              mainAxisAlignment: index%2==0? MainAxisAlignment.start:MainAxisAlignment.end,
-             children: [
-              Stack(
-                children: [
-                  SizedBox(
-                    width: 250.w,
-                    child:index%2==0?Image.asset("assets/images/polygons/Polygon 62.png",fit: BoxFit.fitWidth,):
-                    Image.asset("assets/images/polygons/Polygon 60.png",fit: BoxFit.fitWidth,)
-                    ),
-                  Padding(
-                    padding:  EdgeInsets.symmetric(vertical: 40.sp,
-                    horizontal:index%2==0?30.sp:40.sp),
-                    child: Center(
-                      child: CircleAvatar(
-                        radius: 90.sp,
-                        backgroundColor: Colors.white,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              width: 100.sp,
-                              child: Image.asset(listviewData["images"]![index],
-                              fit: BoxFit.fitWidth,)),
-                            Text(listviewData["titles"]![index],style: Textstyles.listViewTitles,)
-                          ],
+              itemBuilder: (context, index) =>Row(
+                
+                mainAxisAlignment: index%2==0? MainAxisAlignment.start:MainAxisAlignment.end,
+               children: [
+                Stack(
+                  children: [
+                    SizedBox(
+                      width: 250.w,
+                      child:index%2==0?Image.asset("assets/images/polygons/Polygon 62.png",fit: BoxFit.fitWidth,):
+                      Image.asset("assets/images/polygons/Polygon 60.png",fit: BoxFit.fitWidth,)
+                      ),
+                    Padding(
+                      padding:  EdgeInsets.symmetric(vertical: 40.sp,
+                      horizontal:index%2==0?30.sp:40.sp),
+                      child: Center(
+                        child: CircleAvatar(
+                          radius: 90.sp,
+                          backgroundColor: Colors.white,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                width: 100.sp,
+                                child: Image.asset(listviewData["images"]![index],
+                                fit: BoxFit.fitWidth,)),
+                              Text(listviewData["titles"]![index],style: Textstyles.listViewTitles,)
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  )
-                ],
-              )
-             ],
-            ),
-            itemCount: listviewData["titles"]!.length,
-            shrinkWrap: true,);
+                    )
+                  ],
+                )
+               ],
+              ),
+              itemCount: listviewData["titles"]!.length,
+              shrinkWrap: true,),
+    );
   }
 }

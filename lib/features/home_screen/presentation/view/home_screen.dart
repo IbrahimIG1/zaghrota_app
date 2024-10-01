@@ -10,18 +10,21 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold(
+    return const SafeArea(child: Scaffold(
       backgroundColor: AppColors.scaffoldColor,
-      body: Column(
-        children: [
-          const CustomLoginAppbar(),
-          const HeartDrawer(),
-          verticalSizedBox(40),
-          const HomechoicesListview()
-      
-          
-          
-        ],
+      body: SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
+        child: Column(
+          children: [
+            CustomLoginAppbar(),
+            HeartDrawer(),
+            
+            HomechoicesListview()
+        
+            
+            
+          ],
+        ),
       ),
     ));
   }
