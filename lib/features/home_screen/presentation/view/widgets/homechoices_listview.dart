@@ -18,7 +18,7 @@ class HomechoicesListview extends StatelessWidget {
       ],
      };
     return  ListView.builder(
-              physics: const NeverScrollableScrollPhysics(),
+              
             itemBuilder: (context, index) =>Row(
               
               mainAxisAlignment: index%2==0? MainAxisAlignment.start:MainAxisAlignment.end,

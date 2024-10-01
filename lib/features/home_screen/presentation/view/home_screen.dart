@@ -12,18 +12,16 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
       backgroundColor: AppColors.scaffoldColor,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const CustomLoginAppbar(),
-            const HeartDrawer(),
-            verticalSizedBox(40),
-            const HomechoicesListview()
-
-            
-            
-          ],
-        ),
+      body: Column(
+        children: [
+          const CustomLoginAppbar(),
+          const HeartDrawer(),
+          verticalSizedBox(40),
+          const HomechoicesListview()
+      
+          
+          
+        ],
       ),
     ));
   }

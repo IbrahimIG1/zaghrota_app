@@ -55,7 +55,7 @@ class HeartDrawer extends StatelessWidget {
                           child: Column(
                             children: [
                               Text("${(args.day - DateTime.now().day).abs()}",style: Textstyles.hintTextStyle,),
-                              Text("days",style: TextStyle(fontSize: 10.sp),)
+                              Text("days",style: Textstyles.heartViewTextStyle,)
                             ],
                           ),
                         ),
