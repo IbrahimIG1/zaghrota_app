@@ -13,7 +13,7 @@ class HeartDrawer extends StatelessWidget {
     return CustomPaint(
               painter: HeartPainter(),
               child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 10),
+                padding:  EdgeInsets.symmetric(vertical: 10.r),
                 height: 0.35.sh,
                 width: 1.sw,
                        decoration: const BoxDecoration(
