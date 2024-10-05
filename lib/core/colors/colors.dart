@@ -13,6 +13,7 @@ class AppColors {
   static const Color buttonBorder = Color(0xffAA39C6);
   static const Color scaffoldColor = Colors.white;
   static const Color heartColor = Color(0xffE766AC);
+  static const Color circleAvatarBorderColor = Color(0xffD83E67);
   
 
 

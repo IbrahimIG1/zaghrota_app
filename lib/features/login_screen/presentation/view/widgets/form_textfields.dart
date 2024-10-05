@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zaghrota_app/core/usable/sizedbox.dart';
 import 'package:zaghrota_app/features/login_screen/presentation/view/widgets/custom_Text_Field.dart';
 import 'package:zaghrota_app/features/login_screen/presentation/view/widgets/custom_datefield.dart';
@@ -19,18 +20,18 @@ class _FormTextfieldsState extends State<FormTextfields> {
     return Form(child: Column(
       children: [
          Padding(
-                    padding:  const EdgeInsets.symmetric(horizontal: 10),
+                    padding:   EdgeInsets.symmetric(horizontal: 12.r),
                     child:  Customtextfield(useStyle2: widget.useStyle2,hintText: "اسم العريس",),
                   ),
                   verticalSizedBox(30),
                    Padding(
-                    padding:  const EdgeInsets.symmetric(horizontal: 10),
+                    padding:   EdgeInsets.symmetric(horizontal: 12.r),
                     child: Customtextfield(useStyle2: widget.useStyle2,hintText: "اسم العروسة"),
                   ),
                   verticalSizedBox(30),
 
                    Padding(
-                    padding:  const EdgeInsets.symmetric(horizontal: 10),
+                    padding:   EdgeInsets.symmetric(horizontal: 12.r),
                     child: CustomDatefield(
                       useStyle2: widget.useStyle2,
                     onTap: () async {
