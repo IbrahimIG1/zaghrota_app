@@ -17,7 +17,7 @@ class SignInButton extends StatelessWidget {
                       )
                     ),
                     onPressed: () {
-                    ControlNavigation().navigationToController(ScreenNames.homeScreen, context,arguments);
+                    ControlNavigation().navigationToController(pageName: ScreenNames.homeScreen,context:context,arguments:  arguments);
                   }, child:  Text("دخول",style: Textstyles.hintTextStyle,));
   }
 }
