@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zaghrota_app/core/colors/colors.dart';
-import 'package:zaghrota_app/core/navigation/control_navigation.dart';
-import 'package:zaghrota_app/core/navigation/screen_names.dart';
-import 'package:zaghrota_app/core/textstyles/textstyles.dart';
+import 'package:zaghrota_app/features/wedding_preprations_screen/presentation/view/widgets/wedding_prep_listview_item.dart';
 
 class WeddingPreprationsListview extends StatelessWidget {
   const WeddingPreprationsListview({super.key});
@@ -14,7 +11,7 @@ class WeddingPreprationsListview extends StatelessWidget {
       {
       "title":"القاعات",
       "image":"assets/images/wedding_preprations_images/wedding_couple_flat_illustration_design.png",
-      "navigation":ScreenNames.weddingItemsScreen,
+      "navigation":"",
       "height":122.h,
       "width":141.w
       },
@@ -60,49 +57,7 @@ class WeddingPreprationsListview extends StatelessWidget {
       height:0.56.sh ,
       child: ListView.builder(
               
-              itemBuilder: (context, index) =>Row(
-                
-                mainAxisAlignment: index%2==0? MainAxisAlignment.start:MainAxisAlignment.end,
-               children: [
-                GestureDetector(
-                  onTap: () {
-                  ControlNavigation().navigationToController(pageName: listviewData[index]["navigation"], context: context,arguments: args);
-
-                  },
-                  child: Stack(
-                    children: [
-                      SizedBox(
-                        width: 250.w,
-                        
-                        child:index%2==0?Image.asset("assets/images/polygons/Polygon 62.png",fit: BoxFit.fitWidth,):
-                        Image.asset("assets/images/polygons/Polygon 60.png",fit: BoxFit.fill,)
-                        ),
-                      Padding(
-                        padding:  EdgeInsets.symmetric(vertical: 42.sp,
-                        horizontal:index%2==0?20.sp:40.sp),
-                        child: Center(
-                          child: CircleAvatar(
-                            radius: 90.w,
-                            backgroundColor: AppColors.scaffoldColor,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  width: listviewData[index]["width"],
-                        height: listviewData[index]["heigt"],
-                                  child: Image.asset(listviewData[index]["image"],
-                                  fit: BoxFit.fitWidth,)),
-                                Text(listviewData[index]["title"],style: Textstyles.listViewTitles,)
-                              ],
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                )
-               ],
-              ),
+              itemBuilder: (context, index) => WeddingPrepListviewItem(index: index, listviewData: listviewData,args: args,),
               itemCount: listviewData.length,
               shrinkWrap: true,),
     );
