@@ -5,41 +5,52 @@ import 'package:zaghrota_app/core/navigation/control_navigation.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/core/textstyles/textstyles.dart';
 
-class HomechoicesListview extends StatelessWidget {
-  const HomechoicesListview({super.key});
+class WeddingPreprationsListview extends StatelessWidget {
+  const WeddingPreprationsListview({super.key});
 
   @override
   Widget build(BuildContext context) {
     List listviewData= [
       {
-      "title":"قرأة الفاتحة",
-      "image":"assets/images/homepage_images/man's_hand_holding_woman's_hand.png",
+      "title":"القاعات",
+      "image":"assets/images/wedding_preprations_images/wedding_couple_flat_illustration_design.png",
       "navigation":ScreenNames.weddingItemsScreen,
-      
+      "height":122.h,
+      "width":141.w
       },
       {
-      "title":"الشبكة",
-      "image":"assets/images/homepage_images/Wedding_rings.png",
+      "title":"فستان الفرح",
+      "image":"assets/images/wedding_preprations_images/woman_in_wedding_dress_vector.png",
+      "height":123.h,
+      "width":100.w,
       "navigation":""
       },
       {
-      "title":"تجهيزات الفرح",
-      "image":"assets/images/homepage_images/wedding_couple_flat.png",
-      "navigation":ScreenNames.weddingPreprationsScreen
-      },
-      {
-        "title":"الحنة",
-      "image":"assets/images/homepage_images/Young_joyful_women.png",
+      "title":"البدلة",
+      "image":"assets/images/wedding_preprations_images/images_10.png",
+      "height":104.h,
+      "width":100.w,
       "navigation":""
       },
       {
-      "title":"الفرح",
-      "image":"assets/images/homepage_images/music_festival.png",
+        "title":"جهاز العروسة",
+      "image":"assets/images/wedding_preprations_images/Kitchen_with_ovens_shelves_bowls.png",
+      "height":100.h,
+      "width":100.w,
       "navigation":""
       },
       {
-        "title":"شهر العسل",
-      "image":"assets/images/homepage_images/St_Valentine_Day.png",
+      "title":"السيشن",
+      "image":"assets/images/wedding_preprations_images/download_5.png",
+      "height":106.h,
+      "width":130.w,
+      "navigation":""
+      },
+      {
+        "title":"الزفة",
+      "image":"assets/images/wedding_preprations_images/download_21.png",
+      "height":119.h,
+      "width":130.w,
       "navigation":""
 
       }
@@ -55,18 +66,20 @@ class HomechoicesListview extends StatelessWidget {
                children: [
                 GestureDetector(
                   onTap: () {
-                    ControlNavigation().navigationToController(pageName: listviewData[index]["navigation"], context: context,arguments: args);
+                  ControlNavigation().navigationToController(pageName: listviewData[index]["navigation"], context: context,arguments: args);
+
                   },
                   child: Stack(
                     children: [
                       SizedBox(
                         width: 250.w,
+                        
                         child:index%2==0?Image.asset("assets/images/polygons/Polygon 62.png",fit: BoxFit.fitWidth,):
-                        Image.asset("assets/images/polygons/Polygon 60.png",fit: BoxFit.fitWidth,)
+                        Image.asset("assets/images/polygons/Polygon 60.png",fit: BoxFit.fill,)
                         ),
                       Padding(
                         padding:  EdgeInsets.symmetric(vertical: 42.sp,
-                        horizontal:index%2==0?30.sp:40.sp),
+                        horizontal:index%2==0?20.sp:40.sp),
                         child: Center(
                           child: CircleAvatar(
                             radius: 90.w,
@@ -75,7 +88,8 @@ class HomechoicesListview extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SizedBox(
-                                  width: 100.sp,
+                                  width: listviewData[index]["width"],
+                        height: listviewData[index]["heigt"],
                                   child: Image.asset(listviewData[index]["image"],
                                   fit: BoxFit.fitWidth,)),
                                 Text(listviewData[index]["title"],style: Textstyles.listViewTitles,)
