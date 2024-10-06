@@ -13,28 +13,34 @@ class HomechoicesListview extends StatelessWidget {
     List listviewData= [
       {
       "title":"قرأة الفاتحة",
-      "image":"assets/images/homepage_images/man's hand holding woman's hand.png",
-      "navigation":ScreenNames.weddingItemsScreen
+      "image":"assets/images/homepage_images/man's_hand_holding_woman's_hand.png",
+      "navigation":ScreenNames.weddingItemsScreen,
+      
       },
       {
       "title":"الشبكة",
-      "image":"assets/images/homepage_images/Wedding rings.png",
+      "image":"assets/images/homepage_images/Wedding_rings.png",
+      "navigation":""
       },
       {
       "title":"تجهيزات الفرح",
-      "image":"assets/images/homepage_images/wedding-couple-flat.png",
+      "image":"assets/images/homepage_images/wedding_couple_flat.png",
+      "navigation":ScreenNames.weddingPreprationsScreen
       },
       {
         "title":"الحنة",
-      "image":"assets/images/homepage_images/Young joyful women.png",
+      "image":"assets/images/homepage_images/Young_joyful_women.png",
+      "navigation":""
       },
       {
       "title":"الفرح",
-      "image":"assets/images/homepage_images/music festival.png",
+      "image":"assets/images/homepage_images/music_festival.png",
+      "navigation":""
       },
       {
         "title":"شهر العسل",
-      "image":"assets/images/homepage_images/St Valentine Day Couple.png",
+      "image":"assets/images/homepage_images/St_Valentine_Day.png",
+      "navigation":""
 
       }
     ];
@@ -49,7 +55,7 @@ class HomechoicesListview extends StatelessWidget {
                children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, listviewData[index]["navigation"],arguments: args);
+                    ControlNavigation().navigationToController(pageName: listviewData[index]["navigation"], context: context,arguments: args);
                   },
                   child: Stack(
                     children: [
@@ -59,11 +65,11 @@ class HomechoicesListview extends StatelessWidget {
                         Image.asset("assets/images/polygons/Polygon 60.png",fit: BoxFit.fitWidth,)
                         ),
                       Padding(
-                        padding:  EdgeInsets.symmetric(vertical: 42.r,
+                        padding:  EdgeInsets.symmetric(vertical: 42.sp,
                         horizontal:index%2==0?30.sp:40.sp),
                         child: Center(
                           child: CircleAvatar(
-                            radius: 90.r,
+                            radius: 90.w,
                             backgroundColor: AppColors.scaffoldColor,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
