@@ -10,35 +10,35 @@ class WeddingItemsChoicesListview extends StatelessWidget {
   Widget build(BuildContext context) {
     List listviewData = [
       {
-    "Title":"الأغاني",
-    "Image":"assets/images/wedding_items_screen_images/Retro cassette music player from the 90s.png",
-    "Height":200.h,
+    "title":"الأغاني",
+    "image":"assets/images/wedding_items_screen_images/music_player.png",
+    "height":200.h,
+    "width":200.w},
+    {
+    "title":"البوفية",
+    "image":"assets/images/wedding_items_screen_images/buffet_breakfast.png",
+    "height":200.h,
     "Width":200.w},
     {
-    "Title":"البوفية",
-    "Image":"assets/images/wedding_items_screen_images/buffet breakfast.png",
-    "Height":200.h,
-    "Width":200.w},
+    "title":"المعازيم",
+    "image":"assets/images/wedding_items_screen_images/Envelope_with_postcard_serpentine_ribbon_and_paper_bow_for_decorating_gifts.png",
+    "height":200.h,
+    "width":169.w},
     {
-    "Title":"المعازيم",
-    "Image":"assets/images/wedding_items_screen_images/Envelope with postcard, serpentine ribbon and paper bow for decorating gifts.png",
-    "Height":200.h,
-    "Width":169.w},
+    "title":"ديكورات",
+    "image":"assets/images/wedding_items_screen_images/Christmas_decorations_and_snow_globe.png",
+    "height":190.h,
+    "width":190.w},
     {
-    "Title":"ديكورات",
-    "Image":"assets/images/wedding_items_screen_images/Christmas decorations and snow globe.png",
-    "Height":190.h,
-    "Width":190.w},
+    "title":"نوتس",
+    "image":"assets/images/wedding_items_screen_images/Taking_notes_with_pencil.png",
+    "height":200.h,
+    "width":200.w},
     {
-    "Title":"نوتس",
-    "Image":"assets/images/wedding_items_screen_images/Taking notes with a pencil.png",
-    "Height":200.h,
-    "Width":200.w},
-    {
-    "Title":"تنبيهات",
-    "Image":"assets/images/wedding_items_screen_images/clock.png",
-    "Height":150.h,
-    "Width":150.w},
+    "title":"تنبيهات",
+    "image":"assets/images/wedding_items_screen_images/clock.png",
+    "height":150.h,
+    "width":150.w},
     ];
     
     return SizedBox(
@@ -62,13 +62,13 @@ class WeddingItemsChoicesListview extends StatelessWidget {
                                       crossAxisAlignment: CrossAxisAlignment.center,
                                       children: [
                                         Container(
-                                          width: listviewData[index]["Width"],
-                                          height: listviewData[index]["Height"],
+                                          width: listviewData[index]["width"],
+                                          height: listviewData[index]["height"],
                                           decoration: BoxDecoration(
-                                            image: DecorationImage(image: AssetImage(listviewData[index]["Image"]),fit: BoxFit.fill)
+                                            image: DecorationImage(image: AssetImage(listviewData[index]["image"]),fit: BoxFit.fill)
                                           ),
                                           ),
-                                        Text(listviewData[index]["Title"],style: Textstyles.listViewTitles,)
+                                        Text(listviewData[index]["title"],style: Textstyles.listViewTitles,)
                                       ],
                                     ),
                 )
