@@ -9,14 +9,14 @@ class WeddingItemsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.scaffoldColor,
         body: SingleChildScrollView(
           child:  Column(
           children: [
-            const CustomLoginAppbar(),
-            const HeartDrawer(),
+            CustomLoginAppbar(),
+            HeartDrawer(),
             WeddingItemsChoicesListview()
             
         
