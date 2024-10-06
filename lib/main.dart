@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zaghrota_app/core/app_Themes/app_theme.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
+import 'package:zaghrota_app/features/default_screen/default_screen.dart';
 import 'package:zaghrota_app/features/home_screen/presentation/view/home_screen.dart';
 import 'package:zaghrota_app/features/login_screen/presentation/view/login_screen.dart';
 import 'package:zaghrota_app/features/wedding_items_screen/presentation/view/wedding_items_screen.dart';
+import 'package:zaghrota_app/features/wedding_preprations_screen/presentation/view/wedding_preprations_screen.dart';
 
 
 void main() {
@@ -24,7 +26,9 @@ class MyApp extends StatelessWidget {
         routes: {
           ScreenNames.loginScreen: (context)=> const LoginScreen(),
           ScreenNames.homeScreen: (context)=> const HomeScreen(),
-          ScreenNames.weddingItemsScreen:(context)=> const WeddingItemsScreen()
+          ScreenNames.weddingItemsScreen:(context)=> const WeddingItemsScreen(),
+          ScreenNames.weddingPreprationsScreen:(context)=> const WeddingPreprationsScreen(),
+          ScreenNames.defaultScreen:(context)=>const DefaultScreen()
         },
         title: 'Flutter Demo',
         theme: AppTheme.theme,
