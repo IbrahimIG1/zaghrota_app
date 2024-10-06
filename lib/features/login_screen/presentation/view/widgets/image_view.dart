@@ -9,7 +9,7 @@ class ImageView extends StatelessWidget {
                     width: 161.15,
                     height:230 ,
                     decoration: const BoxDecoration(
-                      image: DecorationImage(image: AssetImage("assets/images/login_images/wedding-couple-love-atl-png 1.png"))
+                      image: DecorationImage(image: AssetImage("assets/images/login_images/wedding_couple_love.png"))
                     ),
                   );
   }
