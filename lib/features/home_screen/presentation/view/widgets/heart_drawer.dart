@@ -28,7 +28,7 @@ class HeartDrawer extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                      Text("Mohamed & Eman",style: Textstyles.weddingNames,),
-                     verticalSizedBox(5),
+                    const VerticalSizedBox(height: 5),
                      Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -61,9 +61,9 @@ class HeartDrawer extends StatelessWidget {
                         ),
                         ],
                      ),
-                     verticalSizedBox(5),
+                     const VerticalSizedBox(height: 5),
                      Text("Until our wedding",style: Textstyles.weddingNames,),
-                     verticalSizedBox(5),
+                     const VerticalSizedBox(height: 5),
                      Text("${args.year} - ${args.month} - ${args.day}",style: Textstyles.heartViewTextStyle,)
                     
                      

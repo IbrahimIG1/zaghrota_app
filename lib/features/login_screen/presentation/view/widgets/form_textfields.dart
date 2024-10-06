@@ -23,12 +23,12 @@ class _FormTextfieldsState extends State<FormTextfields> {
                     padding:   EdgeInsets.symmetric(horizontal: 12.r),
                     child:  Customtextfield(useStyle2: widget.useStyle2,hintText: "اسم العريس",),
                   ),
-                  verticalSizedBox(30),
+                  const VerticalSizedBox(height: 30),
                    Padding(
                     padding:   EdgeInsets.symmetric(horizontal: 12.r),
                     child: Customtextfield(useStyle2: widget.useStyle2,hintText: "اسم العروسة"),
                   ),
-                  verticalSizedBox(30),
+                  const VerticalSizedBox(height: 30),
 
                    Padding(
                     padding:   EdgeInsets.symmetric(horizontal: 12.r),
@@ -49,7 +49,7 @@ class _FormTextfieldsState extends State<FormTextfields> {
                         : '${entrydate!.day}/${entrydate!.month}/${entrydate!.year}',
                     )
                   ),
-                  verticalSizedBox(30),
+                  const VerticalSizedBox(height: 30),
                   SignInButton(arguments: entrydate==null?DateTime.now() as Object :entrydate as Object,)
       ],
     ));
