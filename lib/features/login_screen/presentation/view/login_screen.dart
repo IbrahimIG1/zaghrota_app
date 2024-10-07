@@ -18,7 +18,7 @@ class LoginScreen extends StatelessWidget {
           decoration:const  BoxDecoration(
             gradient : AppColors.logInGradient
           ),
-          child: SingleChildScrollView(
+          child: const SingleChildScrollView(
             child: Directionality(
               textDirection: TextDirection.rtl,
               child: Column(
@@ -26,11 +26,11 @@ class LoginScreen extends StatelessWidget {
                 // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const CustomLoginAppbar(),
-                  verticalSizedBox(60),
-                  const ImageView(),
-                  verticalSizedBox(60),
-                 const FormTextfields(useStyle2: false,),
+                  CustomLoginAppbar(),
+                  VerticalSizedBox(height: 60),
+                  ImageView(),
+                  VerticalSizedBox(height: 60),
+                 FormTextfields(useStyle2: false,),
                   
                 ],
               ),

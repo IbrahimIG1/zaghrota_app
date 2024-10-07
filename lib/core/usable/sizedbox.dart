@@ -2,5 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
-SizedBox verticalSizedBox(double height)=> SizedBox(height: height.h,);
-SizedBox horizontalSizedBox(double width)=> SizedBox(height: width.w,);
+
+class VerticalSizedBox extends StatelessWidget {
+  const VerticalSizedBox ({super.key, required this.height});
+  final double height; 
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(height: height.h,);
+  }
+}
+
+class HorizontalSizedBox extends StatelessWidget {
+  const HorizontalSizedBox({super.key, required this.width});
+  final double width;
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(height: width.w,);
+  }
+}
