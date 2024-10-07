@@ -5,6 +5,7 @@ import 'package:zaghrota_app/core/app_Themes/app_theme.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/features/default_screen/default_screen.dart';
 import 'package:zaghrota_app/features/home_screen/presentation/view/home_screen.dart';
+import 'package:zaghrota_app/features/invited_people_screen/presentation/view/invited_people_screen.dart';
 import 'package:zaghrota_app/features/login_screen/presentation/view/login_screen.dart';
 import 'package:zaghrota_app/features/songs_screen/presentation/view/songs_screen.dart';
 import 'package:zaghrota_app/features/wedding_items_screen/presentation/view/wedding_items_screen.dart';
@@ -14,7 +15,9 @@ import 'package:zaghrota_app/generated/l10n.dart';
 
 
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await ScreenUtil.ensureScreenSize();
   runApp(const MyApp());
 }
 
@@ -34,7 +37,7 @@ class MyApp extends StatelessWidget {
                 GlobalWidgetsLocalizations.delegate,
                 GlobalCupertinoLocalizations.delegate,
             ],
-            
+
             supportedLocales: S.delegate.supportedLocales,
         debugShowCheckedModeBanner: false,
         routes: {
@@ -43,7 +46,8 @@ class MyApp extends StatelessWidget {
           ScreenNames.weddingItemsScreen:(context)=> const WeddingItemsScreen(),
           ScreenNames.weddingPreprationsScreen:(context)=> const WeddingPreprationsScreen(),
           ScreenNames.defaultScreen:(context)=>const DefaultScreen(),
-          ScreenNames.songsScreen:(context)=> const SongsScreen()
+          ScreenNames.songsScreen:(context)=> const SongsScreen(),
+          ScreenNames.invitedPeopleScreen:(context)=> const InvitedPeopleScreen()
         },
         title: 'Flutter Demo',
         theme: AppTheme.theme,
