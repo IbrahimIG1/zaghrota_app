@@ -30,7 +30,7 @@ class WeddingItemsChoicesListview extends StatelessWidget {
     "image":"assets/images/wedding_items_screen_images/Envelope_with_postcard_serpentine_ribbon_and_paper_bow_for_decorating_gifts.png",
     "height":200.h,
     "width":169.w,
-    "navigation":""
+    "navigation":ScreenNames.invitedPeopleScreen
     },
     {
     "title":"ديكورات",

@@ -20,7 +20,7 @@ class WeddingPrepListviewItem extends StatelessWidget {
                children: [
                 GestureDetector(
                   onTap: () {
-                    print(args);
+                    
                   ControlNavigation().navigationToController(pageName: listviewData[index]["navigation"], context: context,arguments: args);
 
                   },
