@@ -11,4 +11,6 @@ class Textstyles {
   static TextStyle heartViewTextStyle = TextStyle(fontSize: 13.sp);
   static TextStyle songsTopTitleStyle = TextStyle(color: Colors.white,fontSize: 15.sp);
   static TextStyle songNameStyle = TextStyle(color: const Color(0xffFB1E95),fontSize: 15.sp);
+  static TextStyle nOfInvitedPeopleStyle =  TextStyle(color: Colors.white,fontSize: 20.sp);
+  static TextStyle nameOfInvitedPeopleStyle =  TextStyle(fontSize: 13.sp,color: Colors.black,fontWeight: FontWeight.bold);
 }

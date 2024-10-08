@@ -17,6 +17,9 @@ class AppColors {
   static const Color containerBackground = Color(0xffD83E67);
   static const Color containerBorderColor = Color.fromARGB(255, 247, 242, 242);
   static const Color containerBackground2 = Color(0xffFB1E95);
+  static const Color checkBoxActiveColor = Color(0xffD83E67);
+  static const Color checkBoxCheckColor = Colors.white;
+
   static const List<BoxShadow> containerShadowColor = [BoxShadow(color: Colors.grey,blurRadius: 10)];
   
 

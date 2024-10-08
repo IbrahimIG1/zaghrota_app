@@ -17,7 +17,11 @@ class ControlNavigation {
        Navigator.pushNamed(context, pageName,arguments: arguments);
         break;
         case ScreenNames.songsScreen:
-        Navigator.pushNamed(context, ScreenNames.songsScreen);
+        Navigator.pushNamed(context, pageName);
+        break;
+        case ScreenNames.invitedPeopleScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
       default:
        Navigator.pushNamed(context, ScreenNames.defaultScreen,);
 
