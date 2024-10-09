@@ -83,6 +83,8 @@ class AddDataDialogue extends StatelessWidget {
                               onPressed: () async {
                                 if (formKey.currentState!.validate()) {
                                   addData();
+                                  namecontroller!.clear();
+                                  numbercontroller!.clear();
                                 }
                               },
                               child: Text(
