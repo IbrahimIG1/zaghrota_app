@@ -15,6 +15,7 @@ class VisitorItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(vertical: 10.sp,horizontal: 3.sp),
       decoration: BoxDecoration(
         border: Border.all(color: AppColors.circleAvatarBorderColor),
         borderRadius: BorderRadius.circular(25)
@@ -23,15 +24,13 @@ class VisitorItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [SizedBox(
           width: 0.3.sw,
-          child: Center(
-            child: Text(name,
-            style:Textstyles.nameOfInvitedPeopleStyle ,
-            ),
+          child: Text(name,
+          style:Textstyles.nameOfInvitedPeopleStyle ,
           ),
         ),
        
       SizedBox(
-        width: 0.3.sw ,
+        width: 0.1.sw ,
         child: Center(child: Text("$numbersOfPeople",style: Textstyles.nameOfInvitedPeopleStyle,)))
       ,
         SizedBox(
