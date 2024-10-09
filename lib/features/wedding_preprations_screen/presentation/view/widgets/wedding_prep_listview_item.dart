@@ -3,14 +3,28 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zaghrota_app/core/colors/colors.dart';
 import 'package:zaghrota_app/core/helper/get_current_lang.dart';
 import 'package:zaghrota_app/core/navigation/control_navigation.dart';
+import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/core/textstyles/textstyles.dart';
 
 class WeddingPrepListviewItem extends StatelessWidget {
-  const WeddingPrepListviewItem({super.key, required this.index, required this.listviewData, this.args});
+  const WeddingPrepListviewItem({
+    super.key,
+    required this.index, 
+    required this.listviewData,
+    // required this.advHeight, 
+    // required this.advWidth,
+    // required this.advImgpath,
+    // required this.advSent,
+    // required this.advNavpageName
+    });
+
   final int index;
   final List listviewData;
-  final dynamic args;
-
+  // final double advHeight;
+  // final double advWidth;
+  // final String advImgpath;
+  // final String advSent;
+  // final String advNavpageName;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -21,7 +35,13 @@ class WeddingPrepListviewItem extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     
-                  ControlNavigation().navigationToController(pageName: listviewData[index]["navigation"], context: context,arguments: args);
+                  ControlNavigation().navigationToController(pageName: ScreenNames.advertisementScreen, context: context,
+                  arguments:{
+                    "height":listviewData[index]["advImgHeight"],
+                    "width":listviewData[index]["advImgWidth"],
+                    'imagePath':listviewData[index]["image2"],
+                    "pageSentence":listviewData[index]["advSent"],
+                    "pageName":ScreenNames.defaultScreen} );
 
                   },
                   child: Stack(
@@ -44,7 +64,7 @@ class WeddingPrepListviewItem extends StatelessWidget {
                               children: [
                                 SizedBox(
                                   width: listviewData[index]["width"],
-                        height: listviewData[index]["heigt"],
+                        height: listviewData[index]["height"],
                                   child: Image.asset(listviewData[index]["image"],
                                   fit: BoxFit.fitWidth,)),
                                 Text(listviewData[index]["title"],style: Textstyles.listViewTitles,)

@@ -6,6 +6,7 @@ class ScreenNames {
   static const String defaultScreen = "/defaultScreen";
   static const String songsScreen = "/songsScreen";
   static const String invitedPeopleScreen = "/invitedPeopleScreen";
+  static const String advertisementScreen= "/advertisementScreen";
   
 
 }

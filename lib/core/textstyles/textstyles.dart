@@ -13,5 +13,5 @@ class Textstyles {
   static TextStyle songNameStyle = TextStyle(color: const Color(0xffFB1E95),fontSize: 15.sp);
   static TextStyle nOfInvitedPeopleStyle =  TextStyle(color: Colors.white,fontSize: 20.sp);
   static TextStyle nameOfInvitedPeopleStyle =  TextStyle(fontSize: 13.sp,color: Colors.black,fontWeight: FontWeight.bold);
- static TextStyle AdvertisementStyle = TextStyle(fontWeight: FontWeights.extraBold,color: const Color(0xffD64276),fontSize:20.sp );
+ static TextStyle advertisementStyle = TextStyle(fontWeight: FontWeights.extraBold,color: const Color(0xffD64276),fontSize:20.sp );
 }

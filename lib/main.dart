@@ -6,6 +6,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:zaghrota_app/core/app_Themes/app_theme.dart';
 import 'package:zaghrota_app/core/database_helper/boxes_names.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
+import 'package:zaghrota_app/features/advertisement_screen/presentation/view/advertisement_screen.dart';
 import 'package:zaghrota_app/features/default_screen/default_screen.dart';
 import 'package:zaghrota_app/features/home_screen/presentation/view/home_screen.dart';
 import 'package:zaghrota_app/features/invited_people_screen/data/model/invited_model.dart';
@@ -45,6 +46,25 @@ class MyApp extends StatelessWidget {
         ],
         supportedLocales: S.delegate.supportedLocales,
         debugShowCheckedModeBanner: false,
+        onGenerateRoute: (settings) {
+          if (settings.name==ScreenNames.advertisementScreen){
+            final args = settings.arguments as Map<String, dynamic>;
+
+          // Create the AdvertisementScreen with the provided arguments.
+          return MaterialPageRoute(
+            builder: (context) {
+              return AdvertisementScreen(
+                height: args['height'],
+                width: args['width'],
+                imagePath: args['imagePath'],
+                pageSentence: args['pageSentence'],
+                pageName: args["pageName"],
+              );
+            },
+          );
+          }
+          return null;
+        },
         routes: {
           ScreenNames.loginScreen: (context) => const LoginScreen(),
           ScreenNames.homeScreen: (context) => const HomeScreen(),
@@ -55,7 +75,8 @@ class MyApp extends StatelessWidget {
           ScreenNames.invitedPeopleScreen: (context) => BlocProvider(
                 create: (context) => InvitedPeopleCubit()..getInvitedPeople(),
                 child: const InvitedPeopleScreen(),
-              )
+              ),
+         
         },
         title: 'Flutter Demo',
         theme: AppTheme.theme,

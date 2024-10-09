@@ -73,6 +73,7 @@ flutter:
     - assets/images/homepage_images/
     - assets/images/wedding_items_screen_images/
     - assets/images/wedding_preprations_images/
+    - assets/images/advertisementpage_images/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
