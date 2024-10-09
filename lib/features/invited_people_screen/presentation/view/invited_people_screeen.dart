@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zaghrota_app/core/colors/colors.dart';
 import 'package:zaghrota_app/features/invited_people_screen/presentation/view/widgets/dialogs/floating_add_button.dart';
 import 'package:zaghrota_app/features/invited_people_screen/presentation/view/widgets/invited_people_appbar.dart';
 import 'package:zaghrota_app/features/invited_people_screen/presentation/view/widgets/invited_people_listvieew.dart';
@@ -14,6 +15,7 @@ class InvitedPeopleScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          backgroundColor: AppColors.scaffoldColor,
       floatingActionButton:
           BlocConsumer<InvitedPeopleCubit, InvitedPeopleState>(
         listener: (context, state) {},
