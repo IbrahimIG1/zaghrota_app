@@ -31,7 +31,7 @@ class BadlaItem extends StatelessWidget {
                        HorizontalSizedBox(width: 10.sp),
                        Container(
                         constraints: BoxConstraints(maxWidth: 0.5.sw),
-                        child: Text("ببيونة و سديري",style: Textstyles.nameOfInvitedPeopleStyle,))
+                        child: Text(itemName,style: Textstyles.nameOfInvitedPeopleStyle,))
                       ],
                     ) ,
                   ),
@@ -39,7 +39,7 @@ class BadlaItem extends StatelessWidget {
                                      activeColor: AppColors.checkBoxActiveColor,
                                      checkColor: AppColors.checkBoxCheckColor,
                                      side: const BorderSide(color: AppColors.checkBoxActiveColor),
-                                     value: false,
+                                     value: checked,
                      
                                     onChanged:checkOnChanged
                                    ),
