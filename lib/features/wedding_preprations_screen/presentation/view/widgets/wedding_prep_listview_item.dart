@@ -41,7 +41,7 @@ class WeddingPrepListviewItem extends StatelessWidget {
                     "width":listviewData[index]["advImgWidth"],
                     'imagePath':listviewData[index]["image2"],
                     "pageSentence":listviewData[index]["advSent"],
-                    "pageName":ScreenNames.defaultScreen} );
+                    "pageName":listviewData[index]["nav"]} );
 
                   },
                   child: Stack(

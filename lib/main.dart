@@ -7,6 +7,9 @@ import 'package:zaghrota_app/core/app_Themes/app_theme.dart';
 import 'package:zaghrota_app/core/database_helper/boxes_names.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/features/advertisement_screen/presentation/view/advertisement_screen.dart';
+import 'package:zaghrota_app/features/badla_screen/data/model/badla_model.dart';
+import 'package:zaghrota_app/features/badla_screen/presentation/view/badla_screen.dart';
+import 'package:zaghrota_app/features/badla_screen/presentation/view_model/cubit/badla_screen_cubit.dart';
 import 'package:zaghrota_app/features/default_screen/default_screen.dart';
 import 'package:zaghrota_app/features/home_screen/presentation/view/home_screen.dart';
 import 'package:zaghrota_app/features/invited_people_screen/data/model/invited_model.dart';
@@ -23,8 +26,10 @@ void main() async {
   await ScreenUtil.ensureScreenSize();
   await Hive.initFlutter();
   Hive.registerAdapter(InvitedModelAdapter());
+  Hive.registerAdapter(BadlaModelAdapter());
 
   await Hive.openBox<InvitedModel>(BoxesNames.invitedPeoples);
+  await Hive.openBox<BadlaModel>(BoxesNames.badlaitems);
   runApp(const MyApp());
 }
 
@@ -47,36 +52,41 @@ class MyApp extends StatelessWidget {
         supportedLocales: S.delegate.supportedLocales,
         debugShowCheckedModeBanner: false,
         onGenerateRoute: (settings) {
-          if (settings.name==ScreenNames.advertisementScreen){
+          if (settings.name == ScreenNames.advertisementScreen) {
             final args = settings.arguments as Map<String, dynamic>;
 
-          // Create the AdvertisementScreen with the provided arguments.
-          return MaterialPageRoute(
-            builder: (context) {
-              return AdvertisementScreen(
-                height: args['height'],
-                width: args['width'],
-                imagePath: args['imagePath'],
-                pageSentence: args['pageSentence'],
-                pageName: args["pageName"],
-              );
-            },
-          );
+            // Create the AdvertisementScreen with the provided arguments.
+            return MaterialPageRoute(
+              builder: (context) {
+                return AdvertisementScreen(
+                  height: args['height'],
+                  width: args['width'],
+                  imagePath: args['imagePath'],
+                  pageSentence: args['pageSentence'],
+                  pageName: args["pageName"],
+                );
+              },
+            );
           }
           return null;
         },
         routes: {
           ScreenNames.loginScreen: (context) => const LoginScreen(),
           ScreenNames.homeScreen: (context) => const HomeScreen(),
-          ScreenNames.weddingItemsScreen: (context) => const WeddingItemsScreen(),
-          ScreenNames.weddingPreprationsScreen: (context) =>const WeddingPreprationsScreen(),
+          ScreenNames.weddingItemsScreen: (context) =>
+              const WeddingItemsScreen(),
+          ScreenNames.weddingPreprationsScreen: (context) =>
+              const WeddingPreprationsScreen(),
           ScreenNames.defaultScreen: (context) => const DefaultScreen(),
           ScreenNames.songsScreen: (context) => const SongsScreen(),
           ScreenNames.invitedPeopleScreen: (context) => BlocProvider(
                 create: (context) => InvitedPeopleCubit()..getInvitedPeople(),
                 child: const InvitedPeopleScreen(),
               ),
-         
+          ScreenNames.bdlaScreen: (context) => BlocProvider(
+                create: (context) => BadlaScreenCubit()..getBadlaItems(),
+                child: const BadlaScreen(),
+              )
         },
         title: 'Flutter Demo',
         theme: AppTheme.theme,

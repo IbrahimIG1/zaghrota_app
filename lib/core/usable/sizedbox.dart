@@ -18,6 +18,6 @@ class HorizontalSizedBox extends StatelessWidget {
   final double width;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(height: width.w,);
+    return SizedBox(width: width.w,);
   }
 }

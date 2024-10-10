@@ -1,10 +1,9 @@
 
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:zaghrota_app/features/invited_people_screen/data/model/invited_model.dart';
 
 class HiveStorage{
   
-  Future openBoox({required String boxName})async{
+  Future openBoox({required String boxName,required Object datatype})async{
     await Hive.openBox(boxName); 
   }
 
@@ -12,29 +11,29 @@ class HiveStorage{
     await Hive.close(); 
   }
 
-  Future addValue({required String boxName,required dynamic value})async{
+  Future addValue<T>({required String boxName,required T value})async{
       if(Hive.isBoxOpen(boxName)){
-      var box = Hive.box<InvitedModel>(boxName);
+      var box = Hive.box<T>(boxName);
       await box.add(value);
       }
       else{
-      Hive.openBox(boxName);
-      var box = Hive.box<InvitedModel>(boxName);
+      Hive.openBox<T>(boxName);
+      var box = Hive.box<T>(boxName);
       await box.add(value);
 
       }
       
   }
 
-  List getBoxValues({required String boxName}){
+  List getBoxValues<T>({required String boxName,}){
     if(Hive.isBoxOpen(boxName)){
-      var box = Hive.box<InvitedModel>(boxName);
+      var box = Hive.box<T>(boxName);
       List data = box.values.toList() ;
       return data;  
     }
     else{
-      Hive.openBox<InvitedModel>(boxName);
-      var box = Hive.box<InvitedModel>(boxName);
+      Hive.openBox<T>(boxName);
+      var box = Hive.box<T>(boxName);
       List data = box.values.toList();
       return data;  
     }
@@ -42,28 +41,28 @@ class HiveStorage{
 
   
 
- Future deleteItem({required String boxName,required dynamic index})async{
+ Future deleteItem<T>({required String boxName,required dynamic index})async{
     if(Hive.isBoxOpen(boxName)){
-      var box = Hive.box<InvitedModel>(boxName);
+      var box = Hive.box<T>(boxName);
       await box.deleteAt(index);
       
     }
     else{
-   var box = Hive.box<InvitedModel>(boxName);
+   var box = Hive.box<T>(boxName);
     box.deleteAt(index);
     }
    
  
   }
 
-  Future updateItem({required String boxName,required dynamic index,required dynamic value})async{
+  Future updateItem<T>({required String boxName,required dynamic index,required dynamic value})async{
   if(Hive.isBoxOpen(boxName)){
-    var box = Hive.box<InvitedModel>(boxName);
+    var box = Hive.box<T>(boxName);
     await box.putAt(index,value );
   }
   else{
-    Hive.openBox<InvitedModel>(boxName);
-    var box = Hive.box(boxName);
+    Hive.openBox<T>(boxName);
+    var box = Hive.box<T>(boxName);
     await box.putAt(index,value );
   }
    }

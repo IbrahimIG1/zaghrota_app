@@ -28,6 +28,9 @@ class ControlNavigation {
         case ScreenNames.advertisementScreen:
         Navigator.pushNamed(context, pageName,arguments: arguments);
         break;
+        case ScreenNames.bdlaScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
       default:
        Navigator.pushNamed(context, ScreenNames.defaultScreen,);
 

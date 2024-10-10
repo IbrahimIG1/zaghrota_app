@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/features/wedding_preprations_screen/presentation/view/widgets/wedding_prep_listview_item.dart';
 
 class WeddingPreprationsListview extends StatelessWidget {
@@ -36,7 +37,8 @@ class WeddingPreprationsListview extends StatelessWidget {
       "width":100.w,
       "advImgHeight":312.h,
       "advImgWidth":300.w,
-      "advSent":"افرحي يا عروسة انا العريس"
+      "advSent":"افرحي يا عروسة انا العريس",
+      "nav":ScreenNames.bdlaScreen
       },
       {
         "title":"جهاز العروسة",

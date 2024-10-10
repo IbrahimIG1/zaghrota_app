@@ -2,15 +2,15 @@ import 'package:dartz/dartz.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:zaghrota_app/core/database_helper/boxes_names.dart';
 import 'package:zaghrota_app/core/database_helper/hive_usable.dart';
+import 'package:zaghrota_app/features/badla_screen/data/model/badla_model.dart';
 import 'package:zaghrota_app/features/invited_people_screen/data/model/error_model.dart';
-import 'package:zaghrota_app/features/invited_people_screen/data/model/invited_model.dart';
 
-class InvitedPeopleScreenRepo {
-    HiveStorage hiive = HiveStorage();
+class BadlaScreenRepo {
+   HiveStorage hiive = HiveStorage();
 
-  Future<Either<ErrorModel,void>> addInvitedPeople(InvitedModel inviteData)async {
+  Future<Either<ErrorModel,void>> addBadlaItem(BadlaModel badlamodel)async {
   try {
-    await hiive.addValue<InvitedModel>(boxName: BoxesNames.invitedPeoples, value: inviteData);
+    await hiive.addValue<BadlaModel>(boxName: BoxesNames.badlaitems, value: badlamodel);
     return right(null);
   }
   on HiveError catch (e){
@@ -22,10 +22,9 @@ class InvitedPeopleScreenRepo {
   }
   }
 
-
-Either<ErrorModel,List<InvitedModel>> getInvitedPeople(){
+  Either<ErrorModel,List<BadlaModel>> getBadlaItems(){
   try {
-    List<InvitedModel> data = hiive.getBoxValues<InvitedModel>(boxName: BoxesNames.invitedPeoples) as List<InvitedModel>;
+    List<BadlaModel> data = hiive.getBoxValues<BadlaModel>(boxName: BoxesNames.badlaitems) as List<BadlaModel>;
     return right(data);
   }
     on HiveError catch (e){
@@ -41,9 +40,9 @@ Either<ErrorModel,List<InvitedModel>> getInvitedPeople(){
 
 Future<Either<ErrorModel,void>> updateCheckedValue({required int index,required dynamic value})async{
   try {
-    List data = hiive.getBoxValues<InvitedModel>(boxName: BoxesNames.invitedPeoples);
+    List data = hiive.getBoxValues<BadlaModel>(boxName: BoxesNames.badlaitems);
     if(data.isNotEmpty){
-    await hiive.updateItem<InvitedModel>(boxName: BoxesNames.invitedPeoples, index: index, value:value);
+    await hiive.updateItem<BadlaModel>(boxName: BoxesNames.badlaitems, index: index, value:value);
     return right(null);
     }
     else{
@@ -65,7 +64,7 @@ Future<Either<ErrorModel,Null>> deleteValue({required int index})async{
   try {
     // List data = hiive.getBoxValues(boxName: BoxesNames.invitedPeoples);
     
-    await hiive.deleteItem<InvitedModel>(boxName: BoxesNames.invitedPeoples, index: index);
+    await hiive.deleteItem<BadlaModel>(boxName: BoxesNames.badlaitems, index: index);
     return right(null);
     
     
