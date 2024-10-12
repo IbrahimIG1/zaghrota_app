@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zaghrota_app/core/colors/colors.dart';
 import 'package:zaghrota_app/core/helper/get_current_lang.dart';
 import 'package:zaghrota_app/core/textstyles/weights.dart';
-import 'package:zaghrota_app/core/usable/sizedbox.dart';
 
 class DressScreenItem extends StatelessWidget {
   const DressScreenItem({super.key, required this.img, required this.title, this.value, this.onChanged});
@@ -22,7 +21,7 @@ final void Function(bool?)? onChanged;
           child: Container(
             padding: const EdgeInsets.all(10),
             width: .5.sw,
-            height: 0.15.sh,
+            height: 0.2.sh,
             decoration: BoxDecoration(
                 color: Colors.white,
                 border: Border.all(color: AppColors.circleAvatarBorderColor),
@@ -40,7 +39,7 @@ final void Function(bool?)? onChanged;
           ),
         ),
         //  Container(),
-        const VerticalSizedBox(height: 5),
+        // const VerticalSizedBox(height: 5),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
