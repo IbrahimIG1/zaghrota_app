@@ -56,8 +56,9 @@ class WeddingItemsChoicesListview extends StatelessWidget {
     ];
     
     return SizedBox(
-      height:0.56.sh ,
+      // height:0.56.sh ,
       child: ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
               padding: EdgeInsets.symmetric(vertical: 15.r,horizontal: 20.r),
               itemBuilder: (context, index) =>Align(
                 alignment: isArabic()? index%2==0?AlignmentDirectional.centerEnd:AlignmentDirectional.centerStart :index%2==0?AlignmentDirectional.centerStart:AlignmentDirectional.centerEnd ,

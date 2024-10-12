@@ -19,7 +19,7 @@ class HomechoicesListview extends StatelessWidget {
       {
       "title":"الشبكة",
       "image":"assets/images/homepage_images/Wedding_rings.png",
-      "navigation":""
+      "navigation":ScreenNames.weddingItemsScreen
       },
       {
       "title":"تجهيزات الفرح",
@@ -29,12 +29,12 @@ class HomechoicesListview extends StatelessWidget {
       {
         "title":"الحنة",
       "image":"assets/images/homepage_images/Young_joyful_women.png",
-      "navigation":""
+      "navigation":ScreenNames.weddingItemsScreen
       },
       {
       "title":"الفرح",
       "image":"assets/images/homepage_images/music_festival.png",
-      "navigation":""
+      "navigation":ScreenNames.weddingItemsScreen
       },
       {
         "title":"شهر العسل",

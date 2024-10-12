@@ -17,7 +17,8 @@ class WeddingPreprationsListview extends StatelessWidget {
       "width":141.w,
       "advImgHeight":300.h,
       "advImgWidth":323.w,
-      "advSent":"افرحي يا عروسة وادفع يا عريس"
+      "advSent":"افرحي يا عروسة وادفع يا عريس",
+      "nav":""
       },
       {
       "title":"فستان الفرح",
@@ -71,15 +72,16 @@ class WeddingPreprationsListview extends StatelessWidget {
       "width":130.w,
       "advImgHeight":300.h,
       "advImgWidth":326.w,
-      "advSent":"افرحي يا عروسة وادفع يا عريس"
+      "advSent":"افرحي يا عروسة وادفع يا عريس",
+      "nav":""
 
       }
     ];
     //  final args = ModalRoute.of(context)?.settings.arguments as DateTime;
     return  SizedBox(
-      height:0.56.sh ,
+      // height:0.56.sh ,
       child: ListView.builder(
-              
+              physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) => WeddingPrepListviewItem(index: index, listviewData: listviewData,
               ),
               itemCount: listviewData.length,
