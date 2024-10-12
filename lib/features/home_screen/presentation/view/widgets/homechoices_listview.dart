@@ -29,7 +29,7 @@ class HomechoicesListview extends StatelessWidget {
       {
         "title":"الحنة",
       "image":"assets/images/homepage_images/Young_joyful_women.png",
-      "navigation":ScreenNames.weddingItemsScreen
+      "navigation":ScreenNames.henaScreen
       },
       {
       "title":"الفرح",
