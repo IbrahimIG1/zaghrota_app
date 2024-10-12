@@ -7,6 +7,7 @@ import 'package:zaghrota_app/core/app_Themes/app_theme.dart';
 import 'package:zaghrota_app/core/database_helper/boxes_names.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/features/advertisement_screen/presentation/view/advertisement_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_screen/presentation/view/arosa_devices_screen.dart';
 import 'package:zaghrota_app/features/badla_screen/data/model/badla_model.dart';
 import 'package:zaghrota_app/features/badla_screen/presentation/view/badla_screen.dart';
 import 'package:zaghrota_app/features/badla_screen/presentation/view_model/cubit/badla_screen_cubit.dart';
@@ -93,7 +94,8 @@ class MyApp extends StatelessWidget {
           ScreenNames.dressScreen: (context) => BlocProvider(
                 create: (context) => DressScreenCubit()..getCheckedData(),
                 child: const DressScreen(),
-              )
+              ),
+          ScreenNames.arosaDevicesScreen:(context)=> const ArosaDevicesScreen()
         },
         title: 'Flutter Demo',
         theme: AppTheme.theme,

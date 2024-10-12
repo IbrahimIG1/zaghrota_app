@@ -19,6 +19,7 @@ class AppColors {
   static const Color containerBackground2 = Color(0xffFB1E95);
   static const Color checkBoxActiveColor = Color(0xffD83E67);
   static const Color checkBoxCheckColor = Colors.white;
+  static const Color darkPink = Color(0xffB880AC);
 
   static const List<BoxShadow> containerShadowColor = [BoxShadow(color: Colors.grey,blurRadius: 10)];
   

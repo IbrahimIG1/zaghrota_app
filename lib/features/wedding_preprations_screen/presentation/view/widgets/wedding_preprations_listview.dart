@@ -49,7 +49,8 @@ class WeddingPreprationsListview extends StatelessWidget {
       "width":100.w,
       "advImgHeight":300.w,
       "advImgWidth":300.h,
-      "advSent":"افرحي يا عروسة وكع يا بابا"
+      "advSent":"افرحي يا عروسة وكع يا بابا",
+      "nav":ScreenNames.arosaDevicesScreen
       },
       {
       "title":"السيشن",

@@ -14,4 +14,9 @@ class Textstyles {
   static TextStyle nOfInvitedPeopleStyle =  TextStyle(color: Colors.white,fontSize: 20.sp);
   static TextStyle nameOfInvitedPeopleStyle =  TextStyle(fontSize: 13.sp,color: Colors.black,fontWeight: FontWeight.bold);
  static TextStyle advertisementStyle = TextStyle(fontWeight: FontWeights.extraBold,color: const Color(0xffD64276),fontSize:20.sp );
+ static TextStyle blackStroke = TextStyle(
+                  foreground: Paint()..style = PaintingStyle.stroke
+                  .. strokeWidth = 1
+                  .. color = Colors.black  ,
+                  fontSize: 15.sp,fontWeight: FontWeights.thin);
 }

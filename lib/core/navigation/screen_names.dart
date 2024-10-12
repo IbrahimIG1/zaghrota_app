@@ -9,6 +9,7 @@ class ScreenNames {
   static const String advertisementScreen= "/advertisementScreen";
   static const String bdlaScreen= "/bdlaScreen";
   static const String dressScreen= "/dressScreen";
+  static const String arosaDevicesScreen= "/arosaDevicesScreen";
   
 
 }
