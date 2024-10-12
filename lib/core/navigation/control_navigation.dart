@@ -31,6 +31,9 @@ class ControlNavigation {
         case ScreenNames.bdlaScreen:
         Navigator.pushNamed(context, pageName);
         break;
+        case ScreenNames.dressScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
       default:
        Navigator.pushNamed(context, ScreenNames.defaultScreen,);
 

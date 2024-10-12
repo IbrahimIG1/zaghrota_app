@@ -27,7 +27,8 @@ class WeddingPreprationsListview extends StatelessWidget {
       "width":100.w,
       "advImgHeight":330.h,
       "advImgWidth":300.w,
-      "advSent":"افرحي يا عروسة وادفع يا عريس"
+      "advSent":"افرحي يا عروسة وادفع يا عريس",
+      "nav":ScreenNames.dressScreen
       },
       {
       "title":"البدلة",

@@ -11,6 +11,8 @@ import 'package:zaghrota_app/features/badla_screen/data/model/badla_model.dart';
 import 'package:zaghrota_app/features/badla_screen/presentation/view/badla_screen.dart';
 import 'package:zaghrota_app/features/badla_screen/presentation/view_model/cubit/badla_screen_cubit.dart';
 import 'package:zaghrota_app/features/default_screen/default_screen.dart';
+import 'package:zaghrota_app/features/dress_screen/presentation/view/dress_screen.dart';
+import 'package:zaghrota_app/features/dress_screen/presentation/view_model/cubit/dress_screen_cubit.dart';
 import 'package:zaghrota_app/features/home_screen/presentation/view/home_screen.dart';
 import 'package:zaghrota_app/features/invited_people_screen/data/model/invited_model.dart';
 import 'package:zaghrota_app/features/invited_people_screen/presentation/view/invited_people_screeen.dart';
@@ -30,6 +32,7 @@ void main() async {
 
   await Hive.openBox<InvitedModel>(BoxesNames.invitedPeoples);
   await Hive.openBox<BadlaModel>(BoxesNames.badlaitems);
+  await Hive.openBox<bool>(BoxesNames.dressChecks);
   runApp(const MyApp());
 }
 
@@ -86,6 +89,10 @@ class MyApp extends StatelessWidget {
           ScreenNames.bdlaScreen: (context) => BlocProvider(
                 create: (context) => BadlaScreenCubit()..getBadlaItems(),
                 child: const BadlaScreen(),
+              ),
+          ScreenNames.dressScreen: (context) => BlocProvider(
+                create: (context) => DressScreenCubit()..getCheckedData(),
+                child: const DressScreen(),
               )
         },
         title: 'Flutter Demo',

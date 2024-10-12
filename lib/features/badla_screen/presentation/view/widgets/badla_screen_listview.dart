@@ -29,6 +29,7 @@ class BadlaScreenListview extends StatelessWidget {
           }
           if(state is BadlaScreenSuccess){
           return ListView.separated(
+            physics: const NeverScrollableScrollPhysics(),
             separatorBuilder: (context, index) =>
                 const VerticalSizedBox(height: 10),
             shrinkWrap: true,
@@ -50,7 +51,7 @@ class BadlaScreenListview extends StatelessWidget {
             },
             itemCount: state.badlaItems.length,
           );}
-          
+
           else{
             return const Center(
               child: CircularProgressIndicator(
