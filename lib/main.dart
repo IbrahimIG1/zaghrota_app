@@ -19,6 +19,8 @@ import 'package:zaghrota_app/features/invited_people_screen/data/model/invited_m
 import 'package:zaghrota_app/features/invited_people_screen/presentation/view/invited_people_screeen.dart';
 import 'package:zaghrota_app/features/invited_people_screen/presentation/view_model/cubit/invited_people_cubit.dart';
 import 'package:zaghrota_app/features/login_screen/presentation/view/login_screen.dart';
+import 'package:zaghrota_app/features/session_screen/presentation/view/session_screen.dart';
+import 'package:zaghrota_app/features/session_screen/presentation/view_model/cubit/session_screen_cubit.dart';
 import 'package:zaghrota_app/features/songs_screen/presentation/view/songs_screen.dart';
 import 'package:zaghrota_app/features/wedding_items_screen/presentation/view/wedding_items_screen.dart';
 import 'package:zaghrota_app/features/wedding_preprations_screen/presentation/view/wedding_preprations_screen.dart';
@@ -34,6 +36,7 @@ void main() async {
   await Hive.openBox<InvitedModel>(BoxesNames.invitedPeoples);
   await Hive.openBox<BadlaModel>(BoxesNames.badlaitems);
   await Hive.openBox<bool>(BoxesNames.dressChecks);
+  await Hive.openBox<bool>(BoxesNames.sessionChecks);
   runApp(const MyApp());
 }
 
@@ -95,7 +98,12 @@ class MyApp extends StatelessWidget {
                 create: (context) => DressScreenCubit()..getCheckedData(),
                 child: const DressScreen(),
               ),
-          ScreenNames.arosaDevicesScreen:(context)=> const ArosaDevicesScreen()
+          ScreenNames.arosaDevicesScreen: (context) =>
+              const ArosaDevicesScreen(),
+          ScreenNames.sessionScreen: (context) => BlocProvider(
+                create: (context) => SessionScreenCubit()..getCheckedData(),
+                child: const SessionScreen(),
+              )
         },
         title: 'Flutter Demo',
         theme: AppTheme.theme,
