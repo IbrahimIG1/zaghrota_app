@@ -78,7 +78,7 @@ class DressScreenGridviewBuilder extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                childAspectRatio: 0.65,
+                childAspectRatio: 0.85,
                 crossAxisCount: 2,
                 // childAspectRatio: 0.7
                 crossAxisSpacing: 0,
