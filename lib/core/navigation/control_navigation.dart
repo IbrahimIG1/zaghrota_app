@@ -52,6 +52,9 @@ class ControlNavigation {
         case ScreenNames.invitedPeopleHenaScreen:
         Navigator.pushNamed(context, pageName);
         break;
+        case ScreenNames.shabkaScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
       default:
        Navigator.pushNamed(context, ScreenNames.defaultScreen,);
 

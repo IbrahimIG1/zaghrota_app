@@ -19,7 +19,7 @@ class HomechoicesListview extends StatelessWidget {
       {
       "title":"الشبكة",
       "image":"assets/images/homepage_images/Wedding_rings.png",
-      "navigation":ScreenNames.weddingItemsScreen
+      "navigation":ScreenNames.shabkaScreen
       },
       {
       "title":"تجهيزات الفرح",

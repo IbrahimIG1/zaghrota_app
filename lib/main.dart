@@ -26,6 +26,7 @@ import 'package:zaghrota_app/features/login_screen/presentation/view/login_scree
 import 'package:zaghrota_app/features/mohafzat_screen/presentation/view/mohafzat_screen.dart';
 import 'package:zaghrota_app/features/session_screen/presentation/view/session_screen.dart';
 import 'package:zaghrota_app/features/session_screen/presentation/view_model/cubit/session_screen_cubit.dart';
+import 'package:zaghrota_app/features/shabka_screen/presentation/view/shabka_screen.dart';
 import 'package:zaghrota_app/features/songs_screen/presentation/view/songs_screen.dart';
 import 'package:zaghrota_app/features/wedding_items_screen/presentation/view/wedding_items_screen.dart';
 import 'package:zaghrota_app/features/wedding_preprations_screen/presentation/view/wedding_preprations_screen.dart';
@@ -116,7 +117,8 @@ class MyApp extends StatelessWidget {
           ScreenNames.invitedPeopleHenaScreen: (context) => BlocProvider(
                 create: (context) => InvitedPeopleHenaScreenCubit()..getInvitedPeople(),
                 child: const InvitedPeopleHenaScreen(),
-              )
+              ),
+              ScreenNames.shabkaScreen:(context)=>const ShabkaScreen()
         },
         title: 'Flutter Demo',
         theme: AppTheme.theme,
