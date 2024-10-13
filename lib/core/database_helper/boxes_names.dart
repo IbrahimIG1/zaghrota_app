@@ -3,4 +3,5 @@ abstract class BoxesNames {
   static const badlaitems = "BadlaItems";
   static const dressChecks = "DressChecks";
   static const sessionChecks = "SessionChecks";
+  static const invitedPeopleHena = "invitedPeopleHena";
 }

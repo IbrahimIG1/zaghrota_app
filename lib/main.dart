@@ -16,6 +16,8 @@ import 'package:zaghrota_app/features/dress_screen/presentation/view/dress_scree
 import 'package:zaghrota_app/features/dress_screen/presentation/view_model/cubit/dress_screen_cubit.dart';
 import 'package:zaghrota_app/features/hena_screen/presentation/view/hena_screen.dart';
 import 'package:zaghrota_app/features/home_screen/presentation/view/home_screen.dart';
+import 'package:zaghrota_app/features/invited_people_hena_screen/presentation/view/invited_people_hena_screen.dart';
+import 'package:zaghrota_app/features/invited_people_hena_screen/presentation/view_model/cubit/invited_people_hena_screen_cubit.dart';
 import 'package:zaghrota_app/features/invited_people_screen/data/model/invited_model.dart';
 import 'package:zaghrota_app/features/invited_people_screen/presentation/view/invited_people_screeen.dart';
 import 'package:zaghrota_app/features/invited_people_screen/presentation/view_model/cubit/invited_people_cubit.dart';
@@ -37,6 +39,7 @@ void main() async {
   Hive.registerAdapter(BadlaModelAdapter());
 
   await Hive.openBox<InvitedModel>(BoxesNames.invitedPeoples);
+  await Hive.openBox<InvitedModel>(BoxesNames.invitedPeopleHena);
   await Hive.openBox<BadlaModel>(BoxesNames.badlaitems);
   await Hive.openBox<bool>(BoxesNames.dressChecks);
   await Hive.openBox<bool>(BoxesNames.sessionChecks);
@@ -107,9 +110,13 @@ class MyApp extends StatelessWidget {
                 create: (context) => SessionScreenCubit()..getCheckedData(),
                 child: const SessionScreen(),
               ),
-              ScreenNames.henaScreen:(context)=>const HenaScreen(),
-              ScreenNames.mohafzatScreen:(context)=> const MohafzatScreen(),
-              ScreenNames.ka3atScreen:(context)=>const Ka3atScreen()
+          ScreenNames.henaScreen: (context) => const HenaScreen(),
+          ScreenNames.mohafzatScreen: (context) => const MohafzatScreen(),
+          ScreenNames.ka3atScreen: (context) => const Ka3atScreen(),
+          ScreenNames.invitedPeopleHenaScreen: (context) => BlocProvider(
+                create: (context) => InvitedPeopleHenaScreenCubit()..getInvitedPeople(),
+                child: const InvitedPeopleHenaScreen(),
+              )
         },
         title: 'Flutter Demo',
         theme: AppTheme.theme,
