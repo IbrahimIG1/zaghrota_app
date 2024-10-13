@@ -78,6 +78,7 @@ flutter:
     - assets/images/dress_screen_images/
     - assets/images/arosa_devices_image/
     - assets/images/session_screen_images/
+    - assets/images/mohafzat_screen_images/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

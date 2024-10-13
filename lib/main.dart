@@ -20,6 +20,7 @@ import 'package:zaghrota_app/features/invited_people_screen/data/model/invited_m
 import 'package:zaghrota_app/features/invited_people_screen/presentation/view/invited_people_screeen.dart';
 import 'package:zaghrota_app/features/invited_people_screen/presentation/view_model/cubit/invited_people_cubit.dart';
 import 'package:zaghrota_app/features/login_screen/presentation/view/login_screen.dart';
+import 'package:zaghrota_app/features/mohafzat_screen/presentation/view/mohafzat_screen.dart';
 import 'package:zaghrota_app/features/session_screen/presentation/view/session_screen.dart';
 import 'package:zaghrota_app/features/session_screen/presentation/view_model/cubit/session_screen_cubit.dart';
 import 'package:zaghrota_app/features/songs_screen/presentation/view/songs_screen.dart';
@@ -105,7 +106,8 @@ class MyApp extends StatelessWidget {
                 create: (context) => SessionScreenCubit()..getCheckedData(),
                 child: const SessionScreen(),
               ),
-              ScreenNames.henaScreen:(context)=>const HenaScreen()
+              ScreenNames.henaScreen:(context)=>const HenaScreen(),
+              ScreenNames.mohafzatScreen:(context)=> const MohafzatScreen()
         },
         title: 'Flutter Demo',
         theme: AppTheme.theme,
