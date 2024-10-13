@@ -10,21 +10,27 @@ class HeartDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)?.settings.arguments as DateTime;
-    return CustomPaint(
-              painter: HeartPainter(),
-              child: Container(
-                padding:  EdgeInsets.symmetric(vertical: 10.r),
-                height: 0.35.sh,
-                width: 1.sw,
-                       decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(bottomRight: Radius.circular(20),bottomLeft: Radius.circular(10)),
-                        border: Border(
-                          bottom: BorderSide(color: AppColors.heartColor,width: 1),
-                          // right: BorderSide(color: AppColors.heartColor,width: 1),
-                          // left: BorderSide(color: AppColors.heartColor,width: 1),
-                          )
-                       ),
-                child: Column(
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(color: const Color.fromARGB(255, 223, 217, 217),width: 2.sp)
+        )
+      ),
+      height: 0.25.sh,
+      width: 1.sw,
+      child: Center(
+        child: Stack(
+          children: [
+           Positioned(
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal:20.sp ,vertical: 5.sp),
+              child: Image.asset("assets/images/homepage_images/heart.png",fit: BoxFit.fill,),
+            )),
+            Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                      Text("Mohamed & Eman",style: Textstyles.weddingNames,),
@@ -37,7 +43,7 @@ class HeartDrawer extends StatelessWidget {
                           child: Column(
                             children: [
                               Text("${args.year - DateTime.now().year} :",style: Textstyles.hintTextStyle,),
-                              Text("years",style: TextStyle(fontSize: 10.sp),)
+                              Text("years",style: Textstyles.heartViewTextStyle,)
                             ],
                           ),
                         ),
@@ -46,7 +52,7 @@ class HeartDrawer extends StatelessWidget {
                           child: Column(
                             children: [
                               Text("${(args.month - DateTime.now().month).abs()} :",style: Textstyles.hintTextStyle,),
-                              Text("months",style: TextStyle(fontSize: 10.sp))
+                              Text("months",style: Textstyles.heartViewTextStyle)
                             ],
                           ),
                         ),
@@ -67,15 +73,35 @@ class HeartDrawer extends StatelessWidget {
                      Text("${args.year} - ${args.month} - ${args.day}",style: Textstyles.heartViewTextStyle,)
                     
                      
-
+                  
                     
                     
                     
                   
                   ],
                 ),
-              ),
-            );
+
+          ],
+        ),
+      ) ,
+    );
+    // return CustomPaint(
+    //           painter: HeartPainter(),
+    //           child: Container(
+    //             padding:  EdgeInsets.symmetric(vertical: 10.r),
+    //             height: 0.35.sh,
+    //             width: 1.sw,
+    //                    decoration: const BoxDecoration(
+    //                     borderRadius: BorderRadius.only(bottomRight: Radius.circular(20),bottomLeft: Radius.circular(10)),
+    //                     border: Border(
+    //                       bottom: BorderSide(color: AppColors.heartColor,width: 1),
+    //                       // right: BorderSide(color: AppColors.heartColor,width: 1),
+    //                       // left: BorderSide(color: AppColors.heartColor,width: 1),
+    //                       )
+    //                    ),
+    //             child:
+    //           ),
+    //         );
   }
 }
 

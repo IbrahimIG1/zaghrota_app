@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:zaghrota_app/core/colors/colors.dart';
-import 'package:zaghrota_app/features/mohafzat_screen/presentation/view/mohafzat_gridview.dart';
+import 'package:zaghrota_app/features/ka3at_screen/presentation/view/widgets/ka3at_listview.dart';
 import 'package:zaghrota_app/features/songs_screen/presentation/view/widgets/custom_app_bar.dart';
 
-class MohafzatScreen extends StatelessWidget {
-  const MohafzatScreen({super.key});
+class Ka3atScreen extends StatelessWidget {
+  const Ka3atScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +13,9 @@ class MohafzatScreen extends StatelessWidget {
         backgroundColor: AppColors.scaffoldColor,
         appBar: CustomAppBar(),
         body: SingleChildScrollView(
-          child: MohafzatGridview()
-        ) ,
-      ));
+          child: Ka3atListview()
+        ),
+      ),
+    );
   }
 }

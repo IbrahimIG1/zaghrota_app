@@ -13,6 +13,7 @@ class ScreenNames {
   static const String sessionScreen= "/SessionScreen";
   static const String henaScreen= "/HenaScreen";
   static const String mohafzatScreen= "/MohafzatScreen";
+  static const String ka3atScreen= "/Ka3atScreen";
   
 
 }
