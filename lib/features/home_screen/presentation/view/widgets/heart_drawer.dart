@@ -11,67 +11,70 @@ class HeartDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)?.settings.arguments as List ;
-    return Container(
-      decoration: const BoxDecoration(
-        image:  DecorationImage(image: AssetImage("assets/images/homepage_images/heart.png")
-        ,fit: BoxFit.fill),
-      
+    return Padding(
+      padding:  EdgeInsets.only(top: 7.sp),
+      child: Container(
+        decoration: const BoxDecoration(
+          image:  DecorationImage(image: AssetImage("assets/images/homepage_images/heart.png")
+          ,fit: BoxFit.fill),
+        
+        ),
+        height: 0.25.sh,
+        width: 0.75.sw,
+        child:   Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                       Text("${args[0]} & ${args[1]}",style: Textstyles.weddingNames,),
+                      const VerticalSizedBox(height: 5),
+                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: 0.1.sw,
+                            child: 
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text("${args[2].year - DateTime.now().year} :",style: Textstyles.hintTextStyle,),
+                                Text("years",style: Textstyles.heartViewTextStyle,)
+                              ],
+                            ),
+                          ),
+                            SizedBox(
+                            width: 0.25.sw,
+                            child: Column(
+                              children: [
+                                Text("${(args[2].month - DateTime.now().month).abs()} :",style: Textstyles.hintTextStyle,),
+                                Text("months",style: Textstyles.heartViewTextStyle)
+                              ],
+                            ),
+                          ),
+                            SizedBox(
+                            width: 0.1.sw,
+                            child: Column(
+                              children: [
+                                Text("${(args[2].day - DateTime.now().day).abs()}",style: Textstyles.hintTextStyle,),
+                                Text("days",style: Textstyles.heartViewTextStyle,)
+                              ],
+                            ),
+                          ),
+                          ],
+                       ),
+                       const VerticalSizedBox(height: 5),
+                       Text("Until our wedding",style: Textstyles.weddingNames,),
+                       const VerticalSizedBox(height: 5),
+                       Text("${args[2].year} - ${args[2].month} - ${args[2].day}",style: Textstyles.heartViewTextStyle,)
+                      
+                       
+                    
+                      
+                      
+                      
+                    
+                    ],
+                  ),
+       
       ),
-      height: 0.25.sh,
-      width: 0.75.sw,
-      child:   Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                     Text("${args[0]} & ${args[1]}",style: Textstyles.weddingNames,),
-                    const VerticalSizedBox(height: 5),
-                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: 0.1.sw,
-                          child: 
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text("${args[2].year - DateTime.now().year} :",style: Textstyles.hintTextStyle,),
-                              Text("years",style: Textstyles.heartViewTextStyle,)
-                            ],
-                          ),
-                        ),
-                          SizedBox(
-                          width: 0.25.sw,
-                          child: Column(
-                            children: [
-                              Text("${(args[2].month - DateTime.now().month).abs()} :",style: Textstyles.hintTextStyle,),
-                              Text("months",style: Textstyles.heartViewTextStyle)
-                            ],
-                          ),
-                        ),
-                          SizedBox(
-                          width: 0.1.sw,
-                          child: Column(
-                            children: [
-                              Text("${(args[2].day - DateTime.now().day).abs()}",style: Textstyles.hintTextStyle,),
-                              Text("days",style: Textstyles.heartViewTextStyle,)
-                            ],
-                          ),
-                        ),
-                        ],
-                     ),
-                     const VerticalSizedBox(height: 5),
-                     Text("Until our wedding",style: Textstyles.weddingNames,),
-                     const VerticalSizedBox(height: 5),
-                     Text("${args[2].year} - ${args[2].month} - ${args[2].day}",style: Textstyles.heartViewTextStyle,)
-                    
-                     
-                  
-                    
-                    
-                    
-                  
-                  ],
-                ),
-     
     );
     // return CustomPaint(
     //           painter: HeartPainter(),
