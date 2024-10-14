@@ -21,6 +21,8 @@ import 'package:zaghrota_app/features/invited_people_hena_screen/presentation/vi
 import 'package:zaghrota_app/features/invited_people_screen/data/model/invited_model.dart';
 import 'package:zaghrota_app/features/invited_people_screen/presentation/view/invited_people_screeen.dart';
 import 'package:zaghrota_app/features/invited_people_screen/presentation/view_model/cubit/invited_people_cubit.dart';
+import 'package:zaghrota_app/features/invited_people_shabka_screen/presentation/view/invited_people_shabka_screen.dart';
+import 'package:zaghrota_app/features/invited_people_shabka_screen/presentation/view_model/cubit/invited_people_screen_shabka_cubit.dart';
 import 'package:zaghrota_app/features/ka3at_screen/presentation/view/ka3at_screen.dart';
 import 'package:zaghrota_app/features/login_screen/presentation/view/login_screen.dart';
 import 'package:zaghrota_app/features/mohafzat_screen/presentation/view/mohafzat_screen.dart';
@@ -41,6 +43,7 @@ void main() async {
 
   await Hive.openBox<InvitedModel>(BoxesNames.invitedPeoples);
   await Hive.openBox<InvitedModel>(BoxesNames.invitedPeopleHena);
+  await Hive.openBox<InvitedModel>(BoxesNames.invitedPeopleShabka);
   await Hive.openBox<BadlaModel>(BoxesNames.badlaitems);
   await Hive.openBox<bool>(BoxesNames.dressChecks);
   await Hive.openBox<bool>(BoxesNames.sessionChecks);
@@ -115,10 +118,15 @@ class MyApp extends StatelessWidget {
           ScreenNames.mohafzatScreen: (context) => const MohafzatScreen(),
           ScreenNames.ka3atScreen: (context) => const Ka3atScreen(),
           ScreenNames.invitedPeopleHenaScreen: (context) => BlocProvider(
-                create: (context) => InvitedPeopleHenaScreenCubit()..getInvitedPeople(),
+                create: (context) =>
+                    InvitedPeopleHenaScreenCubit()..getInvitedPeople(),
                 child: const InvitedPeopleHenaScreen(),
               ),
-              ScreenNames.shabkaScreen:(context)=>const ShabkaScreen()
+          ScreenNames.shabkaScreen: (context) => const ShabkaScreen(),
+          ScreenNames.invitedPeopleShabkaScreen: (context) => BlocProvider(
+                create: (context) => InvitedPeopleScreenShabkaCubit()..getInvitedPeople(),
+                child: const InvitedPeopleShabkaScreen(),
+              )
         },
         title: 'Flutter Demo',
         theme: AppTheme.theme,

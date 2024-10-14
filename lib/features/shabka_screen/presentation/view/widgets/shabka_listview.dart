@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zaghrota_app/core/colors/colors.dart';
 import 'package:zaghrota_app/core/helper/get_current_lang.dart';
 import 'package:zaghrota_app/core/navigation/control_navigation.dart';
+import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/core/textstyles/textstyles.dart';
 
 class ShabkaItemsChoicesListview extends StatelessWidget {
@@ -29,7 +30,7 @@ class ShabkaItemsChoicesListview extends StatelessWidget {
     "image":"assets/images/wedding_items_screen_images/Envelope_with_postcard_serpentine_ribbon_and_paper_bow_for_decorating_gifts.png",
     "height":200.h,
     "width":169.w,
-    "navigation":""
+    "navigation":ScreenNames.invitedPeopleShabkaScreen
     },
     {
     "title":"ديكورات",
