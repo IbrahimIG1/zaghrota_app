@@ -21,7 +21,7 @@ class SongItemContent extends StatelessWidget {
                 ),
                 width: 0.3.sw,
                 decoration: BoxDecoration(
-                  color: AppColors.containerBackground2,
+                  color: AppColors.circleAvatarBorderColor,
                    border: Border.all(
                           color: AppColors.containerBackground,
                           width: 2,
