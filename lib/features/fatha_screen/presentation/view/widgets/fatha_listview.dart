@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zaghrota_app/core/colors/colors.dart';
 import 'package:zaghrota_app/core/helper/get_current_lang.dart';
 import 'package:zaghrota_app/core/navigation/control_navigation.dart';
+import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/core/textstyles/textstyles.dart';
 
 class FathaListview extends StatelessWidget {
@@ -16,7 +17,7 @@ class FathaListview extends StatelessWidget {
     "image":"assets/images/wedding_items_screen_images/music_player.png",
     "height":200.h,
     "width":200.w,
-    "navigation":""},
+    "navigation":ScreenNames.fathaSongsScreen},
     {
     "title":"البوفية",
     "image":"assets/images/wedding_items_screen_images/buffet_breakfast.png",
