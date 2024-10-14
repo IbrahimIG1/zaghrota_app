@@ -1,8 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zaghrota_app/core/navigation/control_navigation.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
-import 'package:zaghrota_app/features/home_screen/presentation/view/widgets/home_listview_item.dart';
+import 'package:zaghrota_app/features/home_screen/presentation/view/widgets/home_gridview_item.dart';
 
 class HomechoicesListview extends StatelessWidget {
   const HomechoicesListview({super.key});
@@ -45,12 +46,28 @@ class HomechoicesListview extends StatelessWidget {
     ];
     //  final args = ModalRoute.of(context)?.settings.arguments as DateTime;
     return  SizedBox(
-      height:0.67.sh ,
-      child: ListView.builder(
-              
-              itemBuilder: (context, index) => HomeListviewItem(index: index, listviewData: listviewData,),
-              itemCount: listviewData.length,
-              shrinkWrap: true,),
+      height:0.7.sh ,
+      child:  Padding(
+      padding: EdgeInsets.symmetric(vertical: 20.sp,horizontal: 15.sp),
+      child: GridView.builder(
+              shrinkWrap: true,
+              // physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                childAspectRatio: 0.9,
+                mainAxisSpacing: 15.h,
+                crossAxisSpacing: 10.w,
+                crossAxisCount: 2),
+             itemBuilder: (context, index) => GestureDetector(
+              onTap: () {
+                ControlNavigation().navigationToController(pageName: listviewData[index]["navigation"], context: context);
+              },
+               child: HomeGridviewItem(
+                img: listviewData[index]["image"], title: listviewData[index]["title"]),
+             ),
+             itemCount: listviewData.length,
+             ),
+    )
+  
     );
   }
 }
