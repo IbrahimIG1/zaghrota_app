@@ -1,6 +1,52 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:zaghrota_app/core/app_Themes/app_theme.dart';
+import 'package:zaghrota_app/core/database_helper/boxes_names.dart';
+import 'package:zaghrota_app/core/navigation/screen_names.dart';
+import 'package:zaghrota_app/features/advertisement_screen/presentation/view/advertisement_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_screen/presentation/view/arosa_devices_screen.dart';
+import 'package:zaghrota_app/features/badla_screen/data/model/badla_model.dart';
+import 'package:zaghrota_app/features/badla_screen/presentation/view/badla_screen.dart';
+import 'package:zaghrota_app/features/badla_screen/presentation/view_model/cubit/badla_screen_cubit.dart';
+import 'package:zaghrota_app/features/default_screen/default_screen.dart';
+import 'package:zaghrota_app/features/dress_screen/presentation/view/dress_screen.dart';
+import 'package:zaghrota_app/features/dress_screen/presentation/view_model/cubit/dress_screen_cubit.dart';
+import 'package:zaghrota_app/features/hena_screen/presentation/view/hena_screen.dart';
+import 'package:zaghrota_app/features/home_screen/presentation/view/home_screen.dart';
+import 'package:zaghrota_app/features/invited_people_hena_screen/presentation/view/invited_people_hena_screen.dart';
+import 'package:zaghrota_app/features/invited_people_hena_screen/presentation/view_model/cubit/invited_people_hena_screen_cubit.dart';
+import 'package:zaghrota_app/features/invited_people_screen/data/model/invited_model.dart';
+import 'package:zaghrota_app/features/invited_people_screen/presentation/view/invited_people_screeen.dart';
+import 'package:zaghrota_app/features/invited_people_screen/presentation/view_model/cubit/invited_people_cubit.dart';
+import 'package:zaghrota_app/features/invited_people_shabka_screen/presentation/view/invited_people_shabka_screen.dart';
+import 'package:zaghrota_app/features/invited_people_shabka_screen/presentation/view_model/cubit/invited_people_screen_shabka_cubit.dart';
+import 'package:zaghrota_app/features/ka3at_screen/presentation/view/ka3at_screen.dart';
+import 'package:zaghrota_app/features/login_screen/presentation/view/login_screen.dart';
+import 'package:zaghrota_app/features/mohafzat_screen/presentation/view/mohafzat_screen.dart';
+import 'package:zaghrota_app/features/session_screen/presentation/view/session_screen.dart';
+import 'package:zaghrota_app/features/session_screen/presentation/view_model/cubit/session_screen_cubit.dart';
+import 'package:zaghrota_app/features/shabka_screen/presentation/view/shabka_screen.dart';
+import 'package:zaghrota_app/features/songs_screen/presentation/view/songs_screen.dart';
+import 'package:zaghrota_app/features/wedding_items_screen/presentation/view/wedding_items_screen.dart';
+import 'package:zaghrota_app/features/wedding_preprations_screen/presentation/view/wedding_preprations_screen.dart';
+import 'package:zaghrota_app/generated/l10n.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await ScreenUtil.ensureScreenSize();
+  await Hive.initFlutter();
+  Hive.registerAdapter(InvitedModelAdapter());
+  Hive.registerAdapter(BadlaModelAdapter());
+
+  await Hive.openBox<InvitedModel>(BoxesNames.invitedPeoples);
+  await Hive.openBox<InvitedModel>(BoxesNames.invitedPeopleHena);
+  await Hive.openBox<InvitedModel>(BoxesNames.invitedPeopleShabka);
+  await Hive.openBox<BadlaModel>(BoxesNames.badlaitems);
+  await Hive.openBox<bool>(BoxesNames.dressChecks);
+  await Hive.openBox<bool>(BoxesNames.sessionChecks);
   runApp(const MyApp());
 }
 
@@ -10,116 +56,82 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return ScreenUtilInit(
+      designSize: const Size(360, 800),
+      child: MaterialApp(
+        locale: const Locale("ar"),
+        localizationsDelegates: const [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: S.delegate.supportedLocales,
+        debugShowCheckedModeBanner: false,
+        onGenerateRoute: (settings) {
+          if (settings.name == ScreenNames.advertisementScreen) {
+            final args = settings.arguments as Map<String, dynamic>;
+
+            // Create the AdvertisementScreen with the provided arguments.
+            return MaterialPageRoute(
+              builder: (context) {
+                return AdvertisementScreen(
+                  height: args['height'],
+                  width: args['width'],
+                  imagePath: args['imagePath'],
+                  pageSentence: args['pageSentence'],
+                  pageName: args["pageName"],
+                );
+              },
+            );
+          }
+          return null;
+        },
+        routes: {
+          ScreenNames.loginScreen: (context) => const LoginScreen(),
+          ScreenNames.homeScreen: (context) => const HomeScreen(),
+          ScreenNames.weddingItemsScreen: (context) =>
+              const WeddingItemsScreen(),
+          ScreenNames.weddingPreprationsScreen: (context) =>
+              const WeddingPreprationsScreen(),
+          ScreenNames.defaultScreen: (context) => const DefaultScreen(),
+          ScreenNames.songsScreen: (context) => const SongsScreen(),
+          ScreenNames.invitedPeopleScreen: (context) => BlocProvider(
+                create: (context) => InvitedPeopleCubit()..getInvitedPeople(),
+                child: const InvitedPeopleScreen(),
+              ),
+          ScreenNames.bdlaScreen: (context) => BlocProvider(
+                create: (context) => BadlaScreenCubit()..getBadlaItems(),
+                child: const BadlaScreen(),
+              ),
+          ScreenNames.dressScreen: (context) => BlocProvider(
+                create: (context) => DressScreenCubit()..getCheckedData(),
+                child: const DressScreen(),
+              ),
+          ScreenNames.arosaDevicesScreen: (context) =>
+              const ArosaDevicesScreen(),
+          ScreenNames.sessionScreen: (context) => BlocProvider(
+                create: (context) => SessionScreenCubit()..getCheckedData(),
+                child: const SessionScreen(),
+              ),
+          ScreenNames.henaScreen: (context) => const HenaScreen(),
+          ScreenNames.mohafzatScreen: (context) => const MohafzatScreen(),
+          ScreenNames.ka3atScreen: (context) => const Ka3atScreen(),
+          ScreenNames.invitedPeopleHenaScreen: (context) => BlocProvider(
+                create: (context) =>
+                    InvitedPeopleHenaScreenCubit()..getInvitedPeople(),
+                child: const InvitedPeopleHenaScreen(),
+              ),
+          ScreenNames.shabkaScreen: (context) => const ShabkaScreen(),
+          ScreenNames.invitedPeopleShabkaScreen: (context) => BlocProvider(
+                create: (context) => InvitedPeopleScreenShabkaCubit()..getInvitedPeople(),
+                child: const InvitedPeopleShabkaScreen(),
+              )
+        },
+        title: 'Flutter Demo',
+        theme: AppTheme.theme,
+        initialRoute: ScreenNames.loginScreen,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
