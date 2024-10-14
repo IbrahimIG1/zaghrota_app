@@ -43,12 +43,12 @@ class HomechoicesListview extends StatelessWidget {
 
       }
     ];
-     final args = ModalRoute.of(context)?.settings.arguments as DateTime;
+    //  final args = ModalRoute.of(context)?.settings.arguments as DateTime;
     return  SizedBox(
       height:0.67.sh ,
       child: ListView.builder(
               
-              itemBuilder: (context, index) => HomeListviewItem(index: index, listviewData: listviewData,args: args,),
+              itemBuilder: (context, index) => HomeListviewItem(index: index, listviewData: listviewData,),
               itemCount: listviewData.length,
               shrinkWrap: true,),
     );

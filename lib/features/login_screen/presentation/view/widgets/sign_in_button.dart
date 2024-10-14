@@ -5,8 +5,9 @@ import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/core/textstyles/textstyles.dart';
 
 class SignInButton extends StatelessWidget {
-  const SignInButton({super.key, required this.arguments});
+  const SignInButton({super.key, required this.arguments, required this.keey});
    final Object arguments;
+   final GlobalKey<FormState> keey;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -17,7 +18,10 @@ class SignInButton extends StatelessWidget {
                       )
                     ),
                     onPressed: () {
-                    ControlNavigation().navigationToController(pageName: ScreenNames.homeScreen,context:context,arguments:  arguments);
-                  }, child:  Text("دخول",style: Textstyles.hintTextStyle,));
+                  if(keey.currentState!.validate()){
+                  ControlNavigation().navigationToController(pageName: ScreenNames.homeScreen,context:context,arguments:  arguments);
+                  }
+                    },
+                   child:  Text("دخول",style: Textstyles.hintTextStyle,));
   }
 }

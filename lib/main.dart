@@ -29,7 +29,9 @@ import 'package:zaghrota_app/features/mohafzat_screen/presentation/view/mohafzat
 import 'package:zaghrota_app/features/session_screen/presentation/view/session_screen.dart';
 import 'package:zaghrota_app/features/session_screen/presentation/view_model/cubit/session_screen_cubit.dart';
 import 'package:zaghrota_app/features/shabka_screen/presentation/view/shabka_screen.dart';
+import 'package:zaghrota_app/features/songs_screen/data/models/song_model.dart';
 import 'package:zaghrota_app/features/songs_screen/presentation/view/songs_screen.dart';
+import 'package:zaghrota_app/features/songs_screen/presentation/view_model/cubit/farah_songs_screen_cubit.dart';
 import 'package:zaghrota_app/features/wedding_items_screen/presentation/view/wedding_items_screen.dart';
 import 'package:zaghrota_app/features/wedding_preprations_screen/presentation/view/wedding_preprations_screen.dart';
 import 'package:zaghrota_app/generated/l10n.dart';
@@ -40,6 +42,7 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(InvitedModelAdapter());
   Hive.registerAdapter(BadlaModelAdapter());
+  Hive.registerAdapter(SongModelAdapter());
 
   await Hive.openBox<InvitedModel>(BoxesNames.invitedPeoples);
   await Hive.openBox<InvitedModel>(BoxesNames.invitedPeopleHena);
@@ -47,6 +50,7 @@ void main() async {
   await Hive.openBox<BadlaModel>(BoxesNames.badlaitems);
   await Hive.openBox<bool>(BoxesNames.dressChecks);
   await Hive.openBox<bool>(BoxesNames.sessionChecks);
+  await Hive.openBox<SongModel>(BoxesNames.songsFarah);
   runApp(const MyApp());
 }
 
@@ -95,7 +99,10 @@ class MyApp extends StatelessWidget {
           ScreenNames.weddingPreprationsScreen: (context) =>
               const WeddingPreprationsScreen(),
           ScreenNames.defaultScreen: (context) => const DefaultScreen(),
-          ScreenNames.songsScreen: (context) => const SongsScreen(),
+          ScreenNames.songsScreen: (context) => BlocProvider(
+                create: (context) => FarahSongsScreenCubit()..getSongs(),
+                child: const SongsScreen(),
+              ),
           ScreenNames.invitedPeopleScreen: (context) => BlocProvider(
                 create: (context) => InvitedPeopleCubit()..getInvitedPeople(),
                 child: const InvitedPeopleScreen(),
@@ -124,7 +131,8 @@ class MyApp extends StatelessWidget {
               ),
           ScreenNames.shabkaScreen: (context) => const ShabkaScreen(),
           ScreenNames.invitedPeopleShabkaScreen: (context) => BlocProvider(
-                create: (context) => InvitedPeopleScreenShabkaCubit()..getInvitedPeople(),
+                create: (context) =>
+                    InvitedPeopleScreenShabkaCubit()..getInvitedPeople(),
                 child: const InvitedPeopleShabkaScreen(),
               )
         },

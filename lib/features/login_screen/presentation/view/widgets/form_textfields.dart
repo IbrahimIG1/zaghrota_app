@@ -8,31 +8,58 @@ import 'package:zaghrota_app/features/login_screen/presentation/view/widgets/sig
 class FormTextfields extends StatefulWidget {
   const FormTextfields({super.key, required this.useStyle2});
   final bool useStyle2;
+  
 
   @override
   State<FormTextfields> createState() => _FormTextfieldsState();
 }
 DateTime? entrydate;
-
+GlobalKey<FormState> keey = GlobalKey();
+TextEditingController aressName = TextEditingController();
+TextEditingController arosaName = TextEditingController();
 class _FormTextfieldsState extends State<FormTextfields> {
   @override
   Widget build(BuildContext context) {
-    return Form(child: Column(
+    return Form(
+      key: keey,
+      child: Column(
       children: [
          Padding(
                     padding:   EdgeInsets.symmetric(horizontal: 12.r),
-                    child:  Customtextfield(useStyle2: widget.useStyle2,hintText: "اسم العريس",),
+                    child:  Customtextfield(
+                      controller: aressName,
+                      validator: (p0) {
+                        if (p0!.isEmpty || p0 ==""){
+                            return "من فضلك أدخل اسم العريس";
+                        }
+                        return null;
+                      },
+                      useStyle2: widget.useStyle2,hintText: "اسم العريس",),
                   ),
                   const VerticalSizedBox(height: 30),
                    Padding(
                     padding:   EdgeInsets.symmetric(horizontal: 12.r),
-                    child: Customtextfield(useStyle2: widget.useStyle2,hintText: "اسم العروسة"),
+                    child: Customtextfield(
+                      controller:arosaName ,
+                      validator: (p0) {
+                        if (p0!.isEmpty || p0 ==""){
+                            return "من فضلك أدخل اسم العروسة";
+                        }
+                        return null;
+                      },
+                      useStyle2: widget.useStyle2,hintText: "اسم العروسة"),
                   ),
                   const VerticalSizedBox(height: 30),
 
                    Padding(
                     padding:   EdgeInsets.symmetric(horizontal: 12.r),
                     child: CustomDatefield(
+                    validator: (p0) {
+                        if (entrydate==null){
+                            return "من فضلك أدخل تاريخ الزواج";
+                        }
+                        return null;
+                      },
                       useStyle2: widget.useStyle2,
                     onTap: () async {
         entrydate = await showDatePicker(
@@ -50,7 +77,9 @@ class _FormTextfieldsState extends State<FormTextfields> {
                     )
                   ),
                   const VerticalSizedBox(height: 30),
-                  SignInButton(arguments: entrydate==null?DateTime.now() as Object :entrydate as Object,)
+                  SignInButton(
+                    keey: keey,
+                    arguments: entrydate==null?[aressName.text,arosaName.text,DateTime.now()]:[aressName.text,arosaName.text,entrydate] )
       ],
     ));
   }
