@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zaghrota_app/core/colors/colors.dart';
-import 'package:zaghrota_app/core/navigation/control_navigation.dart';
-import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/core/textstyles/textstyles.dart';
 
 class MohafzatItem extends StatelessWidget {
-  const MohafzatItem({super.key, required this.index});
+  const MohafzatItem({super.key, required this.index, required this.location, this.onTap});
  final int index;
+ final String location;
+ final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        ControlNavigation.navigationToController(pageName: ScreenNames.ka3atScreen, context: context);
-      },
+      onTap: onTap,
       child: ClipRRect(
               
               borderRadius: BorderRadius.circular(15.sp),
@@ -34,7 +32,7 @@ class MohafzatItem extends StatelessWidget {
                     Image(image: const AssetImage("assets/images/mohafzat_screen_images/ka3a.png"),width: 0.4.sw,
                     height: 0.2.sh,
                     ),
-                    Text("محافظة الغربية",style: Textstyles.blackStroke,)
+                    Text(location,style: Textstyles.blackStroke,)
                   ],
                 ),
               ),

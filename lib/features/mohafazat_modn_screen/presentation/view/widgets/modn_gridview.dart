@@ -4,8 +4,9 @@ import 'package:zaghrota_app/core/navigation/control_navigation.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/features/mohafzat_screen/presentation/view/mohafzat_item.dart';
 
-class MohafzatGridview extends StatelessWidget {
-  const MohafzatGridview({super.key});
+
+class ModnGridview extends StatelessWidget {
+  const ModnGridview({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +21,12 @@ class MohafzatGridview extends StatelessWidget {
           mainAxisSpacing: 10.h
           ),
           itemBuilder: (context, index) => MohafzatItem(
-            onTap:() {
-        ControlNavigation.navigationToController(pageName: ScreenNames.modnScreen, context: context);
-      } ,
-
-            location: "محافظة الغربية",
+            onTap: () {
+              
+        ControlNavigation.navigationToController(pageName: ScreenNames.ka3atScreen, context: context);
+      
+            },
+            location: "مدينة طنطا",
             index: index),
           itemCount: 5,
           

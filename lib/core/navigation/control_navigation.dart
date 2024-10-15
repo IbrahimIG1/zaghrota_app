@@ -85,6 +85,9 @@ class ControlNavigation {
         case ScreenNames.arosaDevicesElectroScreen:
         Navigator.pushNamed(context, pageName);
         break;
+        case ScreenNames.modnScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
       default:
        Navigator.pushNamed(context, ScreenNames.defaultScreen,);
 

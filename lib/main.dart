@@ -35,6 +35,7 @@ import 'package:zaghrota_app/features/invited_people_shabka_screen/presentation/
 import 'package:zaghrota_app/features/invited_people_shabka_screen/presentation/view_model/cubit/invited_people_screen_shabka_cubit.dart';
 import 'package:zaghrota_app/features/ka3at_screen/presentation/view/ka3at_screen.dart';
 import 'package:zaghrota_app/features/login_screen/presentation/view/login_screen.dart';
+import 'package:zaghrota_app/features/mohafazat_modn_screen/presentation/view/mohafzat_modn_screen.dart';
 import 'package:zaghrota_app/features/mohafzat_screen/presentation/view/mohafzat_screen.dart';
 import 'package:zaghrota_app/features/session_screen/presentation/view/session_screen.dart';
 import 'package:zaghrota_app/features/session_screen/presentation/view_model/cubit/session_screen_cubit.dart';
@@ -168,6 +169,7 @@ class MyApp extends StatelessWidget {
           ScreenNames.arosaDevicesMafroshatScreen:(context)=>const ArosaDevicesMafroshatScreen(),
           ScreenNames.arosaDevicesHoneymonthScreen:(context)=>const ArosaDevicesHonemonthScreen(),
           ScreenNames.arosaDevicesElectroScreen:(context)=>const ArosaDevicesElectronicsScreen(),
+          ScreenNames.modnScreen:(context)=>const MohafzatModnScreen(),
         },
         title: 'Flutter Demo',
         theme: AppTheme.theme,
