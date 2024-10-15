@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zaghrota_app/core/navigation/control_navigation.dart';
+import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/features/mohafzat_screen/presentation/view/mohafzat_item.dart';
 
 class MohafzatGridview extends StatelessWidget {
@@ -17,7 +19,13 @@ class MohafzatGridview extends StatelessWidget {
           crossAxisSpacing: 10.w,
           mainAxisSpacing: 10.h
           ),
-          itemBuilder: (context, index) => MohafzatItem(index: index),
+          itemBuilder: (context, index) => MohafzatItem(
+            onTap:() {
+        ControlNavigation.navigationToController(pageName: ScreenNames.modnScreen, context: context);
+      } ,
+
+            location: "محافظة الغربية",
+            index: index),
           itemCount: 5,
           
           );

@@ -7,6 +7,11 @@ import 'package:zaghrota_app/core/app_Themes/app_theme.dart';
 import 'package:zaghrota_app/core/database_helper/boxes_names.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/features/advertisement_screen/presentation/view/advertisement_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/presentation/view/arosa_devices_bath_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_electronics_screen/presentation/view/arosa_devices_electronics_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_honeymonth_screen/presentation/view/arosa_devices_honemonth_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_kitchen_screen/presentation/view/arosa_devices_kitchen_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_mafroshat_screen/presentation/view/arosa_devices_mafroshat_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_screen/presentation/view/arosa_devices_screen.dart';
 import 'package:zaghrota_app/features/badla_screen/data/model/badla_model.dart';
 import 'package:zaghrota_app/features/badla_screen/presentation/view/badla_screen.dart';
@@ -14,6 +19,8 @@ import 'package:zaghrota_app/features/badla_screen/presentation/view_model/cubit
 import 'package:zaghrota_app/features/default_screen/default_screen.dart';
 import 'package:zaghrota_app/features/dress_screen/presentation/view/dress_screen.dart';
 import 'package:zaghrota_app/features/dress_screen/presentation/view_model/cubit/dress_screen_cubit.dart';
+import 'package:zaghrota_app/features/fatha_ma3azzem_screen/presentation/view/fatha_ma3aazeem_invited_people_screen.dart';
+import 'package:zaghrota_app/features/fatha_ma3azzem_screen/presentation/view_model/cubit/fatha_invited_people_screen_cubit.dart';
 import 'package:zaghrota_app/features/fatha_screen/presentation/view/fatha_screen.dart';
 import 'package:zaghrota_app/features/fatha_songs_screen/presentation/view/fatha_songs_screen.dart';
 import 'package:zaghrota_app/features/fatha_songs_screen/presentation/view_model/cubit/fatha_songs_screen_cubit.dart';
@@ -30,6 +37,7 @@ import 'package:zaghrota_app/features/invited_people_shabka_screen/presentation/
 import 'package:zaghrota_app/features/invited_people_shabka_screen/presentation/view_model/cubit/invited_people_screen_shabka_cubit.dart';
 import 'package:zaghrota_app/features/ka3at_screen/presentation/view/ka3at_screen.dart';
 import 'package:zaghrota_app/features/login_screen/presentation/view/login_screen.dart';
+import 'package:zaghrota_app/features/mohafazat_modn_screen/presentation/view/mohafzat_modn_screen.dart';
 import 'package:zaghrota_app/features/mohafzat_screen/presentation/view/mohafzat_screen.dart';
 import 'package:zaghrota_app/features/session_screen/presentation/view/session_screen.dart';
 import 'package:zaghrota_app/features/session_screen/presentation/view_model/cubit/session_screen_cubit.dart';
@@ -54,6 +62,7 @@ void main() async {
   await Hive.openBox<InvitedModel>(BoxesNames.invitedPeoples);
   await Hive.openBox<InvitedModel>(BoxesNames.invitedPeopleHena);
   await Hive.openBox<InvitedModel>(BoxesNames.invitedPeopleShabka);
+  await Hive.openBox<InvitedModel>(BoxesNames.invitedPeopleFatha);
   await Hive.openBox<BadlaModel>(BoxesNames.badlaitems);
   await Hive.openBox<bool>(BoxesNames.dressChecks);
   await Hive.openBox<bool>(BoxesNames.sessionChecks);
@@ -154,9 +163,24 @@ class MyApp extends StatelessWidget {
                 create: (context) => ShabkaSongsScreenCubit()..getSongs(),
                 child: const ShabkaSongsScreen(),
               ),
-          ScreenNames.fathaSongsScreen: (context) =>  BlocProvider(
+          ScreenNames.fathaSongsScreen: (context) => BlocProvider(
                 create: (context) => FathaSongsScreenCubit()..getSongs(),
                 child: const FathaSongsScreen(),
+              ),
+          ScreenNames.arosaDevicesBathScreen: (context) =>
+              const ArosaDevicesBathScreen(),
+          ScreenNames.arosaDevicesKitchenScreen: (context) =>
+              const ArosaDevicesKitchenScreen(),
+          ScreenNames.arosaDevicesMafroshatScreen: (context) =>
+              const ArosaDevicesMafroshatScreen(),
+          ScreenNames.arosaDevicesHoneymonthScreen: (context) =>
+              const ArosaDevicesHonemonthScreen(),
+          ScreenNames.arosaDevicesElectroScreen: (context) =>
+              const ArosaDevicesElectronicsScreen(),
+          ScreenNames.modnScreen: (context) => const MohafzatModnScreen(),
+          ScreenNames.invitedPeopleFathaScreen: (context) => BlocProvider(
+                create: (context) => FathaInvitedPeopleScreenCubit()..getInvitedPeople(),
+                child: const FathaMa3aazeemInvitedPeopleScreen(),
               )
         },
         title: 'Flutter Demo',

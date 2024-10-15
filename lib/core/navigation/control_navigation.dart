@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
 
 class ControlNavigation {
-  navigationToController({required String pageName,
+  static void navigationToController({required String pageName,
   required BuildContext context,
   dynamic arguments
   }){
@@ -70,6 +70,28 @@ class ControlNavigation {
         case ScreenNames.fathaSongsScreen:
         Navigator.pushNamed(context, pageName);
         break;
+        case ScreenNames.arosaDevicesBathScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
+        case ScreenNames.arosaDevicesKitchenScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
+        case ScreenNames.arosaDevicesMafroshatScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
+        case ScreenNames.arosaDevicesHoneymonthScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
+        case ScreenNames.arosaDevicesElectroScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
+        case ScreenNames.modnScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
+        case ScreenNames.invitedPeopleFathaScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
+        
       default:
        Navigator.pushNamed(context, ScreenNames.defaultScreen,);
 

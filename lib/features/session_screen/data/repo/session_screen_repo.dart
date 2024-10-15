@@ -24,7 +24,7 @@ Either<ErrorModel,List<bool>> getData (){
 
 Future<Either<ErrorModel,void>> addData({required bool value})async{
   List<bool> data = hiive.getBoxValues<bool>(boxName: BoxesNames.sessionChecks) as List<bool>;
-  if (data.length<16){
+  if (data.length<22){
     try{
       await hiive.addValue<bool>(boxName: BoxesNames.sessionChecks, value:value );
       return right(null);
