@@ -23,14 +23,14 @@ class CustomItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SizedBox(
-                    width: 0.4.sw,
+                    width: 0.5.sw,
                     child:Row(
                       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                        Transform.scale(scale: 1.sp,child: Image.asset('assets/images/badlascreen_images/Chec_Mark.png'),),
                        HorizontalSizedBox(width: 10.sp),
                        Container(
-                        constraints: BoxConstraints(maxWidth: 0.3.sw),
+                        constraints: BoxConstraints(maxWidth: 0.43.sw),
                         child: Text(itemName,style: Textstyles.nameOfInvitedPeopleStyle,))
                       ],
                     ) ,
