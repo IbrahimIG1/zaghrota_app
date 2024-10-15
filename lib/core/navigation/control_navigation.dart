@@ -76,6 +76,9 @@ class ControlNavigation {
         case ScreenNames.arosaDevicesKitchenScreen:
         Navigator.pushNamed(context, pageName);
         break;
+        case ScreenNames.arosaDevicesMafroshatScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
       default:
        Navigator.pushNamed(context, ScreenNames.defaultScreen,);
 

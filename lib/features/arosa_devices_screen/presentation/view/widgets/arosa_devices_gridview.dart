@@ -23,7 +23,7 @@ class ArosaDevicesGridview extends StatelessWidget {
       {
         "img":"assets/images/arosa_devices_image/bedroom.png",
         "title":"المفروشات",
-        "nav":""
+        "nav":ScreenNames.arosaDevicesMafroshatScreen
       },
       {
         "img":"assets/images/arosa_devices_image/couple.png",
