@@ -46,7 +46,7 @@ class HomechoicesListview extends StatelessWidget {
     ];
     //  final args = ModalRoute.of(context)?.settings.arguments as DateTime;
     return  SizedBox(
-      height:0.7.sh ,
+      height:0.73.sh ,
       child:  Padding(
       padding: EdgeInsets.symmetric(vertical: 20.sp,horizontal: 15.sp),
       child: GridView.builder(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zaghrota_app/core/navigation/control_navigation.dart';
+import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/core/usable/sizedbox.dart';
 import 'package:zaghrota_app/features/login_screen/presentation/view/widgets/custom_Text_Field.dart';
 import 'package:zaghrota_app/features/login_screen/presentation/view/widgets/custom_datefield.dart';
@@ -17,6 +19,8 @@ DateTime? entrydate;
 GlobalKey<FormState> keey = GlobalKey();
 TextEditingController aressName = TextEditingController();
 TextEditingController arosaName = TextEditingController();
+String? aresName;
+String? arosName;
 class _FormTextfieldsState extends State<FormTextfields> {
   @override
   Widget build(BuildContext context) {
@@ -27,6 +31,9 @@ class _FormTextfieldsState extends State<FormTextfields> {
          Padding(
                     padding:   EdgeInsets.symmetric(horizontal: 12.r),
                     child:  Customtextfield(
+                      onChanged: (p0) {
+                        aresName=p0;
+                      },
                       controller: aressName,
                       validator: (p0) {
                         if (p0!.isEmpty || p0 ==""){
@@ -40,6 +47,9 @@ class _FormTextfieldsState extends State<FormTextfields> {
                    Padding(
                     padding:   EdgeInsets.symmetric(horizontal: 12.r),
                     child: Customtextfield(
+                      onChanged: (p0) {
+                        arosName=p0;
+                      },
                       controller:arosaName ,
                       validator: (p0) {
                         if (p0!.isEmpty || p0 ==""){
@@ -78,8 +88,13 @@ class _FormTextfieldsState extends State<FormTextfields> {
                   ),
                   const VerticalSizedBox(height: 30),
                   SignInButton(
-                    keey: keey,
-                    arguments: entrydate==null?[aressName.text,arosaName.text,DateTime.now()]:[aressName.text,arosaName.text,entrydate] )
+                    onPressed: () {
+                  if(keey.currentState!.validate()){
+                  ControlNavigation().navigationToController(pageName: ScreenNames.homeScreen,context:context,
+                  arguments:   entrydate==null?[aresName,arosName,DateTime.now()]:[aresName,arosName,entrydate]);
+                  }
+                    },
+                 )
       ],
     ));
   }

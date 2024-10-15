@@ -67,6 +67,9 @@ class ControlNavigation {
         case ScreenNames.shabkaSongsScreen:
         Navigator.pushNamed(context, pageName);
         break;
+        case ScreenNames.fathaSongsScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
       default:
        Navigator.pushNamed(context, ScreenNames.defaultScreen,);
 
