@@ -88,6 +88,10 @@ class ControlNavigation {
         case ScreenNames.modnScreen:
         Navigator.pushNamed(context, pageName);
         break;
+        case ScreenNames.invitedPeopleFathaScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
+        
       default:
        Navigator.pushNamed(context, ScreenNames.defaultScreen,);
 

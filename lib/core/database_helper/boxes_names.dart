@@ -5,6 +5,7 @@ abstract class BoxesNames {
   static const sessionChecks = "SessionChecks";
   static const invitedPeopleHena = "invitedPeopleHena";
   static const invitedPeopleShabka = "invitedPeopleShabka";
+  static const invitedPeopleFatha = "invitedPeopleFatha";
   static const songsFarah = "SongsFarah";
   static const songshena = "SongsHena";
   static const songsShabka = "SongsShabka";
