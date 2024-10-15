@@ -32,6 +32,8 @@ import 'package:zaghrota_app/features/mohafzat_screen/presentation/view/mohafzat
 import 'package:zaghrota_app/features/session_screen/presentation/view/session_screen.dart';
 import 'package:zaghrota_app/features/session_screen/presentation/view_model/cubit/session_screen_cubit.dart';
 import 'package:zaghrota_app/features/shabka_screen/presentation/view/shabka_screen.dart';
+import 'package:zaghrota_app/features/shabka_songs_screen/presentation/view/shabka_songs_screen.dart';
+import 'package:zaghrota_app/features/shabka_songs_screen/presentation/view_model/cubit/shabka_songs_screen_cubit.dart';
 import 'package:zaghrota_app/features/songs_screen/data/models/song_model.dart';
 import 'package:zaghrota_app/features/songs_screen/presentation/view/songs_screen.dart';
 import 'package:zaghrota_app/features/songs_screen/presentation/view_model/cubit/farah_songs_screen_cubit.dart';
@@ -55,6 +57,7 @@ void main() async {
   await Hive.openBox<bool>(BoxesNames.sessionChecks);
   await Hive.openBox<SongModel>(BoxesNames.songsFarah);
   await Hive.openBox<SongModel>(BoxesNames.songshena);
+  await Hive.openBox<SongModel>(BoxesNames.songsShabka);
   runApp(const MyApp());
 }
 
@@ -143,6 +146,10 @@ class MyApp extends StatelessWidget {
           ScreenNames.henaSongsScreen: (context) => BlocProvider(
                 create: (context) => HenaSongsCubit()..getSongs(),
                 child: const HenaSongsScreen(),
+              ),
+          ScreenNames.shabkaSongsScreen: (context) => BlocProvider(
+                create: (context) => ShabkaSongsScreenCubit()..getSongs(),
+                child: const ShabkaSongsScreen(),
               )
         },
         title: 'Flutter Demo',
