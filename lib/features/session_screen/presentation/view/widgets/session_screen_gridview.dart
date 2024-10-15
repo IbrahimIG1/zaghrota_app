@@ -131,10 +131,14 @@ class SessionScreenGridviewBuilder extends StatelessWidget {
               value: value,
               onChanged: (p0) {
                 if(index<state.dataChecks.length){
+                print(state.dataChecks.toString());
+
                 cubit.updateCheckedValue(index: index, value: p0!);
                 
                }
                else{
+                print(state.dataChecks.length);
+                print(index);
                 cubit.addData(value:p0! );
                }
               },
