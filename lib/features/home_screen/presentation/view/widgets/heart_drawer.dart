@@ -15,12 +15,12 @@ class HeartDrawer extends StatelessWidget {
       padding:  EdgeInsets.only(top: 7.sp),
       child: Container(
         decoration: const BoxDecoration(
-          image:  DecorationImage(image: AssetImage("assets/images/homepage_images/heart.png")
+          image:  DecorationImage(image: AssetImage("assets/images/homepage_images/heart.png",)
           ,fit: BoxFit.fill),
         
         ),
-        height: 0.25.sh,
-        width: 0.75.sw,
+        height: 0.20.sh,
+        width: 0.73.sw,
         child:   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -35,7 +35,7 @@ class HeartDrawer extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Text("${args[2].year - DateTime.now().year} :",style: Textstyles.hintTextStyle,),
+                                Text("${args[2].year - DateTime.now().year} :",style: Textstyles.darkTextStyle,),
                                 Text("years",style: Textstyles.heartViewTextStyle,)
                               ],
                             ),
@@ -44,7 +44,7 @@ class HeartDrawer extends StatelessWidget {
                             width: 0.25.sw,
                             child: Column(
                               children: [
-                                Text("${(args[2].month - DateTime.now().month).abs()} :",style: Textstyles.hintTextStyle,),
+                                Text("${(args[2].month - DateTime.now().month).abs()} :",style: Textstyles.darkTextStyle,),
                                 Text("months",style: Textstyles.heartViewTextStyle)
                               ],
                             ),
@@ -53,17 +53,17 @@ class HeartDrawer extends StatelessWidget {
                             width: 0.1.sw,
                             child: Column(
                               children: [
-                                Text("${(args[2].day - DateTime.now().day).abs()}",style: Textstyles.hintTextStyle,),
+                                Text("${(args[2].day - DateTime.now().day).abs()}",style: Textstyles.darkTextStyle,),
                                 Text("days",style: Textstyles.heartViewTextStyle,)
                               ],
                             ),
                           ),
                           ],
                        ),
-                       const VerticalSizedBox(height: 5),
+                      //  const VerticalSizedBox(height: 5),
                        Text("Until our wedding",style: Textstyles.weddingNames,),
-                       const VerticalSizedBox(height: 5),
-                       Text("${args[2].year} - ${args[2].month} - ${args[2].day}",style: Textstyles.heartViewTextStyle,)
+                      //  const VerticalSizedBox(height: 5),
+                       Text("${args[2].year} - ${args[2].month} - ${args[2].day}",style: Textstyles.darkTextStyle,)
                       
                        
                     
