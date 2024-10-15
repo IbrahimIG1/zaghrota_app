@@ -59,7 +59,7 @@ class HomechoicesListview extends StatelessWidget {
                 crossAxisCount: 2),
              itemBuilder: (context, index) => GestureDetector(
               onTap: () {
-                ControlNavigation().navigationToController(pageName: listviewData[index]["navigation"], context: context);
+                ControlNavigation.navigationToController(pageName: listviewData[index]["navigation"], context: context);
               },
                child: HomeGridviewItem(
                 img: listviewData[index]["image"], title: listviewData[index]["title"]),

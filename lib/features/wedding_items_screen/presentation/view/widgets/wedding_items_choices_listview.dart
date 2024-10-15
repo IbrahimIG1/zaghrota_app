@@ -64,7 +64,7 @@ class WeddingItemsChoicesListview extends StatelessWidget {
                 alignment: isArabic()? index%2==0?AlignmentDirectional.centerEnd:AlignmentDirectional.centerStart :index%2==0?AlignmentDirectional.centerStart:AlignmentDirectional.centerEnd ,
                 child: GestureDetector(
                   onTap: () {
-                    ControlNavigation().navigationToController(pageName: listviewData[index]["navigation"], context: context);
+                    ControlNavigation.navigationToController(pageName: listviewData[index]["navigation"], context: context);
                   },
                   child: Container(
                     width: 0.7.sw,

@@ -55,7 +55,7 @@ class HomeGridviewItem extends StatelessWidget {
 //                children: [
 //                 GestureDetector(
 //                   onTap: () {
-//                     ControlNavigation().navigationToController(pageName: listviewData[index]["navigation"], context: context,arguments: args);
+//                     ControlNavigation.navigationToController(pageName: listviewData[index]["navigation"], context: context,arguments: args);
 //                   },
 //                   child: Stack(
 //                     children: [
