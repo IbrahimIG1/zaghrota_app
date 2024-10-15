@@ -8,6 +8,7 @@ import 'package:zaghrota_app/core/database_helper/boxes_names.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/features/advertisement_screen/presentation/view/advertisement_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/presentation/view/arosa_devices_bath_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_kitchen_screen/presentation/view/arosa_devices_kitchen_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_screen/presentation/view/arosa_devices_screen.dart';
 import 'package:zaghrota_app/features/badla_screen/data/model/badla_model.dart';
 import 'package:zaghrota_app/features/badla_screen/presentation/view/badla_screen.dart';
@@ -159,7 +160,8 @@ class MyApp extends StatelessWidget {
                 create: (context) => FathaSongsScreenCubit()..getSongs(),
                 child: const FathaSongsScreen(),
               ),
-          ScreenNames.arosaDevicesBathScreen:(context)=>const ArosaDevicesBathScreen()
+          ScreenNames.arosaDevicesBathScreen:(context)=>const ArosaDevicesBathScreen(),
+          ScreenNames.arosaDevicesKitchenScreen:(context)=>const ArosaDevicesKitchenScreen(),
         },
         title: 'Flutter Demo',
         theme: AppTheme.theme,

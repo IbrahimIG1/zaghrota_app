@@ -13,7 +13,7 @@ class ArosaDevicesGridview extends StatelessWidget {
       {
         "img":"assets/images/arosa_devices_image/Kitchenfood.png",
         "title":"المطبخ",
-        "nav":""
+        "nav":ScreenNames.arosaDevicesKitchenScreen
       },
       {
         "img":"assets/images/arosa_devices_image/blue.png",
