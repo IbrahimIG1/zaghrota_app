@@ -35,7 +35,7 @@ class WeddingPrepListviewItem extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     
-                  ControlNavigation().navigationToController(pageName: ScreenNames.advertisementScreen, context: context,
+                  ControlNavigation.navigationToController(pageName: ScreenNames.advertisementScreen, context: context,
                   arguments:{
                     "height":listviewData[index]["advImgHeight"],
                     "width":listviewData[index]["advImgWidth"],
