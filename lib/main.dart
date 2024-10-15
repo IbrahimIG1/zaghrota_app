@@ -8,6 +8,7 @@ import 'package:zaghrota_app/core/database_helper/boxes_names.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/features/advertisement_screen/presentation/view/advertisement_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/presentation/view/arosa_devices_bath_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_electronics_screen/presentation/view/arosa_devices_electronics_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_honeymonth_screen/presentation/view/arosa_devices_honemonth_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_kitchen_screen/presentation/view/arosa_devices_kitchen_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_mafroshat_screen/presentation/view/arosa_devices_mafroshat_screen.dart';
@@ -166,6 +167,7 @@ class MyApp extends StatelessWidget {
           ScreenNames.arosaDevicesKitchenScreen:(context)=>const ArosaDevicesKitchenScreen(),
           ScreenNames.arosaDevicesMafroshatScreen:(context)=>const ArosaDevicesMafroshatScreen(),
           ScreenNames.arosaDevicesHoneymonthScreen:(context)=>const ArosaDevicesHonemonthScreen(),
+          ScreenNames.arosaDevicesElectroScreen:(context)=>const ArosaDevicesElectronicsScreen(),
         },
         title: 'Flutter Demo',
         theme: AppTheme.theme,

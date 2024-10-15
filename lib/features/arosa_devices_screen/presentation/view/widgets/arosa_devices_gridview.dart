@@ -38,7 +38,7 @@ class ArosaDevicesGridview extends StatelessWidget {
       {
         "img":"assets/images/arosa_devices_image/socket.png",
         "title":"أجهزة كهربائية",
-        "nav":""
+        "nav":ScreenNames.arosaDevicesElectroScreen
       },
     ];
     return Padding(
