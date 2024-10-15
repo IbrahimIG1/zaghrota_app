@@ -20,45 +20,52 @@ class HeartDrawer extends StatelessWidget {
         
         ),
         height: 0.20.sh,
-        width: 0.73.sw,
+        width: 0.6.sw,
         child:   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                        Text("${args[0]} & ${args[1]}",style: Textstyles.weddingNames,),
                       const VerticalSizedBox(height: 5),
-                       Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            width: 0.1.sw,
-                            child: 
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text("${args[2].year - DateTime.now().year} :",style: Textstyles.darkTextStyle,),
-                                Text("years",style: Textstyles.heartViewTextStyle,)
-                              ],
-                            ),
-                          ),
+                       Padding(
+                         padding: EdgeInsets.symmetric(horizontal: 15.sp),
+                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
                             SizedBox(
-                            width: 0.25.sw,
-                            child: Column(
-                              children: [
-                                Text("${(args[2].month - DateTime.now().month).abs()} :",style: Textstyles.darkTextStyle,),
-                                Text("months",style: Textstyles.heartViewTextStyle)
-                              ],
+                              width: 0.1.sw,
+                              child: 
+                                 Column(
+                                   crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text("${args[2].year - DateTime.now().year}",style: Textstyles.darkTextStyle,),
+                                  Text("years",style: Textstyles.heartViewTextStyle,)
+                                ],
+                              ),
                             ),
-                          ),
-                            SizedBox(
-                            width: 0.1.sw,
-                            child: Column(
-                              children: [
-                                Text("${(args[2].day - DateTime.now().day).abs()}",style: Textstyles.darkTextStyle,),
-                                Text("days",style: Textstyles.heartViewTextStyle,)
-                              ],
+                            Text(":",style: Textstyles.darkTextStyle,),
+                         
+                              SizedBox(
+                              width: 0.25.sw,
+                              child: Column(
+                                children: [
+                                  Text("${(args[2].month - DateTime.now().month).abs()}",style: Textstyles.darkTextStyle,),
+                                  Text("months",style: Textstyles.heartViewTextStyle)
+                                ],
+                              ),
                             ),
-                          ),
-                          ],
+                            Text(":",style: Textstyles.darkTextStyle,),
+                         
+                              SizedBox(
+                              width: 0.1.sw,
+                              child: Column(
+                                children: [
+                                  Text("${(args[2].day - DateTime.now().day).abs()}",style: Textstyles.darkTextStyle,),
+                                  Text("days",style: Textstyles.heartViewTextStyle,)
+                                ],
+                              ),
+                            ),
+                            ],
+                         ),
                        ),
                       //  const VerticalSizedBox(height: 5),
                        Text("Until our wedding",style: Textstyles.weddingNames,),

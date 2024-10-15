@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zaghrota_app/core/navigation/control_navigation.dart';
+import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/features/arosa_devices_screen/presentation/view/widgets/arosa_gridview_item.dart';
 
 class ArosaDevicesGridview extends StatelessWidget {
@@ -10,27 +12,33 @@ class ArosaDevicesGridview extends StatelessWidget {
       List data = [
       {
         "img":"assets/images/arosa_devices_image/Kitchenfood.png",
-        "title":"المطبخ"
+        "title":"المطبخ",
+        "nav":""
       },
       {
         "img":"assets/images/arosa_devices_image/blue.png",
-        "title":"الحمام"
+        "title":"الحمام",
+        "nav":ScreenNames.arosaDevicesBathScreen
       },
       {
         "img":"assets/images/arosa_devices_image/bedroom.png",
-        "title":"المفروشات"
+        "title":"المفروشات",
+        "nav":""
       },
       {
         "img":"assets/images/arosa_devices_image/couple.png",
-        "title":"شهر العسل"
+        "title":"شهر العسل",
+         "nav":""
       },
       {
         "img":"assets/images/arosa_devices_image/clothes.png",
-        "title":"الملابس"
+        "title":"الملابس",
+        "nav":""
       },
       {
         "img":"assets/images/arosa_devices_image/socket.png",
-        "title":"أجهزة كهربائية"
+        "title":"أجهزة كهربائية",
+        "nav":""
       },
     ];
     return Padding(
@@ -43,7 +51,11 @@ class ArosaDevicesGridview extends StatelessWidget {
                 mainAxisSpacing: 15.h,
                 crossAxisSpacing: 10.w,
                 crossAxisCount: 2),
-             itemBuilder: (context, index) => ArosaGridviewItem(img: data[index]["img"], title: data[index]["title"]),
+             itemBuilder: (context, index) => GestureDetector(
+              onTap:() {
+                ControlNavigation.navigationToController(pageName: data[index]["nav"], context: context);
+              } ,
+              child: ArosaGridviewItem(img: data[index]["img"], title: data[index]["title"])),
              itemCount: data.length,
              ),
     );

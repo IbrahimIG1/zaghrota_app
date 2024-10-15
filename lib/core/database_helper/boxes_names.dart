@@ -9,4 +9,5 @@ abstract class BoxesNames {
   static const songshena = "SongsHena";
   static const songsShabka = "SongsShabka";
   static const songsFatha = "SongsFatha";
+  static const devicesBath = "DevicesBath";
 }

@@ -7,6 +7,9 @@ import 'package:zaghrota_app/core/app_Themes/app_theme.dart';
 import 'package:zaghrota_app/core/database_helper/boxes_names.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/features/advertisement_screen/presentation/view/advertisement_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/data/model/devices_model.dart';
+import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/presentation/view/arosa_devices_bath_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/presentation/view_model/cubit/devices_bath_screen_cubit.dart';
 import 'package:zaghrota_app/features/arosa_devices_screen/presentation/view/arosa_devices_screen.dart';
 import 'package:zaghrota_app/features/badla_screen/data/model/badla_model.dart';
 import 'package:zaghrota_app/features/badla_screen/presentation/view/badla_screen.dart';
@@ -50,6 +53,7 @@ void main() async {
   Hive.registerAdapter(InvitedModelAdapter());
   Hive.registerAdapter(BadlaModelAdapter());
   Hive.registerAdapter(SongModelAdapter());
+  Hive.registerAdapter(DevicesModelAdapter());
 
   await Hive.openBox<InvitedModel>(BoxesNames.invitedPeoples);
   await Hive.openBox<InvitedModel>(BoxesNames.invitedPeopleHena);
@@ -61,6 +65,7 @@ void main() async {
   await Hive.openBox<SongModel>(BoxesNames.songshena);
   await Hive.openBox<SongModel>(BoxesNames.songsShabka);
   await Hive.openBox<SongModel>(BoxesNames.songsFatha);
+  await Hive.openBox<DevicesModel>(BoxesNames.devicesBath);
   runApp(const MyApp());
 }
 
@@ -154,9 +159,13 @@ class MyApp extends StatelessWidget {
                 create: (context) => ShabkaSongsScreenCubit()..getSongs(),
                 child: const ShabkaSongsScreen(),
               ),
-          ScreenNames.fathaSongsScreen: (context) =>  BlocProvider(
+          ScreenNames.fathaSongsScreen: (context) => BlocProvider(
                 create: (context) => FathaSongsScreenCubit()..getSongs(),
                 child: const FathaSongsScreen(),
+              ),
+          ScreenNames.arosaDevicesBathScreen: (context) =>  BlocProvider(
+                create: (context) => DevicesBathScreenCubit()..getData(),
+                child: const ArosaDevicesBathScreen(),
               )
         },
         title: 'Flutter Demo',
