@@ -17,7 +17,7 @@ class HenaItemsChoicesListview extends StatelessWidget {
     "image":"assets/images/wedding_items_screen_images/music_player.png",
     "height":200.h,
     "width":200.w,
-    "navigation":""},
+    "navigation":ScreenNames.henaSongsScreen},
     {
     "title":"البوفية",
     "image":"assets/images/wedding_items_screen_images/buffet_breakfast.png",

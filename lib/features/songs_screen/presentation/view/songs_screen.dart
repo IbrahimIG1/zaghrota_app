@@ -4,7 +4,6 @@ import 'package:zaghrota_app/core/colors/colors.dart';
 import 'package:zaghrota_app/features/songs_screen/presentation/view/widgets/add_button.dart';
 import 'package:zaghrota_app/features/songs_screen/presentation/view/widgets/custom_app_bar.dart';
 import 'package:zaghrota_app/features/songs_screen/presentation/view/widgets/songs_listview.dart';
-import 'package:zaghrota_app/features/songs_screen/presentation/view/widgets/songs_top_titles_item_view.dart';
 import 'package:zaghrota_app/features/songs_screen/presentation/view_model/cubit/farah_songs_screen_cubit.dart';
 
 class SongsScreen extends StatelessWidget {
@@ -36,16 +35,16 @@ class SongsScreen extends StatelessWidget {
         // physics: NeverScrollableScrollPhysics(),
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                SongsTopTitlesItemView(
-                  title: "اسم الأغنية",
-                ),
-                SongsTopTitlesItemView(title: "ملحوظة"),
-                SongsTopTitlesItemView(title: "ترتيب التشغيل"),
-              ],
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //   children: [
+            //     SongsTopTitlesItemView(
+            //       title: "اسم الأغنية",
+            //     ),
+            //     SongsTopTitlesItemView(title: "ملحوظة"),
+            //     SongsTopTitlesItemView(title: "ترتيب التشغيل"),
+            //   ],
+            // ),
             SongsListview()
           ],
         ),
