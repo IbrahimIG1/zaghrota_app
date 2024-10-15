@@ -12,7 +12,7 @@ class MohafzatItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        ControlNavigation().navigationToController(pageName: ScreenNames.ka3atScreen, context: context);
+        ControlNavigation.navigationToController(pageName: ScreenNames.ka3atScreen, context: context);
       },
       child: ClipRRect(
               

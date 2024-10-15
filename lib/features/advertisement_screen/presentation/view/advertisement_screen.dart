@@ -19,7 +19,7 @@ class AdvertisementScreen extends StatelessWidget {
       appBar: const CustomAppBar(),
       body: GestureDetector(
         onTap: () {
-          ControlNavigation().navigationToController(pageName:pageName , context: context);
+          ControlNavigation.navigationToController(pageName:pageName , context: context);
         },
         child: Center(
           child: Column(
