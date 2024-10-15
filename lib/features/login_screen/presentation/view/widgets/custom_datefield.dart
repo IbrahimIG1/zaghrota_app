@@ -3,9 +3,10 @@ import 'package:zaghrota_app/core/colors/colors.dart';
 import 'package:zaghrota_app/core/textstyles/textstyles.dart';
 
 class CustomDatefield extends StatefulWidget {
-  const CustomDatefield({super.key, required this.useStyle2, this.onTap, required this.hintText,});
+  const CustomDatefield({super.key, required this.useStyle2, this.onTap, required this.hintText, this.validator,});
  final bool useStyle2;
  final void Function()? onTap;
+ final String? Function(String?)? validator;
  final String hintText;
  
 
@@ -16,6 +17,7 @@ class _CustomDatefieldState extends State<CustomDatefield> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: widget.validator,
       onTap: widget.onTap,
                     readOnly: true,
                     decoration: InputDecoration(

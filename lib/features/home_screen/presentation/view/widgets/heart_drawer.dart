@@ -4,63 +4,54 @@ import 'package:zaghrota_app/core/colors/colors.dart';
 import 'package:zaghrota_app/core/textstyles/textstyles.dart';
 import 'package:zaghrota_app/core/usable/sizedbox.dart';
 
+
 class HeartDrawer extends StatelessWidget {
   const HeartDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)?.settings.arguments as DateTime;
+    final args = ModalRoute.of(context)?.settings.arguments as List ;
     return Container(
-      decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(color: const Color.fromARGB(255, 223, 217, 217),width: 2.sp)
-        )
+      decoration: const BoxDecoration(
+        image:  DecorationImage(image: AssetImage("assets/images/homepage_images/heart.png")
+        ,fit: BoxFit.fill),
+      
       ),
       height: 0.25.sh,
-      width: 1.sw,
-      child: Center(
-        child: Stack(
-          children: [
-           Positioned(
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0,
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal:20.sp ,vertical: 5.sp),
-              child: Image.asset("assets/images/homepage_images/heart.png",fit: BoxFit.fill,),
-            )),
-            Column(
+      width: 0.75.sw,
+      child:   Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                     Text("Mohamed & Eman",style: Textstyles.weddingNames,),
+                     Text("${args[0]} & ${args[1]}",style: Textstyles.weddingNames,),
                     const VerticalSizedBox(height: 5),
                      Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SizedBox(
-                          width: 40.w,
-                          child: Column(
+                          width: 0.1.sw,
+                          child: 
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Text("${args.year - DateTime.now().year} :",style: Textstyles.hintTextStyle,),
+                              Text("${args[2].year - DateTime.now().year} :",style: Textstyles.hintTextStyle,),
                               Text("years",style: Textstyles.heartViewTextStyle,)
                             ],
                           ),
                         ),
                           SizedBox(
-                          width: 40.w,
+                          width: 0.25.sw,
                           child: Column(
                             children: [
-                              Text("${(args.month - DateTime.now().month).abs()} :",style: Textstyles.hintTextStyle,),
+                              Text("${(args[2].month - DateTime.now().month).abs()} :",style: Textstyles.hintTextStyle,),
                               Text("months",style: Textstyles.heartViewTextStyle)
                             ],
                           ),
                         ),
                           SizedBox(
-                          width: 40.w,
+                          width: 0.1.sw,
                           child: Column(
                             children: [
-                              Text("${(args.day - DateTime.now().day).abs()}",style: Textstyles.hintTextStyle,),
+                              Text("${(args[2].day - DateTime.now().day).abs()}",style: Textstyles.hintTextStyle,),
                               Text("days",style: Textstyles.heartViewTextStyle,)
                             ],
                           ),
@@ -70,7 +61,7 @@ class HeartDrawer extends StatelessWidget {
                      const VerticalSizedBox(height: 5),
                      Text("Until our wedding",style: Textstyles.weddingNames,),
                      const VerticalSizedBox(height: 5),
-                     Text("${args.year} - ${args.month} - ${args.day}",style: Textstyles.heartViewTextStyle,)
+                     Text("${args[2].year} - ${args[2].month} - ${args[2].day}",style: Textstyles.heartViewTextStyle,)
                     
                      
                   
@@ -80,10 +71,7 @@ class HeartDrawer extends StatelessWidget {
                   
                   ],
                 ),
-
-          ],
-        ),
-      ) ,
+     
     );
     // return CustomPaint(
     //           painter: HeartPainter(),

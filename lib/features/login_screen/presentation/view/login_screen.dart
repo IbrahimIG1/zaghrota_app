@@ -5,9 +5,13 @@ import 'package:zaghrota_app/features/login_screen/presentation/view/widgets/cus
 import 'package:zaghrota_app/features/login_screen/presentation/view/widgets/form_textfields.dart';
 import 'package:zaghrota_app/features/login_screen/presentation/view/widgets/image_view.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -18,7 +22,7 @@ class LoginScreen extends StatelessWidget {
           decoration:const  BoxDecoration(
             gradient : AppColors.logInGradient
           ),
-          child: const SingleChildScrollView(
+          child:const SingleChildScrollView(
             child: Directionality(
               textDirection: TextDirection.rtl,
               child: Column(
@@ -30,7 +34,8 @@ class LoginScreen extends StatelessWidget {
                   VerticalSizedBox(height: 60),
                   ImageView(),
                   VerticalSizedBox(height: 60),
-                 FormTextfields(useStyle2: false,),
+                 FormTextfields(
+                  useStyle2: false,),
                   
                 ],
               ),
