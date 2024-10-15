@@ -14,6 +14,7 @@ import 'package:zaghrota_app/features/badla_screen/presentation/view_model/cubit
 import 'package:zaghrota_app/features/default_screen/default_screen.dart';
 import 'package:zaghrota_app/features/dress_screen/presentation/view/dress_screen.dart';
 import 'package:zaghrota_app/features/dress_screen/presentation/view_model/cubit/dress_screen_cubit.dart';
+import 'package:zaghrota_app/features/fatha_screen/presentation/view/fatha_screen.dart';
 import 'package:zaghrota_app/features/hena_screen/presentation/view/hena_screen.dart';
 import 'package:zaghrota_app/features/home_screen/presentation/view/home_screen.dart';
 import 'package:zaghrota_app/features/invited_people_hena_screen/presentation/view/invited_people_hena_screen.dart';
@@ -134,7 +135,8 @@ class MyApp extends StatelessWidget {
                 create: (context) =>
                     InvitedPeopleScreenShabkaCubit()..getInvitedPeople(),
                 child: const InvitedPeopleShabkaScreen(),
-              )
+              ),
+              ScreenNames.fathacreen:(context)=>const FathaScreen()
         },
         title: 'Flutter Demo',
         theme: AppTheme.theme,

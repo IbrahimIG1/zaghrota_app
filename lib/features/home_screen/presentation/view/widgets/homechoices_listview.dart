@@ -14,7 +14,7 @@ class HomechoicesListview extends StatelessWidget {
       {
       "title":"قرأة الفاتحة",
       "image":"assets/images/homepage_images/man's_hand_holding_woman's_hand.png",
-      "navigation":ScreenNames.weddingItemsScreen,
+      "navigation":ScreenNames.fathacreen,
       
       },
       {
