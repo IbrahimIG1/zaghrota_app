@@ -15,6 +15,7 @@ import 'package:zaghrota_app/features/arosa_devices_honeymonth_screen/presentati
 import 'package:zaghrota_app/features/arosa_devices_kitchen_screen/presentation/view/arosa_devices_kitchen_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_kitchen_screen/presentation/view_model/cubit/devices_kitchen_screen_cubit.dart';
 import 'package:zaghrota_app/features/arosa_devices_mafroshat_screen/presentation/view/arosa_devices_mafroshat_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_mafroshat_screen/presentation/view_model/cubit/devices_mafroshaat_screen_cubit.dart';
 import 'package:zaghrota_app/features/arosa_devices_screen/presentation/view/arosa_devices_screen.dart';
 import 'package:zaghrota_app/features/badla_screen/data/model/badla_model.dart';
 import 'package:zaghrota_app/features/badla_screen/presentation/view/badla_screen.dart';
@@ -70,6 +71,7 @@ void main() async {
   await Hive.openBox<BadlaModel>(BoxesNames.badlaitems);
   await Hive.openBox<DevicesModel>(BoxesNames.devicesBath);
   await Hive.openBox<DevicesModel>(BoxesNames.devicesKitchen);
+  await Hive.openBox<DevicesModel>(BoxesNames.devicesMafrooshat);
   await Hive.openBox<bool>(BoxesNames.dressChecks);
   await Hive.openBox<bool>(BoxesNames.sessionChecks);
   await Hive.openBox<SongModel>(BoxesNames.songsFarah);
@@ -181,8 +183,10 @@ class MyApp extends StatelessWidget {
                 create: (context) => DevicesKitchenScreenCubit()..getDaata(),
                 child: const ArosaDevicesKitchenScreen(),
               ),
-          ScreenNames.arosaDevicesMafroshatScreen: (context) =>
-              const ArosaDevicesMafroshatScreen(),
+          ScreenNames.arosaDevicesMafroshatScreen: (context) => BlocProvider(
+                create: (context) => DevicesMafroshaatScreenCubit()..getDaata(),
+                child: const ArosaDevicesMafroshaatScreen(),
+              ),
           ScreenNames.arosaDevicesHoneymonthScreen: (context) =>
               const ArosaDevicesHonemonthScreen(),
           ScreenNames.arosaDevicesElectroScreen: (context) =>
