@@ -14,6 +14,7 @@ class ArosaDevicesMafroshatScreen extends StatelessWidget {
           appBar: const CustomAppBar(),
           body: SingleChildScrollView(
             child: CustomListView(
+              data: [],
              deleteOnPressed:  (index){
    
               },

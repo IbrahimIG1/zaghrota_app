@@ -16,7 +16,7 @@ class ArosaDevicesKitchenScreen extends StatelessWidget {
             child: CustomListView(
              deleteOnPressed:  (index){
    
-              },
+              }, data: [],
             ),
           ),
     ));

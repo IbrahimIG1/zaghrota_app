@@ -7,7 +7,9 @@ import 'package:zaghrota_app/core/app_Themes/app_theme.dart';
 import 'package:zaghrota_app/core/database_helper/boxes_names.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/features/advertisement_screen/presentation/view/advertisement_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/data/model/devices_model.dart';
 import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/presentation/view/arosa_devices_bath_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/presentation/view_model/cubit/devices_bath_screen_cubit.dart';
 import 'package:zaghrota_app/features/arosa_devices_electronics_screen/presentation/view/arosa_devices_electronics_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_honeymonth_screen/presentation/view/arosa_devices_honemonth_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_kitchen_screen/presentation/view/arosa_devices_kitchen_screen.dart';
@@ -58,12 +60,14 @@ void main() async {
   Hive.registerAdapter(InvitedModelAdapter());
   Hive.registerAdapter(BadlaModelAdapter());
   Hive.registerAdapter(SongModelAdapter());
+  Hive.registerAdapter(DevicesModelAdapter());
 
   await Hive.openBox<InvitedModel>(BoxesNames.invitedPeoples);
   await Hive.openBox<InvitedModel>(BoxesNames.invitedPeopleHena);
   await Hive.openBox<InvitedModel>(BoxesNames.invitedPeopleShabka);
   await Hive.openBox<InvitedModel>(BoxesNames.invitedPeopleFatha);
   await Hive.openBox<BadlaModel>(BoxesNames.badlaitems);
+  await Hive.openBox<DevicesModel>(BoxesNames.devicesBath);
   await Hive.openBox<bool>(BoxesNames.dressChecks);
   await Hive.openBox<bool>(BoxesNames.sessionChecks);
   await Hive.openBox<SongModel>(BoxesNames.songsFarah);
@@ -167,8 +171,10 @@ class MyApp extends StatelessWidget {
                 create: (context) => FathaSongsScreenCubit()..getSongs(),
                 child: const FathaSongsScreen(),
               ),
-          ScreenNames.arosaDevicesBathScreen: (context) =>
-              const ArosaDevicesBathScreen(),
+          ScreenNames.arosaDevicesBathScreen: (context) => BlocProvider(
+                create: (context) => DevicesBathScreenCubit()..getData(),
+                child: const ArosaDevicesBathScreen(),
+              ),
           ScreenNames.arosaDevicesKitchenScreen: (context) =>
               const ArosaDevicesKitchenScreen(),
           ScreenNames.arosaDevicesMafroshatScreen: (context) =>
@@ -179,7 +185,8 @@ class MyApp extends StatelessWidget {
               const ArosaDevicesElectronicsScreen(),
           ScreenNames.modnScreen: (context) => const MohafzatModnScreen(),
           ScreenNames.invitedPeopleFathaScreen: (context) => BlocProvider(
-                create: (context) => FathaInvitedPeopleScreenCubit()..getInvitedPeople(),
+                create: (context) =>
+                    FathaInvitedPeopleScreenCubit()..getInvitedPeople(),
                 child: const FathaMa3aazeemInvitedPeopleScreen(),
               )
         },

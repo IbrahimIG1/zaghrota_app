@@ -16,7 +16,7 @@ class ArosaDevicesHonemonthScreen extends StatelessWidget {
             child: CustomListView(
              deleteOnPressed:  (index){
    
-              },
+              }, data: [],
             ),
           ),
     ));
