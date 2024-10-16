@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zaghrota_app/core/colors/colors.dart';
+import 'package:zaghrota_app/core/textstyles/textstyles.dart';
+import 'package:zaghrota_app/core/usable/sizedbox.dart';
 import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/data/model/devices_model.dart';
 import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/presentation/view/widgets/custom_list_view.dart';
 import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/presentation/view/widgets/floating_add_button.dart';
@@ -43,7 +46,7 @@ class ArosaDevicesBathScreen extends StatelessWidget {
                 if(state is DevicesBathScreenSuccess){
                   return CustomListView(
                               deleteOnPressed: (p0) {
-                                cubit.deleteItem(index: p0);
+                                deleteDialog(context, cubit, p0);
                               },
                               checkOnChanged: (p0, p1) {
                                 state.bathDevices[p1].checked = p0!;
@@ -75,4 +78,39 @@ class ArosaDevicesBathScreen extends StatelessWidget {
           )
         
       );  }
+       void deleteDialog(BuildContext context, DevicesBathScreenCubit cubit, int index) {
+            showDialog(context: context, builder: (context) => AlertDialog(
+          title: Center(child: Text("تأكيد الحذف",style: Textstyles.nameOfInvitedPeopleStyle,)),
+          content: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+            SizedBox(
+              width: 0.5.sw,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green
+                ),
+                onPressed: () {
+                  cubit.deleteItem(index: index);
+                  // ignore: use_build_context_synchronously
+                  Navigator.pop(context);
+                },
+                 child: Text("نعم",style: Textstyles.songsTopTitleStyle,)),
+            ),
+          const VerticalSizedBox(height: 1),
+          SizedBox(
+            width: 0.5.sw,
+            child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red
+                ),
+                onPressed: () {
+              Navigator.pop(context);
+            }, child: Text("لا",style: Textstyles.songsTopTitleStyle,)),
+          )
+          
+          ],),
+        ),);
+  }
 }

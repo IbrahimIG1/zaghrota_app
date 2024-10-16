@@ -14,7 +14,7 @@ class CustomItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Container(
-              padding: EdgeInsets.symmetric(vertical: 10.sp,horizontal: 5.sp),
+              padding: EdgeInsets.symmetric(vertical: 3.sp,horizontal: 5.sp),
               decoration: BoxDecoration(
                 border: Border.all(color: AppColors.circleAvatarBorderColor)
               ),
