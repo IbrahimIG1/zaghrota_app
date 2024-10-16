@@ -33,7 +33,7 @@ class ArosaDevicesGridview extends StatelessWidget {
       {
         "img":"assets/images/arosa_devices_image/clothes.png",
         "title":"الملابس",
-        "nav":""
+        "nav":ScreenNames.arosaDevicesClothesScreen
       },
       {
         "img":"assets/images/arosa_devices_image/socket.png",

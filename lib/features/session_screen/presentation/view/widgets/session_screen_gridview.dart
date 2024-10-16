@@ -108,7 +108,7 @@ class SessionScreenGridviewBuilder extends StatelessWidget {
 
         var cubit = SessionScreenCubit.get(context);
         return Padding(
-          padding:  EdgeInsets.symmetric(vertical: 25.sp),
+          padding:  EdgeInsets.only(top: 15.sp,bottom: 15.sp,right: 15.sp),
           child: GridView.builder(
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,

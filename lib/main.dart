@@ -10,6 +10,7 @@ import 'package:zaghrota_app/features/advertisement_screen/presentation/view/adv
 import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/data/model/devices_model.dart';
 import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/presentation/view/arosa_devices_bath_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/presentation/view_model/cubit/devices_bath_screen_cubit.dart';
+import 'package:zaghrota_app/features/arosa_devices_clothes_screen/presentation/view/arosa_devices_clothes_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_electronics_screen/presentation/view/arosa_devices_electronics_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_electronics_screen/presentation/view_model/cubit/devices_electronics_screen_cubit.dart';
 import 'package:zaghrota_app/features/arosa_devices_honeymonth_screen/presentation/view/arosa_devices_honemonth_screen.dart';
@@ -204,7 +205,8 @@ class MyApp extends StatelessWidget {
                 create: (context) =>
                     FathaInvitedPeopleScreenCubit()..getInvitedPeople(),
                 child: const FathaMa3aazeemInvitedPeopleScreen(),
-              )
+              ),
+          ScreenNames.arosaDevicesClothesScreen:(context)=>const ArosaDevicesClothesScreen()
         },
         title: 'Flutter Demo',
         theme: AppTheme.theme,
