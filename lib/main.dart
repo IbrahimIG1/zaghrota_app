@@ -13,6 +13,7 @@ import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/presentation
 import 'package:zaghrota_app/features/arosa_devices_electronics_screen/presentation/view/arosa_devices_electronics_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_honeymonth_screen/presentation/view/arosa_devices_honemonth_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_kitchen_screen/presentation/view/arosa_devices_kitchen_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_kitchen_screen/presentation/view_model/cubit/devices_kitchen_screen_cubit.dart';
 import 'package:zaghrota_app/features/arosa_devices_mafroshat_screen/presentation/view/arosa_devices_mafroshat_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_screen/presentation/view/arosa_devices_screen.dart';
 import 'package:zaghrota_app/features/badla_screen/data/model/badla_model.dart';
@@ -68,6 +69,7 @@ void main() async {
   await Hive.openBox<InvitedModel>(BoxesNames.invitedPeopleFatha);
   await Hive.openBox<BadlaModel>(BoxesNames.badlaitems);
   await Hive.openBox<DevicesModel>(BoxesNames.devicesBath);
+  await Hive.openBox<DevicesModel>(BoxesNames.devicesKitchen);
   await Hive.openBox<bool>(BoxesNames.dressChecks);
   await Hive.openBox<bool>(BoxesNames.sessionChecks);
   await Hive.openBox<SongModel>(BoxesNames.songsFarah);
@@ -175,8 +177,10 @@ class MyApp extends StatelessWidget {
                 create: (context) => DevicesBathScreenCubit()..getData(),
                 child: const ArosaDevicesBathScreen(),
               ),
-          ScreenNames.arosaDevicesKitchenScreen: (context) =>
-              const ArosaDevicesKitchenScreen(),
+          ScreenNames.arosaDevicesKitchenScreen: (context) => BlocProvider(
+                create: (context) => DevicesKitchenScreenCubit()..getDaata(),
+                child: const ArosaDevicesKitchenScreen(),
+              ),
           ScreenNames.arosaDevicesMafroshatScreen: (context) =>
               const ArosaDevicesMafroshatScreen(),
           ScreenNames.arosaDevicesHoneymonthScreen: (context) =>

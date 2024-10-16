@@ -5,9 +5,10 @@ import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/data/model/d
 import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/presentation/view/widgets/cusom_item.dart';
 
 class CustomListView extends StatelessWidget {
-  const CustomListView({super.key, this.checkOnChanged, this.deleteOnPressed, required this.data});
+  const CustomListView({super.key, this.checkOnChanged, this.deleteOnPressed, required this.data, this.numberOnPressed});
   final void Function(bool?,int)? checkOnChanged;
   final void Function(int)? deleteOnPressed;
+  final void Function(int)? numberOnPressed;
   final List<DevicesModel> data;
   @override
   Widget build(BuildContext context) {
@@ -19,6 +20,10 @@ class CustomListView extends StatelessWidget {
         itemCount: data.length,
         physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) => CustomItem(
+          number: data[index].number,
+          onTapNumber: (){
+        numberOnPressed!(index);
+          },
           checkOnChanged:(p0){
             checkOnChanged!(p0,index);
           } ,
