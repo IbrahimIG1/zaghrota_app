@@ -11,4 +11,8 @@ abstract class BoxesNames {
   static const songsShabka = "SongsShabka";
   static const songsFatha = "SongsFatha";
   static const devicesBath = "devicesBath";
+  static const devicesKitchen = "devicesKitchen";
+  static const devicesMafrooshat = "devicesMafroshaat";
+  static const devicesHoneyMoon = "devicesHoneyMoon";
+  static const devicesElectronics = "devicesElectronics";
 }

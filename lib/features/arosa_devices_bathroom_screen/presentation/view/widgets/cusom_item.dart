@@ -5,16 +5,18 @@ import 'package:zaghrota_app/core/textstyles/textstyles.dart';
 import 'package:zaghrota_app/core/usable/sizedbox.dart';
 
 class CustomItem extends StatelessWidget {
-  const CustomItem({super.key, required this.itemName, required this.checked, this.deleteOnPressed, this.checkOnChanged});
+  const CustomItem({super.key, required this.itemName, required this.checked, this.deleteOnPressed, this.checkOnChanged, required this.number, this.onTapNumber});
   final String itemName;
   final bool checked;
   final void Function()? deleteOnPressed;
   final void Function(bool?)? checkOnChanged;
+  final void Function()? onTapNumber;
+  final String number;
 
   @override
   Widget build(BuildContext context) {
     return  Container(
-              padding: EdgeInsets.symmetric(vertical: 10.sp,horizontal: 5.sp),
+              padding: EdgeInsets.symmetric(vertical: 3.sp,horizontal: 5.sp),
               decoration: BoxDecoration(
                 border: Border.all(color: AppColors.circleAvatarBorderColor)
               ),
@@ -30,12 +32,16 @@ class CustomItem extends StatelessWidget {
                        Transform.scale(scale: 1.sp,child: Image.asset('assets/images/badlascreen_images/Chec_Mark.png'),),
                        HorizontalSizedBox(width: 10.sp),
                        Container(
-                        constraints: BoxConstraints(maxWidth: 0.43.sw),
+                        constraints: BoxConstraints(maxWidth: 0.4.sw),
                         child: Text(itemName,style: Textstyles.nameOfInvitedPeopleStyle,))
                       ],
                     ) ,
                   ),
-                  Text("x12",style: Textstyles.weddingNames,),
+                  GestureDetector(
+                    onTap: onTapNumber,
+                    child: Container(
+                      constraints: BoxConstraints(maxWidth: 0.2.sw),
+                      child: Text("x$number",style: Textstyles.weddingNames,))),
                      Checkbox(
                                     
                                      activeColor: AppColors.checkBoxActiveColor,

@@ -109,4 +109,17 @@ class ArosaDevicesBarhScreenRepo {
     return left(ErrorModel(errormsg: "The error is $e"));
   }
   }
+   Future<Either<ErrorModel,void>> updateNumber({required String index,required DevicesModel model})async{
+    try{
+  await hiive.updateItem<DevicesModel>(boxName: BoxesNames.devicesBath, index: index, value: model);
+  return right(null);
+    }
+    on HiveError catch (e){
+    return left(ErrorModel(errormsg: "The error from hive is $e"));
+
+  }
+   catch (e) {
+    return left(ErrorModel(errormsg: "The error is $e"));
+  }
+  }
 }
