@@ -12,6 +12,7 @@ import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/presentation
 import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/presentation/view_model/cubit/devices_bath_screen_cubit.dart';
 import 'package:zaghrota_app/features/arosa_devices_electronics_screen/presentation/view/arosa_devices_electronics_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_honeymonth_screen/presentation/view/arosa_devices_honemonth_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_honeymonth_screen/presentation/view_model/cubit/devices_honey_month_screen_cubit.dart';
 import 'package:zaghrota_app/features/arosa_devices_kitchen_screen/presentation/view/arosa_devices_kitchen_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_kitchen_screen/presentation/view_model/cubit/devices_kitchen_screen_cubit.dart';
 import 'package:zaghrota_app/features/arosa_devices_mafroshat_screen/presentation/view/arosa_devices_mafroshat_screen.dart';
@@ -72,6 +73,7 @@ void main() async {
   await Hive.openBox<DevicesModel>(BoxesNames.devicesBath);
   await Hive.openBox<DevicesModel>(BoxesNames.devicesKitchen);
   await Hive.openBox<DevicesModel>(BoxesNames.devicesMafrooshat);
+  await Hive.openBox<DevicesModel>(BoxesNames.devicesHoneyMoon);
   await Hive.openBox<bool>(BoxesNames.dressChecks);
   await Hive.openBox<bool>(BoxesNames.sessionChecks);
   await Hive.openBox<SongModel>(BoxesNames.songsFarah);
@@ -187,8 +189,10 @@ class MyApp extends StatelessWidget {
                 create: (context) => DevicesMafroshaatScreenCubit()..getDaata(),
                 child: const ArosaDevicesMafroshaatScreen(),
               ),
-          ScreenNames.arosaDevicesHoneymonthScreen: (context) =>
-              const ArosaDevicesHonemonthScreen(),
+          ScreenNames.arosaDevicesHoneymonthScreen: (context) => BlocProvider(
+                create: (context) => DevicesHoneyMonthScreenCubit()..getDaata(),
+                child: const ArosaDevicesHonemonthScreen(),
+              ),
           ScreenNames.arosaDevicesElectroScreen: (context) =>
               const ArosaDevicesElectronicsScreen(),
           ScreenNames.modnScreen: (context) => const MohafzatModnScreen(),
