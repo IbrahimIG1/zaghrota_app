@@ -25,7 +25,43 @@ class BadlaScreenRepo {
   Either<ErrorModel,List<BadlaModel>> getBadlaItems(){
   try {
     List<BadlaModel> data = hiive.getBoxValues<BadlaModel>(boxName: BoxesNames.badlaitems) as List<BadlaModel>;
+    if(data.isEmpty){
+      List<BadlaModel> items = [
+     BadlaModel(badlaItemName: "البدلة الرسمية",),
+     BadlaModel(badlaItemName: "قميص أبيض",),
+     BadlaModel(badlaItemName: "فيست",),
+     BadlaModel(badlaItemName: "بنطلون البدلة",),
+     BadlaModel(badlaItemName: "ربطة عنق",),
+     BadlaModel(badlaItemName: "منديل جيب",),
+     BadlaModel(badlaItemName: "أزرار أكمام",),
+     BadlaModel(badlaItemName: "دبوس ربطة عنق",),
+     BadlaModel(badlaItemName: "حذاء رسمي",),
+     BadlaModel(badlaItemName: "جوارب",),
+     BadlaModel(badlaItemName: "تيشيرت داخلي قطن",),
+     BadlaModel(badlaItemName: "بانتي",),
+     BadlaModel(badlaItemName: "حزام",),
+     BadlaModel(badlaItemName: "ساعة يد أنيقة",),
+     BadlaModel(badlaItemName: "مشبك أو بروش صغير",),
+     BadlaModel(badlaItemName: "وردة العروة",),
+     BadlaModel(badlaItemName: "نظارة شمسية",),
+     BadlaModel(badlaItemName: "روب أو بيجامة",),
+     BadlaModel(badlaItemName: "عطر خاص",),
+     BadlaModel(badlaItemName: "مشبك حزام",),
+     BadlaModel(badlaItemName: "زجاجة عطر صغيرة",),
+      ];
+      for(var x in items){
+      hiive.addValue<BadlaModel>(boxName: BoxesNames.badlaitems, value: x);
+      }
+    data =  hiive.getBoxValues<BadlaModel>(boxName: BoxesNames.badlaitems) as List<BadlaModel>;
+    
     return right(data);
+
+    }
+
+    else{
+      return right(data);
+    }
+    
   }
     on HiveError catch (e){
     return left(ErrorModel(errormsg: "The error from hive is $e"));

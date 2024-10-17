@@ -3,79 +3,121 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zaghrota_app/core/colors/colors.dart';
 import 'package:zaghrota_app/core/textstyles/textstyles.dart';
 import 'package:zaghrota_app/core/usable/sizedbox.dart';
-
+import 'package:zaghrota_app/features/login_screen/data/farah_model.dart';
 
 class HeartDrawer extends StatelessWidget {
-  const HeartDrawer({super.key});
-
+  const HeartDrawer({super.key, required this.data, this.onTap});
+  final List<FarahModel> data;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)?.settings.arguments as List ;
+   
+    // List args = ModalRoute.of(context)?.settings.arguments as List;
     return Padding(
-      padding:  EdgeInsets.only(top: 7.sp),
-      child: Container(
-        decoration: const BoxDecoration(
-          image:  DecorationImage(image: AssetImage("assets/images/homepage_images/heart.png",)
-          ,fit: BoxFit.fill),
-        
-        ),
-        height: 0.20.sh,
-        width: 0.73.sw,
-        child:   Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                       Text("${args[0]} & ${args[1]}",style: Textstyles.weddingNames,),
-                      const VerticalSizedBox(height: 5),
-                       Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            width: 0.1.sw,
-                            child: 
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text("${args[2].year - DateTime.now().year} :",style: Textstyles.darkTextStyle,),
-                                Text("years",style: Textstyles.heartViewTextStyle,)
-                              ],
-                            ),
-                          ),
-                            SizedBox(
-                            width: 0.25.sw,
-                            child: Column(
-                              children: [
-                                Text("${(args[2].month - DateTime.now().month).abs()} :",style: Textstyles.darkTextStyle,),
-                                Text("months",style: Textstyles.heartViewTextStyle)
-                              ],
-                            ),
-                          ),
-                            SizedBox(
-                            width: 0.1.sw,
-                            child: Column(
-                              children: [
-                                Text("${(args[2].day - DateTime.now().day).abs()}",style: Textstyles.darkTextStyle,),
-                                Text("days",style: Textstyles.heartViewTextStyle,)
-                              ],
-                            ),
-                          ),
-                          ],
-                       ),
-                      //  const VerticalSizedBox(height: 5),
-                       Text("Until our wedding",style: Textstyles.weddingNames,),
-                      //  const VerticalSizedBox(height: 5),
-                       Text("${args[2].year} - ${args[2].month} - ${args[2].day}",style: Textstyles.darkTextStyle,)
-                      
-                       
-                    
-                      
-                      
-                      
-                    
-                    ],
+      padding: EdgeInsets.only(top: 7.sp),
+      child: 
+ GestureDetector(
+            onTap: onTap,
+            child: Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage(
+                      "assets/images/homepage_images/heart.png",
+                    ),
+                    fit: BoxFit.fill),
+              ),
+              height: 0.20.sh,
+              width: 0.6.sw,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "${data[0].aresName} & ${data[0].arosaName}",
+                    style: Textstyles.weddingNames,
                   ),
-       
-      ),
-    );
+                  const VerticalSizedBox(height: 5),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 15.sp),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        SizedBox(
+                          width: 0.1.sw,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                "${data[0].farahTime.year - DateTime.now().year}",
+                                style: Textstyles.darkTextStyle,
+                              ),
+                              Text(
+                                "years",
+                                style: Textstyles.heartViewTextStyle,
+                              )
+                            ],
+                          ),
+                        ),
+                        Text(
+                          ":",
+                          style: Textstyles.darkTextStyle,
+                        ),
+                        SizedBox(
+                          width: 0.25.sw,
+                          child: Column(
+                            children: [
+                              Text(
+                                "${(data[0].farahTime.month - DateTime.now().month).abs()}",
+                                style: Textstyles.darkTextStyle,
+                              ),
+                              Text("months",
+                                  style: Textstyles.heartViewTextStyle)
+                            ],
+                          ),
+                        ),
+                        Text(
+                          ":",
+                          style: Textstyles.darkTextStyle,
+                        ),
+                        SizedBox(
+                          width: 0.1.sw,
+                          child: Column(
+                            children: [
+                              Text(
+                                "${(data[0].farahTime.day - DateTime.now().day).abs()}",
+                                style: Textstyles.darkTextStyle,
+                              ),
+                              Text(
+                                "days",
+                                style: Textstyles.heartViewTextStyle,
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  //  const VerticalSizedBox(height: 5),
+                  Text(
+                    "Until our wedding",
+                    style: Textstyles.weddingNames,
+                  ),
+                  //  const VerticalSizedBox(height: 5),
+                  Text(
+                    "${data[0].farahTime.year} - ${data[0].farahTime.month} - ${data[0].farahTime.day}",
+                    style: Textstyles.darkTextStyle,
+                  )
+                ],
+              ),
+            ),
+          )
+            
+        
+        
+      );
+    
+
+    
+
     // return CustomPaint(
     //           painter: HeartPainter(),
     //           child: Container(
@@ -95,6 +137,9 @@ class HeartDrawer extends StatelessWidget {
     //         );
   }
 }
+
+
+final GlobalKey<FormState> keeey = GlobalKey<FormState>();
 
 class HeartPainter extends CustomPainter {
   @override

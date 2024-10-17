@@ -35,6 +35,7 @@ import 'package:zaghrota_app/features/hena_screen/presentation/view/hena_screen.
 import 'package:zaghrota_app/features/hena_songs_screen/presentation/view/hena_songs_screen.dart';
 import 'package:zaghrota_app/features/hena_songs_screen/presentation/view_model/cubit/hena_songs_cubit.dart';
 import 'package:zaghrota_app/features/home_screen/presentation/view/home_screen.dart';
+import 'package:zaghrota_app/features/home_screen/presentation/view_model/cubit/home_screen_cubit.dart';
 import 'package:zaghrota_app/features/invited_people_hena_screen/presentation/view/invited_people_hena_screen.dart';
 import 'package:zaghrota_app/features/invited_people_hena_screen/presentation/view_model/cubit/invited_people_hena_screen_cubit.dart';
 import 'package:zaghrota_app/features/invited_people_screen/data/model/invited_model.dart';
@@ -43,7 +44,9 @@ import 'package:zaghrota_app/features/invited_people_screen/presentation/view_mo
 import 'package:zaghrota_app/features/invited_people_shabka_screen/presentation/view/invited_people_shabka_screen.dart';
 import 'package:zaghrota_app/features/invited_people_shabka_screen/presentation/view_model/cubit/invited_people_screen_shabka_cubit.dart';
 import 'package:zaghrota_app/features/ka3at_screen/presentation/view/ka3at_screen.dart';
+import 'package:zaghrota_app/features/login_screen/data/farah_model.dart';
 import 'package:zaghrota_app/features/login_screen/presentation/view/login_screen.dart';
+import 'package:zaghrota_app/features/login_screen/presentation/view_model/cubit/farah_data_cubit.dart';
 import 'package:zaghrota_app/features/mohafazat_modn_screen/presentation/view/mohafzat_modn_screen.dart';
 import 'package:zaghrota_app/features/mohafzat_screen/presentation/view/mohafzat_screen.dart';
 import 'package:zaghrota_app/features/session_screen/presentation/view/session_screen.dart';
@@ -66,7 +69,9 @@ void main() async {
   Hive.registerAdapter(BadlaModelAdapter());
   Hive.registerAdapter(SongModelAdapter());
   Hive.registerAdapter(DevicesModelAdapter());
+  Hive.registerAdapter(FarahModelAdapter());
 
+  await Hive.openBox<FarahModel>(BoxesNames.farahBox);
   await Hive.openBox<InvitedModel>(BoxesNames.invitedPeoples);
   await Hive.openBox<InvitedModel>(BoxesNames.invitedPeopleHena);
   await Hive.openBox<InvitedModel>(BoxesNames.invitedPeopleShabka);
@@ -124,8 +129,14 @@ class MyApp extends StatelessWidget {
           return null;
         },
         routes: {
-          ScreenNames.loginScreen: (context) => const LoginScreen(),
-          ScreenNames.homeScreen: (context) => const HomeScreen(),
+          ScreenNames.loginScreen: (context) => BlocProvider(
+                create: (context) => FarahDataCubit(),
+                child: const LoginScreen(),
+              ),
+          ScreenNames.homeScreen: (context) => BlocProvider(
+                create: (context) => HomeScreenCubit()..getdata(),
+                child: const HomeScreen(),
+              ),
           ScreenNames.weddingItemsScreen: (context) =>
               const WeddingItemsScreen(),
           ScreenNames.weddingPreprationsScreen: (context) =>
@@ -197,7 +208,8 @@ class MyApp extends StatelessWidget {
                 child: const ArosaDevicesHonemonthScreen(),
               ),
           ScreenNames.arosaDevicesElectroScreen: (context) => BlocProvider(
-                create: (context) => DevicesElectronicsScreenCubit()..getDaata(),
+                create: (context) =>
+                    DevicesElectronicsScreenCubit()..getDaata(),
                 child: const ArosaDevicesElectronicsScreen(),
               ),
           ScreenNames.modnScreen: (context) => const MohafzatModnScreen(),
@@ -206,7 +218,8 @@ class MyApp extends StatelessWidget {
                     FathaInvitedPeopleScreenCubit()..getInvitedPeople(),
                 child: const FathaMa3aazeemInvitedPeopleScreen(),
               ),
-          ScreenNames.arosaDevicesClothesScreen:(context)=>const ArosaDevicesClothesScreen()
+          ScreenNames.arosaDevicesClothesScreen: (context) =>
+              const ArosaDevicesClothesScreen()
         },
         title: 'Flutter Demo',
         theme: AppTheme.theme,

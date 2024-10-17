@@ -42,6 +42,12 @@ class HomechoicesListview extends StatelessWidget {
       "image":"assets/images/homepage_images/St_Valentine_Day.png",
       "navigation":""
 
+      },
+       {
+        "title":"ليلة الدخلة",
+      "image":"assets/images/homepage_images/do5la.png",
+      "navigation":""
+
       }
     ];
     //  final args = ModalRoute.of(context)?.settings.arguments as DateTime;
