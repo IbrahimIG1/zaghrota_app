@@ -43,7 +43,7 @@ dependencies:
   bloc: ^8.1.4
   flutter_bloc: ^8.1.6
   carousel_slider: ^5.0.0
-  shared_preferences: ^2.3.2
+  
 
 dev_dependencies:
   flutter_test:
@@ -83,6 +83,7 @@ flutter:
     - assets/images/mohafzat_screen_images/
     - assets/images/ka3at_screen_images/
     - assets/images/clothes_devices_screen_images/
+    - assets/images/do5la_screen_images/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
