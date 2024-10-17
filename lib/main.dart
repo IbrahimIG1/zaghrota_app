@@ -24,6 +24,7 @@ import 'package:zaghrota_app/features/badla_screen/data/model/badla_model.dart';
 import 'package:zaghrota_app/features/badla_screen/presentation/view/badla_screen.dart';
 import 'package:zaghrota_app/features/badla_screen/presentation/view_model/cubit/badla_screen_cubit.dart';
 import 'package:zaghrota_app/features/default_screen/default_screen.dart';
+import 'package:zaghrota_app/features/do5la_screens/presentation/view/do5la_screen.dart';
 import 'package:zaghrota_app/features/dress_screen/presentation/view/dress_screen.dart';
 import 'package:zaghrota_app/features/dress_screen/presentation/view_model/cubit/dress_screen_cubit.dart';
 import 'package:zaghrota_app/features/fatha_ma3azzem_screen/presentation/view/fatha_ma3aazeem_invited_people_screen.dart';
@@ -219,7 +220,8 @@ class MyApp extends StatelessWidget {
                 child: const FathaMa3aazeemInvitedPeopleScreen(),
               ),
           ScreenNames.arosaDevicesClothesScreen: (context) =>
-              const ArosaDevicesClothesScreen()
+              const ArosaDevicesClothesScreen(),
+          ScreenNames.do5laScreen:(context)=>const Do5laScreen()
         },
         title: 'Flutter Demo',
         theme: AppTheme.theme,

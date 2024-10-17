@@ -46,7 +46,7 @@ class HomechoicesListview extends StatelessWidget {
        {
         "title":"ليلة الدخلة",
       "image":"assets/images/homepage_images/do5la.png",
-      "navigation":""
+      "navigation":ScreenNames.do5laScreen
 
       }
     ];
