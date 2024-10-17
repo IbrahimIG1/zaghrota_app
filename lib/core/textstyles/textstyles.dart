@@ -7,7 +7,7 @@ class Textstyles {
   static  TextStyle hintTextStyle =  TextStyle(color: Colors.black,fontSize: 15.sp,);
   static  TextStyle darkTextStyle =  TextStyle(color: Colors.black,fontSize: 10.sp,);
   static  TextStyle hintTextStyle2 =  TextStyle(color: Colors.grey,fontSize: 15.sp);
-  static TextStyle weddingNames = TextStyle(color: Colors.black,fontSize: 13.sp,fontWeight: FontWeights.bold);
+  static TextStyle weddingNames = TextStyle(color: Colors.black,fontSize: 10.sp,fontWeight: FontWeights.bold);
   static TextStyle listViewTitles = TextStyle(fontWeight: FontWeights.thin,fontSize: 20.sp);
   static TextStyle heartViewTextStyle = TextStyle(fontSize: 10.sp);
   static TextStyle songsTopTitleStyle = TextStyle(color: Colors.white,fontSize: 15.sp);

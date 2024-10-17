@@ -91,6 +91,9 @@ class ControlNavigation {
         case ScreenNames.invitedPeopleFathaScreen:
         Navigator.pushNamed(context, pageName);
         break;
+        case ScreenNames.arosaDevicesClothesScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
         
       default:
        Navigator.pushNamed(context, ScreenNames.defaultScreen,);
