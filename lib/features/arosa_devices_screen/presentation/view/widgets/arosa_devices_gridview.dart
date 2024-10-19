@@ -25,11 +25,7 @@ class ArosaDevicesGridview extends StatelessWidget {
         "title":"المفروشات",
         "nav":ScreenNames.arosaDevicesMafroshatScreen
       },
-      {
-        "img":"assets/images/arosa_devices_image/couple.png",
-        "title":"شهر العسل",
-         "nav":ScreenNames.arosaDevicesHoneymonthScreen
-      },
+     
       {
         "img":"assets/images/arosa_devices_image/clothes.png",
         "title":"الملابس",

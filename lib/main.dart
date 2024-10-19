@@ -24,6 +24,12 @@ import 'package:zaghrota_app/features/badla_screen/data/model/badla_model.dart';
 import 'package:zaghrota_app/features/badla_screen/presentation/view/badla_screen.dart';
 import 'package:zaghrota_app/features/badla_screen/presentation/view_model/cubit/badla_screen_cubit.dart';
 import 'package:zaghrota_app/features/default_screen/default_screen.dart';
+import 'package:zaghrota_app/features/do5la_ad3ya_screen/presentation/view/do3a2_screen.dart';
+import 'package:zaghrota_app/features/do5la_ad3ya_screen/presentation/view/e8tsal_do3a2_screen.dart';
+import 'package:zaghrota_app/features/do5la_ad3ya_screen/presentation/view/gema3_do3a2_screen.dart';
+import 'package:zaghrota_app/features/do5la_ad3ya_screen/presentation/view/mo3asharaj_do3a2_screen.dart';
+import 'package:zaghrota_app/features/do5la_ad3ya_screen/presentation/view/neya_do3a2_screen.dart';
+import 'package:zaghrota_app/features/do5la_ad3ya_screen/presentation/view/sala_do3a2.dart';
 import 'package:zaghrota_app/features/do5la_screens/presentation/view/do5la_screen.dart';
 import 'package:zaghrota_app/features/dress_screen/presentation/view/dress_screen.dart';
 import 'package:zaghrota_app/features/dress_screen/presentation/view_model/cubit/dress_screen_cubit.dart';
@@ -221,7 +227,13 @@ class MyApp extends StatelessWidget {
               ),
           ScreenNames.arosaDevicesClothesScreen: (context) =>
               const ArosaDevicesClothesScreen(),
-          ScreenNames.do5laScreen:(context)=>const Do5laScreen()
+          ScreenNames.do5laScreen:(context)=>const Do5laScreen(),
+          ScreenNames.do3a2Screen:(context)=> const Do3a2Screen(),
+          ScreenNames.e8tsaldo3a2Screen:(context)=> const E8tsalDo3a2Screen(),
+          ScreenNames.gema3do3a2Screen:(context)=> const Gema3Do3a2Screen(),
+          ScreenNames.mo3asharahdo3a2Screen:(context)=> const Mo3asharajDo3a2Screen(),
+          ScreenNames.neyado3a2Screen:(context)=> const NeyaDo3a2Screen(),
+          ScreenNames.salado3a2Screen:(context)=> const SalaDo3a2Screen(),
         },
         title: 'Flutter Demo',
         theme: AppTheme.theme,

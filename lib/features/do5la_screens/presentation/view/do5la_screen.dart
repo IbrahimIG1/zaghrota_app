@@ -8,7 +8,7 @@ class Do5laScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: 
+    return const SafeArea(child: 
     Scaffold(
       appBar: CustomAppBar(),
       backgroundColor: AppColors.scaffoldColor,

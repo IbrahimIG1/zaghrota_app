@@ -17,7 +17,7 @@ final void Function(bool?)? onChanged;
     return Column(
       children: [
         Padding(
-          padding: isArabic()? EdgeInsets.only(left: 30.sp):EdgeInsets.only(right: 30.sp),
+          padding: isArabic()? EdgeInsets.only(left: 10.sp):EdgeInsets.only(right: 10.sp),
           child: Container(
             padding: const EdgeInsets.all(10),
             width: .5.sw,

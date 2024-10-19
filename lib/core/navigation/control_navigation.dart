@@ -97,6 +97,25 @@ class ControlNavigation {
         case ScreenNames.do5laScreen:
         Navigator.pushNamed(context, pageName);
         break;
+        case ScreenNames.gema3do3a2Screen:
+        Navigator.pushNamed(context, pageName);
+        break;
+        case ScreenNames.do3a2Screen:
+        Navigator.pushNamed(context, pageName);
+        break;
+        case ScreenNames.salado3a2Screen:
+        Navigator.pushNamed(context, pageName);
+        break;
+        case ScreenNames.e8tsaldo3a2Screen:
+        Navigator.pushNamed(context, pageName);
+        break;
+        case ScreenNames.neyado3a2Screen:
+        Navigator.pushNamed(context, pageName);
+        break;
+        case ScreenNames.mo3asharahdo3a2Screen:
+        Navigator.pushNamed(context, pageName);
+        break;
+        
         
       default:
        Navigator.pushNamed(context, ScreenNames.defaultScreen,);

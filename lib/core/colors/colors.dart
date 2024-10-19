@@ -14,6 +14,7 @@ class AppColors {
   static const Color scaffoldColor = Colors.white;
   static const Color heartColor = Color(0xffE766AC);
   static const Color circleAvatarBorderColor = Color(0xffD83E67);
+  static const Color borderColordo3a2 = Color(0xffD34B94);
   static const Color containerBackground = Color(0xffD83E67);
   static const Color containerBorderColor = Color.fromARGB(255, 247, 242, 242);
   static const Color containerBackground2 = Color(0xffFB1E95);

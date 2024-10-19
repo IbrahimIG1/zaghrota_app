@@ -40,7 +40,7 @@ class HomechoicesListview extends StatelessWidget {
       {
         "title":"شهر العسل",
       "image":"assets/images/homepage_images/St_Valentine_Day.png",
-      "navigation":""
+      "navigation":ScreenNames.arosaDevicesHoneymonthScreen
 
       },
        {
