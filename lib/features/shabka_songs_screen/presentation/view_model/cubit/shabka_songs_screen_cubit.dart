@@ -15,9 +15,12 @@ class ShabkaSongsScreenCubit extends Cubit<ShabkaSongsScreenState> {
 static ShabkaSongsScreenCubit get(context)=> BlocProvider.of<ShabkaSongsScreenCubit>(context);
 GlobalKey<FormState> formKey = GlobalKey();
 TextEditingController controlSingerName = TextEditingController();
+TextEditingController controlSingerEditName = TextEditingController();
 TextEditingController controlSongName = TextEditingController();
+TextEditingController controlSongEditName = TextEditingController();
 TextEditingController controlOrder = TextEditingController();
 TextEditingController controlSongType = TextEditingController();
+TextEditingController controlEditType = TextEditingController();
 
 Future<void> addSong()async{
     SongModel songModel = SongModel(
@@ -87,5 +90,13 @@ Future<void> addSong()async{
     },);
   }
 
-
+void updateData({required int index,required SongModel song})async{
+    var result =await repo.updataSongData(index: index, song:song);
+    result.fold((l) {
+   emit(ShabkaSongsScreenFailure(errormsg: l.errormsg));     
+    }, 
+    (r) {
+      getSongs();
+    },);
+  }
 }

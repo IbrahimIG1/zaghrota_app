@@ -19,95 +19,101 @@ class AddSongDataDialogue extends StatelessWidget {
   final TextEditingController? songNamecontroller;
   final TextEditingController? notecontroller;
   final TextEditingController? orderSongnumbercontroller;
-  final Function addData;
+  final Function addData; 
+  
   @override
   Widget build(context) {
     return FloatingActionButton(
         backgroundColor: AppColors.circleAvatarBorderColor,
         onPressed: () {
-          showDialog(
-              context: context,
-              builder: (context) => AlertDialog(
-                    title: Center(
-                        child: Text(
-                      "بيانات المعزوم",
-                      style: Textstyles.nameOfInvitedPeopleStyle,
-                    )),
-                    backgroundColor: AppColors.scaffoldColor,
-                    content: Form(
-                      key: formKey,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Customtextfield(
-                              controller: songNamecontroller,
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return "من فضلك ادخل الأغنية";
-                                }
-                                return null;
-                              },
-                              // onChanged: (p0) {
-                              // onChanged(p0);
-                              // },
-                              hintText: "اسم الأغنية",
-                              useStyle2: false),
-                          const VerticalSizedBox(height: 15),
-                          Customtextfield(
-                              controller: singerNamecontroller,
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return "من فضلك ادخل المغني";
-                                }
-                                return null;
-                              },
-                              // onChanged: (p0) {
-                              // onChanged(p0);
-                              // },
-                              hintText: "اسم المغني",
-                              useStyle2: false),
-                          const VerticalSizedBox(height: 15),
-                          Customtextfield(
-                              controller: notecontroller,
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return "من فضلك ادخل نوع الأغنية";
-                                }
-                                return null;
-                              },
-                              // onChanged: (p0) {
-                              // onChanged(p0);
-                              // },
-                              hintText: "ادخل نوع الأغنية( سلو- مهرجان)",
-                              useStyle2: false),
-                        
-                          const VerticalSizedBox(height: 15),
-                          ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor:
-                                      AppColors.circleAvatarBorderColor),
-                              onPressed: () async {
-                                if (formKey.currentState!.validate()) {
-                                  addData();
-                                  songNamecontroller!.clear();
-                                  singerNamecontroller!.clear();
-                                  notecontroller!.clear();
-                                }
-                              },
-                              child: Text(
-                                "اضافة",
-                                style: Textstyles.songsTopTitleStyle,
-                              ))
-                        ],
-                      ),
-                    ),
-                  ));
+          songDataDialog(context);
         },
         child: Icon(
           Icons.add,
           size: 20.sp,
           color: Colors.white,
         ));
+  }
+
+  void songDataDialog(BuildContext context,) {
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              title: Center(
+                  child: Text(
+                "بيانات الأغنية",
+                style: Textstyles.nameOfInvitedPeopleStyle,
+              )),
+              backgroundColor: AppColors.scaffoldColor,
+              content: Form(
+                key: formKey,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Customtextfield(
+                        controller: songNamecontroller,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "من فضلك ادخل الأغنية";
+                          }
+                          return null;
+                        },
+                        // onChanged: (p0) {
+                        // onChanged(p0);
+                        // },
+                        hintText: "اسم الأغنية",
+                        useStyle2: false),
+                    const VerticalSizedBox(height: 15),
+                    Customtextfield(
+                        controller: singerNamecontroller,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "من فضلك ادخل المغني";
+                          }
+                          return null;
+                        },
+                        // onChanged: (p0) {
+                        // onChanged(p0);
+                        // },
+                        hintText: "اسم المغني",
+                        useStyle2: false),
+                    const VerticalSizedBox(height: 15),
+                    Customtextfield(
+                        controller: notecontroller,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "من فضلك ادخل نوع الأغنية";
+                          }
+                          return null;
+                        },
+                        // onChanged: (p0) {
+                        // onChanged(p0);
+                        // },
+                        hintText: "ادخل نوع الأغنية( سلو- مهرجان)",
+                        useStyle2: false),
+                  
+                    const VerticalSizedBox(height: 15),
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                AppColors.circleAvatarBorderColor),
+                        onPressed: () async {
+                          if (formKey.currentState!.validate()) {
+                            addData();
+                            songNamecontroller!.clear();
+                            singerNamecontroller!.clear();
+                            notecontroller!.clear();
+                            Navigator.pop(context);
+                          }
+                        },
+                        child: Text(
+                          "اضافة",
+                          style: Textstyles.songsTopTitleStyle,
+                        ))
+                  ],
+                ),
+              ),
+            ));
   }
 }

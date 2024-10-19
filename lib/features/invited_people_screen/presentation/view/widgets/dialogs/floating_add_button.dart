@@ -85,6 +85,7 @@ class AddDataDialogue extends StatelessWidget {
                                   addData();
                                   namecontroller!.clear();
                                   numbercontroller!.clear();
+                                  Navigator.pop(context);
                                 }
                               },
                               child: Text(

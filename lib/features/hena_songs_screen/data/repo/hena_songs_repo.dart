@@ -22,7 +22,21 @@ class HenaSongsRepo {
   }
   }
 
+Future<Either<ErrorModel, void>> updataSongData({required int index,required SongModel song})async{
+  try{
+   await hiive.updateItem<SongModel>(boxName: BoxesNames.songshena, index: index, value: song);
+    return right(null);
+  }
 
+ on HiveError catch (e){
+    return left(ErrorModel(errormsg: "The error from hive is $e"));
+
+  }
+ catch (e) {
+    return left(ErrorModel(errormsg: "The error is $e"));
+    
+  }
+}
 Either<ErrorModel,List<SongModel>> getSongs(){
   try {
     List<SongModel> data = hiive.getBoxValues<SongModel>(boxName: BoxesNames.songshena) as List<SongModel>;

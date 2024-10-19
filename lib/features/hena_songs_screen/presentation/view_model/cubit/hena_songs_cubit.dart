@@ -18,6 +18,10 @@ TextEditingController controlSongName = TextEditingController();
 TextEditingController controlOrder = TextEditingController();
 TextEditingController controlSongType = TextEditingController();
 
+  TextEditingController controlEditSingerName = TextEditingController();
+  TextEditingController controlEditSongName = TextEditingController();
+  TextEditingController controlEditSongTypeName = TextEditingController();
+
 Future<void> addSong()async{
     SongModel songModel = SongModel(
       singerName: controlSingerName.text,
@@ -82,6 +86,16 @@ Future<void> addSong()async{
     },(r) {
       print("Delete item Success====>>>> ");
 
+      getSongs();
+    },);
+  }
+
+  void updateData({required int index,required SongModel song})async{
+    var result =await repo.updataSongData(index: index, song:song);
+    result.fold((l) {
+   emit(HenaSongsScreenFailure(errormsg: l.errormsg));     
+    }, 
+    (r) {
       getSongs();
     },);
   }

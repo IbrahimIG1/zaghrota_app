@@ -13,11 +13,16 @@ class FarahSongsScreenCubit extends Cubit<FarahSongsScreenState> {
   FarahSongsScreenCubit() : super(FarahSongsScreenInitial());
 Fara7SongsRepo repo = Fara7SongsRepo();
 static FarahSongsScreenCubit get(context)=> BlocProvider.of<FarahSongsScreenCubit>(context);
-GlobalKey<FormState> formKey = GlobalKey();
+GlobalKey<FormState> formKey = GlobalKey<FormState>();
+GlobalKey<FormState> forEditmKey = GlobalKey<FormState>();
 TextEditingController controlSingerName = TextEditingController();
+TextEditingController controlEditSingerName = TextEditingController();
 TextEditingController controlSongName = TextEditingController();
+TextEditingController controlEditSongName = TextEditingController();
 TextEditingController controlOrder = TextEditingController();
+// TextEditingController controlEditOrder = TextEditingController();
 TextEditingController controlSongType = TextEditingController();
+TextEditingController controlEditSongType = TextEditingController();
 
 Future<void> addSong()async{
     SongModel songModel = SongModel(
@@ -32,6 +37,7 @@ Future<void> addSong()async{
     emit(FarahSongsScreenFailure(errormsg: l.errormsg));
    }, (r) {
     getSongs();
+    
    } ,);
 
 
@@ -87,6 +93,14 @@ Future<void> addSong()async{
     },);
   }
 
-
+  void updateData({required int index,required SongModel song})async{
+    var result =await repo.updataSongData(index: index, song:song);
+    result.fold((l) {
+   emit(FarahSongsScreenFailure(errormsg: l.errormsg));     
+    }, 
+    (r) {
+      getSongs();
+    },);
+  }
 
 }

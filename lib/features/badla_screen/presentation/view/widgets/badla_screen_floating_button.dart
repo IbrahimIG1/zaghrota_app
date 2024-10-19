@@ -60,6 +60,7 @@ class BadlaScreenFloatingButton extends StatelessWidget {
                                 if (formKey.currentState!.validate()) {
                                   addData();
                                   namecontroller!.clear();
+                                  Navigator.pop(context);
                                   
                                 }
                               },

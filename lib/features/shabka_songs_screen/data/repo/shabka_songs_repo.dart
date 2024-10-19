@@ -81,4 +81,19 @@ Future<Either<ErrorModel,Null>> deleteValue({required int index})async{
   }
   
 }
+Future<Either<ErrorModel, void>> updataSongData({required int index,required SongModel song})async{
+  try{
+   await hiive.updateItem<SongModel>(boxName: BoxesNames.songsShabka, index: index, value: song);
+    return right(null);
+  }
+
+ on HiveError catch (e){
+    return left(ErrorModel(errormsg: "The error from hive is $e"));
+
+  }
+ catch (e) {
+    return left(ErrorModel(errormsg: "The error is $e"));
+    
+  }
+}
 }

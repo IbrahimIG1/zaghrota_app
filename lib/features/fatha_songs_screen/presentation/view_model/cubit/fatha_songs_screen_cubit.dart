@@ -13,9 +13,12 @@ class FathaSongsScreenCubit extends Cubit<FathaSongsScreenState> {
 static FathaSongsScreenCubit get(context)=> BlocProvider.of<FathaSongsScreenCubit>(context);
 GlobalKey<FormState> formKey = GlobalKey();
 TextEditingController controlSingerName = TextEditingController();
+TextEditingController controlEditSingerName = TextEditingController();
 TextEditingController controlSongName = TextEditingController();
+TextEditingController controlEditSongName = TextEditingController();
 TextEditingController controlOrder = TextEditingController();
 TextEditingController controlSongType = TextEditingController();
+TextEditingController controlEditSongType = TextEditingController();
 
 Future<void> addSong()async{
     SongModel songModel = SongModel(
@@ -81,6 +84,16 @@ Future<void> addSong()async{
     },(r) {
       print("Delete item Success====>>>> ");
 
+      getSongs();
+    },);
+  }
+
+  void updateData({required int index,required SongModel song})async{
+    var result =await repo.updataSongData(index: index, song:song);
+    result.fold((l) {
+   emit(FathaSongsScreenFailure(errormsg: l.errormsg));     
+    }, 
+    (r) {
       getSongs();
     },);
   }
