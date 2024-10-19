@@ -10,16 +10,31 @@ import 'package:zaghrota_app/features/advertisement_screen/presentation/view/adv
 import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/data/model/devices_model.dart';
 import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/presentation/view/arosa_devices_bath_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/presentation/view_model/cubit/devices_bath_screen_cubit.dart';
+import 'package:zaghrota_app/features/arosa_devices_centain_clothes_screen/presentation/view/arosa_devices_centian_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_centain_clothes_screen/presentation/view_model/cubit/centain_clothes_cubit.dart';
+import 'package:zaghrota_app/features/arosa_devices_clothes_daily_screen/presentation/view/arosa_devices_clothes_daily_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_clothes_daily_screen/presentation/view_model/cubit/devices_daily_clothes_cubit.dart';
 import 'package:zaghrota_app/features/arosa_devices_clothes_screen/presentation/view/arosa_devices_clothes_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_clothes_screen/presentation/view_model/cubit/clothes_screen_cubit.dart';
 import 'package:zaghrota_app/features/arosa_devices_electronics_screen/presentation/view/arosa_devices_electronics_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_electronics_screen/presentation/view_model/cubit/devices_electronics_screen_cubit.dart';
+import 'package:zaghrota_app/features/arosa_devices_formal_clothes_screen/presentation/view/arosa_devices_formal_clothes_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_formal_clothes_screen/presentation/view_model/cubit/formal_clothes_cubit.dart';
+import 'package:zaghrota_app/features/arosa_devices_harir_clothes_screen/presentation/view/arosa_devices_harir_clothes_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_harir_clothes_screen/presentation/view_model/cubit/harir_clothes_cubit.dart';
+import 'package:zaghrota_app/features/arosa_devices_home_occ_screen/presentation/view/arosa_devices_home_occ_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_home_occ_screen/presentation/view_model/cubit/home_occ_clothes_cubit.dart';
 import 'package:zaghrota_app/features/arosa_devices_honeymonth_screen/presentation/view/arosa_devices_honemonth_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_honeymonth_screen/presentation/view_model/cubit/devices_honey_month_screen_cubit.dart';
 import 'package:zaghrota_app/features/arosa_devices_kitchen_screen/presentation/view/arosa_devices_kitchen_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_kitchen_screen/presentation/view_model/cubit/devices_kitchen_screen_cubit.dart';
 import 'package:zaghrota_app/features/arosa_devices_mafroshat_screen/presentation/view/arosa_devices_mafroshat_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_mafroshat_screen/presentation/view_model/cubit/devices_mafroshaat_screen_cubit.dart';
+import 'package:zaghrota_app/features/arosa_devices_noom_screen/presentation/view/arosa_devices_noom_clothes_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_noom_screen/presentation/view_model/cubit/noom_clothes_cubit.dart';
 import 'package:zaghrota_app/features/arosa_devices_screen/presentation/view/arosa_devices_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_sports_clothes_screen/presentation/view/arosa_devices_sports_clothes_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_sports_clothes_screen/presentation/view_model/cubit/sports_clothes_cubit.dart';
 import 'package:zaghrota_app/features/badla_screen/data/model/badla_model.dart';
 import 'package:zaghrota_app/features/badla_screen/presentation/view/badla_screen.dart';
 import 'package:zaghrota_app/features/badla_screen/presentation/view_model/cubit/badla_screen_cubit.dart';
@@ -89,7 +104,15 @@ void main() async {
   await Hive.openBox<DevicesModel>(BoxesNames.devicesMafrooshat);
   await Hive.openBox<DevicesModel>(BoxesNames.devicesHoneyMoon);
   await Hive.openBox<DevicesModel>(BoxesNames.devicesElectronics);
+  await Hive.openBox<DevicesModel>(BoxesNames.devicesDailyClothes);
+  await Hive.openBox<DevicesModel>(BoxesNames.devicesNoomClothes);
+  await Hive.openBox<DevicesModel>(BoxesNames.devicesHomeOccClothes);
+  await Hive.openBox<DevicesModel>(BoxesNames.devicesCentianClothes);
+  await Hive.openBox<DevicesModel>(BoxesNames.devicesFormalClothes);
+  await Hive.openBox<DevicesModel>(BoxesNames.devicesSportsClothes);
+  await Hive.openBox<DevicesModel>(BoxesNames.devicesHarirClothes);
   await Hive.openBox<bool>(BoxesNames.dressChecks);
+  await Hive.openBox<bool>(BoxesNames.clothesChecks);
   await Hive.openBox<bool>(BoxesNames.sessionChecks);
   await Hive.openBox<SongModel>(BoxesNames.songsFarah);
   await Hive.openBox<SongModel>(BoxesNames.songshena);
@@ -225,15 +248,49 @@ class MyApp extends StatelessWidget {
                     FathaInvitedPeopleScreenCubit()..getInvitedPeople(),
                 child: const FathaMa3aazeemInvitedPeopleScreen(),
               ),
-          ScreenNames.arosaDevicesClothesScreen: (context) =>
-              const ArosaDevicesClothesScreen(),
-          ScreenNames.do5laScreen:(context)=>const Do5laScreen(),
-          ScreenNames.do3a2Screen:(context)=> const Do3a2Screen(),
-          ScreenNames.e8tsaldo3a2Screen:(context)=> const E8tsalDo3a2Screen(),
-          ScreenNames.gema3do3a2Screen:(context)=> const Gema3Do3a2Screen(),
-          ScreenNames.mo3asharahdo3a2Screen:(context)=> const Mo3asharajDo3a2Screen(),
-          ScreenNames.neyado3a2Screen:(context)=> const NeyaDo3a2Screen(),
-          ScreenNames.salado3a2Screen:(context)=> const SalaDo3a2Screen(),
+          ScreenNames.arosaDevicesClothesScreen: (context) => BlocProvider(
+                create: (context) => ClothesScreenCubit()..getCheckedData(),
+                child: const ArosaDevicesClothesScreen(),
+              ),
+          ScreenNames.do5laScreen: (context) => const Do5laScreen(),
+          ScreenNames.do3a2Screen: (context) => const Do3a2Screen(),
+          ScreenNames.e8tsaldo3a2Screen: (context) => const E8tsalDo3a2Screen(),
+          ScreenNames.gema3do3a2Screen: (context) => const Gema3Do3a2Screen(),
+          ScreenNames.mo3asharahdo3a2Screen: (context) =>
+              const Mo3asharajDo3a2Screen(),
+          ScreenNames.neyado3a2Screen: (context) => const NeyaDo3a2Screen(),
+          ScreenNames.salado3a2Screen: (context) => const SalaDo3a2Screen(),
+          ScreenNames.arosaDevicesDailyClothesScreen: (context) => BlocProvider(
+                create: (context) => DevicesDailyClothesCubit()..getDaata(),
+                child: const ArosaDevicesClothesDailyScreen(),
+              ),
+          ScreenNames.arosaDevicesNoomClothesScreen: (context) => BlocProvider(
+                create: (context) => NoomClothesCubit()..getDaata(),
+                child: const ArosaDevicesNoomClothesScreen(),
+              ),
+          ScreenNames.arosaDevicesHomeClothesScreen: (context) => BlocProvider(
+                create: (context) => HomeOccClothesCubit()..getDaata(),
+                child: const ArosaDevicesHomeOccScreen(),
+              ),
+          ScreenNames.arosaDevicesCentianClothesScreen: (context) =>
+              BlocProvider(
+                create: (context) => CentainClothesCubit()..getDaata(),
+                child: const ArosaDevicesCentianScreen(),
+              ),
+          ScreenNames.arosaDevicesFormalClothesScreen: (context) =>
+              BlocProvider(
+                create: (context) => FormalClothesCubit()..getDaata(),
+                child: const ArosaDevicesFormalClothesScreen(),
+              ),
+          ScreenNames.arosaDevicesSportsClothesScreen: (context) =>
+              BlocProvider(
+                create: (context) => SportsClothesCubit()..getDaata(),
+                child: const ArosaDevicesSportsClothesScreen(),
+              ),
+          ScreenNames.arosaDevicesHarirClothesScreen: (context) => BlocProvider(
+                create: (context) => HarirClothesCubit()..getDaata(),
+                child: const ArosaDevicesHarirClothesScreen(),
+              )
         },
         title: 'Flutter Demo',
         theme: AppTheme.theme,

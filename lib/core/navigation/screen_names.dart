@@ -21,6 +21,13 @@ class ScreenNames {
   static const String arosaDevicesHoneymonthScreen= "/arosaDevicesHoneyScreen";
   static const String arosaDevicesElectroScreen= "/arosaDevicesElectroScreen";
   static const String arosaDevicesClothesScreen= "/arosaDevicesClothesScreen";
+  static const String arosaDevicesDailyClothesScreen= "/arosaDevicesDailyClothesScreen";
+  static const String arosaDevicesNoomClothesScreen= "/arosaDevicesNoomClothesScreen";
+  static const String arosaDevicesHomeClothesScreen= "/arosaDevicesHomeClothesScreen";
+  static const String arosaDevicesCentianClothesScreen= "/arosaDevicesCentianClothesScreen";
+  static const String arosaDevicesFormalClothesScreen= "/arosaDevicesFormalClothesScreen";
+  static const String arosaDevicesSportsClothesScreen= "/arosaDevicesSportsClothesScreen";
+  static const String arosaDevicesHarirClothesScreen= "/arosaDevicesHarirClothesScreen";
   static const String sessionScreen= "/SessionScreen";
   static const String henaScreen= "/HenaScreen";
   static const String mohafzatScreen= "/MohafzatScreen";

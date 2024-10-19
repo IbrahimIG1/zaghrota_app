@@ -2,6 +2,7 @@ abstract class BoxesNames {
   static const invitedPeoples = "InvitedPeoples";
   static const badlaitems = "BadlaItems";
   static const dressChecks = "DressChecks";
+  static const clothesChecks = "clothesChecks";
   static const sessionChecks = "SessionChecks";
   static const invitedPeopleHena = "invitedPeopleHena";
   static const invitedPeopleShabka = "invitedPeopleShabka";
@@ -15,5 +16,12 @@ abstract class BoxesNames {
   static const devicesMafrooshat = "devicesMafroshaat";
   static const devicesHoneyMoon = "devicesHoneyMoon";
   static const devicesElectronics = "devicesElectronics";
+  static const devicesDailyClothes = "devicesDailyClothes";
+  static const devicesNoomClothes = "devicesNoomClothes";
+  static const devicesHomeOccClothes = "devicesHomeOccClothes";
+  static const devicesCentianClothes = "devicesCentianClothes";
+  static const devicesFormalClothes = "devicesFormalClothes";
+  static const devicesSportsClothes = "devicesSportsClothes";
+  static const devicesHarirClothes = "devicesHarirClothes";
   static const farahBox = "FarahBox";
 }
