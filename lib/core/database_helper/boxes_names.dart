@@ -20,8 +20,12 @@ abstract class BoxesNames {
   static const devicesNoomClothes = "devicesNoomClothes";
   static const devicesHomeOccClothes = "devicesHomeOccClothes";
   static const devicesCentianClothes = "devicesCentianClothes";
+  static const devicesR2sClothes = "devicesR2sClothes";
   static const devicesFormalClothes = "devicesFormalClothes";
+  static const devicesUnFormalClothes = "devicesUnFormalClothes";
   static const devicesSportsClothes = "devicesSportsClothes";
   static const devicesHarirClothes = "devicesHarirClothes";
+  static const devicesAccessories = "devicesAccessories";
+  static const devicesShoes = "devicesShoes";
   static const farahBox = "FarahBox";
 }

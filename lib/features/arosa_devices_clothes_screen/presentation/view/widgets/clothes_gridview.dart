@@ -46,10 +46,23 @@ class ClothesGridview extends StatelessWidget {
       },
       {
         "img": "assets/images/clothes_devices_screen_images/mshRsmi.png",
-        "title": "خروج غير الرسمية"
+        "title": "خروج غير الرسمية",
+        "nav":ScreenNames.arosaDevicesUnFormalClothesScreen
+      },
+       {
+        "img": "assets/images/clothes_devices_screen_images/accessories.png",
+        "title": "الاكسسوارات",
+        "nav":ScreenNames.arosaDevicesAccessoriesScreen
       },
       {"img": "assets/images/clothes_devices_screen_images/shoes.png", 
-      "title": "الأحذية"},
+      "title": "الأحذية",
+      "nav":ScreenNames.arosaDevicesShoesScreen
+      },
+       {
+        "img": "assets/images/clothes_devices_screen_images/ra2s.png",
+        "title": "بدل الرقص",
+        "nav":ScreenNames.arosaDevicesR2sScreen
+      },
     ];
      return BlocConsumer<ClothesScreenCubit, ClothesScreenState>(
       listener: (context, state) {

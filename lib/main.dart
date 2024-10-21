@@ -7,6 +7,8 @@ import 'package:zaghrota_app/core/app_Themes/app_theme.dart';
 import 'package:zaghrota_app/core/database_helper/boxes_names.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/features/advertisement_screen/presentation/view/advertisement_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_accessories_screen/presentation/view/arosa_devices_accessories_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_accessories_screen/presentation/view_model/cubit/accessories_cubit.dart';
 import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/data/model/devices_model.dart';
 import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/presentation/view/arosa_devices_bath_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/presentation/view_model/cubit/devices_bath_screen_cubit.dart';
@@ -32,9 +34,15 @@ import 'package:zaghrota_app/features/arosa_devices_mafroshat_screen/presentatio
 import 'package:zaghrota_app/features/arosa_devices_mafroshat_screen/presentation/view_model/cubit/devices_mafroshaat_screen_cubit.dart';
 import 'package:zaghrota_app/features/arosa_devices_noom_screen/presentation/view/arosa_devices_noom_clothes_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_noom_screen/presentation/view_model/cubit/noom_clothes_cubit.dart';
+import 'package:zaghrota_app/features/arosa_devices_r2s_clothes_screen/presentation/view/arosa_devices_r2s_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_r2s_clothes_screen/presentation/view_model/cubit/r2s_clothes_cubit.dart';
 import 'package:zaghrota_app/features/arosa_devices_screen/presentation/view/arosa_devices_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_shoes_screen/presentation/view/arosa_devices_shoes_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_shoes_screen/presentation/view_model/cubit/shoes_clothes_cubit.dart';
 import 'package:zaghrota_app/features/arosa_devices_sports_clothes_screen/presentation/view/arosa_devices_sports_clothes_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_sports_clothes_screen/presentation/view_model/cubit/sports_clothes_cubit.dart';
+import 'package:zaghrota_app/features/arosa_devices_unformal_clothes_screen/presentation/view/arosa_devices_unformal_screen.dart';
+import 'package:zaghrota_app/features/arosa_devices_unformal_clothes_screen/presentation/view_model/cubit/unformal_clothes_cubit.dart';
 import 'package:zaghrota_app/features/badla_screen/data/model/badla_model.dart';
 import 'package:zaghrota_app/features/badla_screen/presentation/view/badla_screen.dart';
 import 'package:zaghrota_app/features/badla_screen/presentation/view_model/cubit/badla_screen_cubit.dart';
@@ -109,8 +117,12 @@ void main() async {
   await Hive.openBox<DevicesModel>(BoxesNames.devicesHomeOccClothes);
   await Hive.openBox<DevicesModel>(BoxesNames.devicesCentianClothes);
   await Hive.openBox<DevicesModel>(BoxesNames.devicesFormalClothes);
+  await Hive.openBox<DevicesModel>(BoxesNames.devicesUnFormalClothes);
   await Hive.openBox<DevicesModel>(BoxesNames.devicesSportsClothes);
   await Hive.openBox<DevicesModel>(BoxesNames.devicesHarirClothes);
+  await Hive.openBox<DevicesModel>(BoxesNames.devicesAccessories);
+  await Hive.openBox<DevicesModel>(BoxesNames.devicesShoes);
+  await Hive.openBox<DevicesModel>(BoxesNames.devicesR2sClothes);
   await Hive.openBox<bool>(BoxesNames.dressChecks);
   await Hive.openBox<bool>(BoxesNames.clothesChecks);
   await Hive.openBox<bool>(BoxesNames.sessionChecks);
@@ -290,6 +302,26 @@ class MyApp extends StatelessWidget {
           ScreenNames.arosaDevicesHarirClothesScreen: (context) => BlocProvider(
                 create: (context) => HarirClothesCubit()..getDaata(),
                 child: const ArosaDevicesHarirClothesScreen(),
+              ),
+          ScreenNames.arosaDevicesUnFormalClothesScreen: (context) =>
+              BlocProvider(
+                create: (context) => UnformalClothesCubit()..getDaata(),
+                child: const ArosaDevicesUnformalScreen(),
+              ),
+          ScreenNames.arosaDevicesAccessoriesScreen: (context) =>
+              BlocProvider(
+                create: (context) => AccessoriesCubit()..getDaata(),
+                child: const ArosaDevicesAccessoriesScreen(),
+              ),
+          ScreenNames.arosaDevicesShoesScreen: (context) =>
+              BlocProvider(
+                create: (context) => ShoesClothesCubit()..getDaata(),
+                child: const ArosaDevicesShoesScreen(),
+              ),
+          ScreenNames.arosaDevicesR2sScreen: (context) =>
+              BlocProvider(
+                create: (context) => R2sClothesCubit()..getDaata(),
+                child: const ArosaDevicesR2sScreen(),
               )
         },
         title: 'Flutter Demo',

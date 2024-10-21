@@ -136,6 +136,18 @@ class ControlNavigation {
         case ScreenNames.arosaDevicesHarirClothesScreen:
         Navigator.pushNamed(context, pageName);
         break;
+        case ScreenNames.arosaDevicesUnFormalClothesScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
+        case ScreenNames.arosaDevicesAccessoriesScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
+        case ScreenNames.arosaDevicesShoesScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
+        case ScreenNames.arosaDevicesR2sScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
         
         
         
