@@ -28,4 +28,8 @@ abstract class BoxesNames {
   static const devicesAccessories = "devicesAccessories";
   static const devicesShoes = "devicesShoes";
   static const farahBox = "FarahBox";
+  static const weddingNotesBox = "weddingNotesBox";
+  static const fathaNotesBox = "fathaNotesBox";
+  static const henaNotesBox = "HenaNotesBox";
+  static const shabkaNotesBox = "ShabkaNotesBox";
 }

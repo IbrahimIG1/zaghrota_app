@@ -28,6 +28,9 @@ class ControlNavigation {
         case ScreenNames.advertisementScreen:
         Navigator.pushNamed(context, pageName,arguments: arguments);
         break;
+        case ScreenNames.noteDetails:
+        Navigator.pushNamed(context, pageName,arguments: arguments);
+        break;
         case ScreenNames.bdlaScreen:
         Navigator.pushNamed(context, pageName);
         break;
@@ -146,6 +149,18 @@ class ControlNavigation {
         Navigator.pushNamed(context, pageName);
         break;
         case ScreenNames.arosaDevicesR2sScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
+        case ScreenNames.weddingNotesScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
+        case ScreenNames.fathaNotesScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
+        case ScreenNames.henaNotesScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
+       case ScreenNames.shabkaNotesScreen:
         Navigator.pushNamed(context, pageName);
         break;
         

@@ -44,7 +44,7 @@ class FathaListview extends StatelessWidget {
     "image":"assets/images/wedding_items_screen_images/Taking_notes_with_pencil.png",
     "height":200.h,
     "width":200.w,
-    "navigation":""
+    "navigation":ScreenNames.fathaNotesScreen
     },
     {
     "title":"تنبيهات",
