@@ -46,13 +46,7 @@ class ShabkaItemsChoicesListview extends StatelessWidget {
     "width":200.w,
     "navigation":ScreenNames.shabkaNotesScreen
     },
-    {
-    "title":"تنبيهات",
-    "image":"assets/images/wedding_items_screen_images/clock.png",
-    "height":150.h,
-    "width":150.w,
-    "navigation":""
-    },
+   
     ];
     
     return SizedBox(

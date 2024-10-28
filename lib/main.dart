@@ -100,11 +100,14 @@ import 'package:zaghrota_app/features/wedding_notes_screen/presentation/view/wed
 import 'package:zaghrota_app/features/wedding_notes_screen/presentation/view_model/cubit/wedding_notes_screen_cubit.dart';
 import 'package:zaghrota_app/features/wedding_preprations_screen/presentation/view/wedding_preprations_screen.dart';
 import 'package:zaghrota_app/generated/l10n.dart';
+import 'package:zaghrota_app/notification_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await ScreenUtil.ensureScreenSize();
+  await NotificationService.init();
   await Hive.initFlutter();
+  
   Hive.registerAdapter(InvitedModelAdapter());
   Hive.registerAdapter(BadlaModelAdapter());
   Hive.registerAdapter(SongModelAdapter());
