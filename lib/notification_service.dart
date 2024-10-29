@@ -1,6 +1,8 @@
 
+// import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-
+import 'package:timezone/data/latest_all.dart' as tz;
+import 'package:timezone/timezone.dart' as tz;
 class NotificationService {
   static FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
   //----- this static function for solving error
@@ -35,6 +37,21 @@ RepeatInterval.hourly
 android: AndroidNotificationDetails("0", "Android",priority: Priority.max,importance: Importance.max),
 iOS: DarwinNotificationDetails()
 ) );
+ }
+
+ static Future<void> schduledNotification({required int id,required String title,required DateTime date,})async{
+    tz.initializeTimeZones();
+  
+    // print(tz.local);
+    await flutterLocalNotificationsPlugin.zonedSchedule(id, title, "",
+     tz.TZDateTime(tz.getLocation("Africa/Cairo"), date.year, date.month,date.day, date.hour, date.minute+5),
+      const NotificationDetails(
+        android: AndroidNotificationDetails("1", "chan"),
+        iOS: DarwinNotificationDetails()
+      ), 
+      uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime);
+    
+
  }
 
  static Future<void> cancelNotification({required int index})async{

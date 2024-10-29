@@ -25,6 +25,7 @@ class ShabkaNotesScreen extends StatelessWidget {
         builder: (context, state) {
           var cubit = ShabkaNotesScreenCubit.get(context);
           return AddNoteDataDialogue(
+              dateNotecontroller: cubit.datecont ,
               formKey: cubit.keey,
               onChanged: (c) {},
               titleNotecontroller: cubit.title,

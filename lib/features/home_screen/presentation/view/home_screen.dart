@@ -103,6 +103,8 @@ String? arosName;
           StatefulBuilder(
             builder: (context,set) {
               return CustomDatefield(
+
+                
                 validator: (p0) {
                   if (entrydate == null) {
                     return "من فضلك أدخل تاريخ الزواج";

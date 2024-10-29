@@ -15,6 +15,8 @@ class HenaNotesScreenCubit extends Cubit<HenaNotesScreenState> {
   TextEditingController title = TextEditingController();
   TextEditingController content = TextEditingController();
   GlobalKey<FormState> keey = GlobalKey<FormState>();
+  TextEditingController datecont = TextEditingController();
+  
 
   void getdata(){
     var result = repo.getdata();
@@ -30,7 +32,7 @@ class HenaNotesScreenCubit extends Cubit<HenaNotesScreenState> {
   }
 
   Future<void> addData()async {
-    var result = await repo.addData(note: NoteModel(title: title.text, content: content.text, date: DateTime.now()));
+    var result = await repo.addData(note: NoteModel(title: title.text, content: content.text, date: DateTime.parse(datecont.text.toString())));
 
     result.fold(
       (l) {

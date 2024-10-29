@@ -25,6 +25,7 @@ class HenaNotesScreen extends StatelessWidget {
         builder: (context, state) {
           var cubit = HenaNotesScreenCubit.get(context);
           return AddNoteDataDialogue(
+              dateNotecontroller: cubit.datecont,
               formKey: cubit.keey,
               onChanged: (c) {},
               titleNotecontroller: cubit.title,

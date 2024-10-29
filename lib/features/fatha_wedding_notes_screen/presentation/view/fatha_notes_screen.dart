@@ -25,6 +25,8 @@ class FathaNotesScreen extends StatelessWidget {
         builder: (context, state) {
           var cubit = FathaNotesScreenCubit.get(context);
           return AddNoteDataDialogue(
+              // entrydatee: cubit.entrydate!,
+              dateNotecontroller: cubit.datecont,
               formKey: cubit.keey,
               onChanged: (c) {},
               titleNotecontroller: cubit.title,

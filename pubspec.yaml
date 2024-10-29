@@ -44,6 +44,8 @@ dependencies:
   flutter_bloc: ^8.1.6
   carousel_slider: ^5.0.0
   flutter_local_notifications: ^17.2.4
+  timezone: ^0.9.4
+  flutter_timezone: ^3.0.1
   
 
 dev_dependencies:
