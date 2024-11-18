@@ -77,12 +77,11 @@ import 'package:zaghrota_app/features/invited_people_screen/presentation/view/in
 import 'package:zaghrota_app/features/invited_people_screen/presentation/view_model/cubit/invited_people_cubit.dart';
 import 'package:zaghrota_app/features/invited_people_shabka_screen/presentation/view/invited_people_shabka_screen.dart';
 import 'package:zaghrota_app/features/invited_people_shabka_screen/presentation/view_model/cubit/invited_people_screen_shabka_cubit.dart';
-import 'package:zaghrota_app/features/ka3at_screen/presentation/view/ka3at_screen.dart';
 import 'package:zaghrota_app/features/login_screen/data/farah_model.dart';
 import 'package:zaghrota_app/features/login_screen/presentation/view/login_screen.dart';
 import 'package:zaghrota_app/features/login_screen/presentation/view_model/cubit/farah_data_cubit.dart';
-import 'package:zaghrota_app/features/mohafazat_modn_screen/presentation/view/mohafzat_modn_screen.dart';
 import 'package:zaghrota_app/features/mohafzat_screen/presentation/view/mohafzat_screen.dart';
+import 'package:zaghrota_app/features/mohafzat_screen/presentation/view_model/cubit/get_mohafza_cubit.dart';
 import 'package:zaghrota_app/features/note_detail_screen/presentation/view/note_details_screen.dart';
 import 'package:zaghrota_app/features/session_screen/presentation/view/session_screen.dart';
 import 'package:zaghrota_app/features/session_screen/presentation/view_model/cubit/session_screen_cubit.dart';
@@ -107,7 +106,7 @@ void main() async {
   await ScreenUtil.ensureScreenSize();
   await NotificationService.init();
   await Hive.initFlutter();
-  
+
   Hive.registerAdapter(InvitedModelAdapter());
   Hive.registerAdapter(BadlaModelAdapter());
   Hive.registerAdapter(SongModelAdapter());
@@ -185,16 +184,17 @@ class MyApp extends StatelessWidget {
                 );
               },
             );
-          }
-          else if(settings.name == ScreenNames.noteDetails){
+          } else if (settings.name == ScreenNames.noteDetails) {
             final args = settings.arguments as Map<String, dynamic>;
 
-            return MaterialPageRoute(builder: (context) {
-              return NoteDetailsScreen(
-                title: args["title"],
-                content: args["content"],
-              );
-            },);
+            return MaterialPageRoute(
+              builder: (context) {
+                return NoteDetailsScreen(
+                  title: args["title"],
+                  content: args["content"],
+                );
+              },
+            );
           }
           return null;
         },
@@ -235,8 +235,10 @@ class MyApp extends StatelessWidget {
                 child: const SessionScreen(),
               ),
           ScreenNames.henaScreen: (context) => const HenaScreen(),
-          ScreenNames.mohafzatScreen: (context) => const MohafzatScreen(),
-          ScreenNames.ka3atScreen: (context) => const Ka3atScreen(),
+          ScreenNames.mohafzatScreen: (context) => BlocProvider(
+                create: (context) => GetMohafzaCubit()..getMohafzat(),
+                child: const MohafzatScreen(),
+              ),
           ScreenNames.invitedPeopleHenaScreen: (context) => BlocProvider(
                 create: (context) =>
                     InvitedPeopleHenaScreenCubit()..getInvitedPeople(),
@@ -282,7 +284,7 @@ class MyApp extends StatelessWidget {
                     DevicesElectronicsScreenCubit()..getDaata(),
                 child: const ArosaDevicesElectronicsScreen(),
               ),
-          ScreenNames.modnScreen: (context) => const MohafzatModnScreen(),
+          
           ScreenNames.invitedPeopleFathaScreen: (context) => BlocProvider(
                 create: (context) =>
                     FathaInvitedPeopleScreenCubit()..getInvitedPeople(),
@@ -348,23 +350,22 @@ class MyApp extends StatelessWidget {
                 create: (context) => R2sClothesCubit()..getDaata(),
                 child: const ArosaDevicesR2sScreen(),
               ),
-          ScreenNames.weddingNotesScreen: (context) =>  BlocProvider(
+          ScreenNames.weddingNotesScreen: (context) => BlocProvider(
                 create: (context) => WeddingNotesScreenCubit()..getdata(),
                 child: const WeddingNotesScreen(),
               ),
-          ScreenNames.fathaNotesScreen: (context) =>  BlocProvider(
+          ScreenNames.fathaNotesScreen: (context) => BlocProvider(
                 create: (context) => FathaNotesScreenCubit()..getdata(),
                 child: const FathaNotesScreen(),
               ),
-          ScreenNames.henaNotesScreen: (context) =>  BlocProvider(
+          ScreenNames.henaNotesScreen: (context) => BlocProvider(
                 create: (context) => HenaNotesScreenCubit()..getdata(),
                 child: const HenaNotesScreen(),
               ),
-          ScreenNames.shabkaNotesScreen: (context) =>  BlocProvider(
+          ScreenNames.shabkaNotesScreen: (context) => BlocProvider(
                 create: (context) => ShabkaNotesScreenCubit()..getdata(),
                 child: const ShabkaNotesScreen(),
               ),
-          
         },
         title: 'Flutter Demo',
         theme: AppTheme.theme,

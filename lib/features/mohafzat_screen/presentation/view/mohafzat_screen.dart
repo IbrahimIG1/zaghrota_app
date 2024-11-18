@@ -12,8 +12,10 @@ class MohafzatScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: AppColors.scaffoldColor,
         appBar: CustomAppBar(),
-        body: SingleChildScrollView(
-          child: MohafzatGridview()
+        body: Center(
+          child: SingleChildScrollView(
+            child: MohafzatGridview()
+          ),
         ) ,
       ));
   }

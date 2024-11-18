@@ -4,17 +4,15 @@ import 'package:zaghrota_app/features/mohafazat_modn_screen/presentation/view/wi
 import 'package:zaghrota_app/features/songs_screen/presentation/view/widgets/custom_app_bar.dart';
 
 class MohafzatModnScreen extends StatelessWidget {
-  const MohafzatModnScreen({super.key});
-
+  const MohafzatModnScreen({super.key, required this.mohafzaId});
+  final String mohafzaId;
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.scaffoldColor,
-        appBar: CustomAppBar(),
-        body: SingleChildScrollView(
-          child: ModnGridview()
-        ) ,
+        appBar: const CustomAppBar(),
+        body: ModnGridview(mohafzaId:mohafzaId ,),
       ));
   }
 }
