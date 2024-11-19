@@ -52,7 +52,7 @@ class HomechoicesListview extends StatelessWidget {
              {
         "title":"تواريخ هامه",
       "image":"assets/images/homepage_images/imp_hist.png",
-      "navigation":ScreenNames.do5laScreen
+      "navigation":ScreenNames.appointmentScreen
       },
     ];
     //  final args = ModalRoute.of(context)?.settings.arguments as DateTime;

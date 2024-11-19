@@ -52,6 +52,7 @@ class ScreenNames {
   static const String henaNotesScreen= "/HenaNotesScreen";
   static const String shabkaNotesScreen= "/shabkaNotesScreen";
   static const String noteDetails= "/NoteDetails";
+  static const String appointmentScreen= "/appointmentScreen";
   
 
 }

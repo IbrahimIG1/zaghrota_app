@@ -7,15 +7,17 @@ import 'package:zaghrota_app/core/textstyles/textstyles.dart';
 import 'package:zaghrota_app/core/usable/sizedbox.dart';
 
 class Ka3aItem extends StatelessWidget {
-  const Ka3aItem({super.key, required this.image, required this.ka3aName, required this.face, required this.location, required this.instagram, this.onTapLoc, this.onTapInsta, this.onTapface});
+  const Ka3aItem({super.key, required this.image, required this.ka3aName, required this.face, required this.location, required this.instagram, this.onTapLoc, this.onTapInsta, this.onTapface, required this.phone, this.onTapwhats});
   final String image;
   final String ka3aName;
   final String face;
   final String location;
   final String instagram;
+  final String phone;
   final void Function()? onTapLoc;
   final void Function()? onTapInsta;
   final void Function()? onTapface;
+  final void Function()? onTapwhats;
   
   
   @override
@@ -77,12 +79,21 @@ class Ka3aItem extends StatelessWidget {
                         ),
                      ),
                      
-                      location=="_"? const SizedBox():GestureDetector(
+                      face=="_"? const SizedBox():GestureDetector(
                         onTap: onTapface,
                         child: SizedBox(
                           height: 30.h,
                           width: 30.w,
                           child: Image.asset("assets/images/ka3at_screen_images/Facebook.png",fit: BoxFit.fill,),
+                        ),
+                      ),
+
+                       phone=="_"? const SizedBox():GestureDetector(
+                        onTap: onTapwhats,
+                        child: SizedBox(
+                          height: 30.h,
+                          width: 30.w,
+                          child: Image.asset("assets/images/ka3at_screen_images/WhatsApp.png",fit: BoxFit.fill,),
                         ),
                       )
                     ],

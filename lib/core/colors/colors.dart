@@ -23,6 +23,7 @@ class AppColors {
   static const Color darkPink = Color(0xffB880AC);
   static const darkViolet = Color(0xff943F6D);
   static const darkBlue = Color(0xffC35490);
+  static const specialPink = Color(0xffFB1E95);
   static const List<BoxShadow> containerShadowColor = [BoxShadow(color: Colors.grey,blurRadius: 10)];
   
 

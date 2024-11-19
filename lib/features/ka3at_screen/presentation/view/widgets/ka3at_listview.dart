@@ -28,6 +28,9 @@ class Ka3atListview extends StatelessWidget {
                 const VerticalSizedBox(height: 25),
             shrinkWrap: true,
             itemBuilder: (context, index) =>  Ka3aItem(
+              onTapwhats:()async {
+                await launchUrl(Uri.parse("https://wa.me/+2${state.ka3at[index].phone!}"));
+              } ,
               onTapLoc: ()async {
                 await launchUrl(Uri.parse(state.ka3at[index].location!));
               },
@@ -37,6 +40,7 @@ class Ka3atListview extends StatelessWidget {
               onTapInsta: ()async {
                 await launchUrl(Uri.parse(state.ka3at[index].instagram!));
               },
+              phone:state.ka3at[index].phone! ,
               face: state.ka3at[index].facebook!,
               location: state.ka3at[index].location!,
               instagram: state.ka3at[index].instagram!,

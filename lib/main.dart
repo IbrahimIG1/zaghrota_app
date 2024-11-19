@@ -6,7 +6,9 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:zaghrota_app/core/app_Themes/app_theme.dart';
 import 'package:zaghrota_app/core/database_helper/boxes_names.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
+import 'package:zaghrota_app/core/shared_prefrence_helper/shared_prefrences_helper.dart';
 import 'package:zaghrota_app/features/advertisement_screen/presentation/view/advertisement_screen.dart';
+import 'package:zaghrota_app/features/appointement_screen/presentation/view/appointment_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_accessories_screen/presentation/view/arosa_devices_accessories_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_accessories_screen/presentation/view_model/cubit/accessories_cubit.dart';
 import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/data/model/devices_model.dart';
@@ -106,6 +108,8 @@ void main() async {
   await ScreenUtil.ensureScreenSize();
   await NotificationService.init();
   await Hive.initFlutter();
+  await SharedPrefrenceHelper.initSharedpref();
+
 
   Hive.registerAdapter(InvitedModelAdapter());
   Hive.registerAdapter(BadlaModelAdapter());
@@ -366,6 +370,7 @@ class MyApp extends StatelessWidget {
                 create: (context) => ShabkaNotesScreenCubit()..getdata(),
                 child: const ShabkaNotesScreen(),
               ),
+          ScreenNames.appointmentScreen:(context)=> const AppointmentScreen()
         },
         title: 'Flutter Demo',
         theme: AppTheme.theme,

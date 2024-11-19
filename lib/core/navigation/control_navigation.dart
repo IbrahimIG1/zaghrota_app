@@ -163,6 +163,9 @@ class ControlNavigation {
        case ScreenNames.shabkaNotesScreen:
         Navigator.pushNamed(context, pageName);
         break;
+       case ScreenNames.appointmentScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
         
         
         
