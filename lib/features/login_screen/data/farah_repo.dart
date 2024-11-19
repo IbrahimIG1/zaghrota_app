@@ -1,7 +1,11 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:uuid/uuid.dart';
 import 'package:zaghrota_app/core/database_helper/boxes_names.dart';
 import 'package:zaghrota_app/core/database_helper/hive_usable.dart';
+import 'package:zaghrota_app/core/shared_prefrence_helper/shared_prefrences_helper.dart';
 import 'package:zaghrota_app/features/invited_people_screen/data/model/error_model.dart';
 import 'package:zaghrota_app/features/login_screen/data/farah_model.dart';
 
@@ -11,6 +15,10 @@ HiveStorage hiive = HiveStorage();
  Future<Either<ErrorModel,void>> addFarahData({required FarahModel farahmodel})async{
 
   try{
+    const uuid = Uuid();
+    final uniqueId = uuid.v4();
+    SharedPrefrenceHelper.sharedPreferences!.setString("hash", uniqueId);
+    log(uniqueId);
   List<FarahModel> data = hiive.getBoxValues<FarahModel>(boxName: BoxesNames.farahBox) as List<FarahModel>;
   if(data.isEmpty){
   await hiive.addValue<FarahModel>(boxName: BoxesNames.farahBox, value: farahmodel);

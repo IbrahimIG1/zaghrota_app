@@ -374,7 +374,7 @@ class MyApp extends StatelessWidget {
         },
         title: 'Flutter Demo',
         theme: AppTheme.theme,
-        initialRoute: ScreenNames.loginScreen,
+        initialRoute:SharedPrefrenceHelper.sharedPreferences!.getString("hash")==null? ScreenNames.loginScreen:ScreenNames.homeScreen,
       ),
     );
   }
