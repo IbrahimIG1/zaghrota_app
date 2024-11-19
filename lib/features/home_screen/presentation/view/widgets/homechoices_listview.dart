@@ -48,7 +48,12 @@ class HomechoicesListview extends StatelessWidget {
       "image":"assets/images/homepage_images/do5la.png",
       "navigation":ScreenNames.do5laScreen
 
-      }
+      },
+             {
+        "title":"تواريخ هامه",
+      "image":"assets/images/homepage_images/imp_hist.png",
+      "navigation":ScreenNames.do5laScreen
+      },
     ];
     //  final args = ModalRoute.of(context)?.settings.arguments as DateTime;
     return  SizedBox(
