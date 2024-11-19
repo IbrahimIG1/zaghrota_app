@@ -8,10 +8,10 @@ class AppointmentScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(child: Scaffold(
+    return  const SafeArea(child: Scaffold(
       appBar: CustomAppBar(),
       backgroundColor: AppColors.scaffoldColor,
-      body:AppointmentGridview()
+      body: Center(child: AppointmentGridview())
     ));
   }
 }

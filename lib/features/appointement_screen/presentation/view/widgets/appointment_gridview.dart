@@ -8,26 +8,14 @@ class AppointmentGridview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List data = [
+      
+     
+      
       {
         "image":"assets/images/appointment_screen_images/flower.png",
-        "title":"قراءة الفاتحه"
-      },
-      {
-        "image":"assets/images/appointment_screen_images/ring.png",
-        "title":"الخطوبه"
-      },
-      {
-        "image":"assets/images/appointment_screen_images/cake.png",
-        "title":"يوم الزفاف"
-      },
-      {
-        "image":"assets/images/appointment_screen_images/ketab.png",
         "title":"كتب الكتاب"
       },
-      {
-        "image":"assets/images/appointment_screen_images/wife.png",
-        "title":"الحناء"
-      },
+     
       {
         "image":"assets/images/appointment_screen_images/do5la.png",
         "title":"الدخله"
@@ -51,7 +39,7 @@ class AppointmentGridview extends StatelessWidget {
     ];
     return GridView.builder(
         itemCount: data.length,
-        padding: EdgeInsets.symmetric(horizontal: 25.w,vertical: 50.h),
+        padding: EdgeInsets.symmetric(horizontal: 25.w,vertical: 0.12.sh),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           mainAxisSpacing: 30.h,
