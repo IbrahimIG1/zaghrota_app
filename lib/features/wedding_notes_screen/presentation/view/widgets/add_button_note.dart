@@ -61,7 +61,7 @@ class AddNoteDataDialogue extends StatelessWidget {
                         controller: titleNotecontroller,
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return "من فضلك أدخل العنوان";
+                            return "من فضلك أدخل عنوان الملاحظة";
                           }
                           return null;
                         },
@@ -92,7 +92,7 @@ class AddNoteDataDialogue extends StatelessWidget {
                 // datecont: dateNotecontroller,
                 validator: (p0) {
                   if (entrydate == null) {
-                    return "من فضلك أدخل تاريخ الزواج";
+                    return "من فضلك أدخل التاريخ ";
                   }
                   return null;
                 },

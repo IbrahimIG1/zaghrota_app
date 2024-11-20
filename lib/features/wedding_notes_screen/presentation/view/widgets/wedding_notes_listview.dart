@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zaghrota_app/core/navigation/control_navigation.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
-import 'package:zaghrota_app/features/wedding_notes_screen/data/model/note_model.dart';
 import 'package:zaghrota_app/features/wedding_notes_screen/presentation/view/widgets/note_item.dart';
 
 class WeddingNotesListview extends StatelessWidget {
   const WeddingNotesListview({super.key, required this.data, this.onDeletePressed});
-  final List<NoteModel> data;
+  final List data;
   final void Function(int)? onDeletePressed;
 
   @override
@@ -40,7 +39,7 @@ class WeddingNotesListview extends StatelessWidget {
               },
               title: data[index].title,
               content: data[index].content,
-              date: data[index].date,
+              date: DateTime.parse(data[index].date) ,
             
             ),
           )
