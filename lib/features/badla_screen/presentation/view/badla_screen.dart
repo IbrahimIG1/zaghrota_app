@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:zaghrota_app/core/colors/colors.dart';
 import 'package:zaghrota_app/features/badla_screen/presentation/view/widgets/badla_screen_floating_button.dart';
 import 'package:zaghrota_app/features/badla_screen/presentation/view/widgets/badla_screen_listview.dart';
 import 'package:zaghrota_app/features/badla_screen/presentation/view_model/cubit/badla_screen_cubit.dart';
@@ -11,6 +12,7 @@ class BadlaScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.scaffoldColor,
       floatingActionButton: BlocConsumer<BadlaScreenCubit, BadlaScreenState>(
         listener: (context, state) {
       

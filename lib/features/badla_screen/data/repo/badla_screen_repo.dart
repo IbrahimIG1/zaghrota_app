@@ -28,26 +28,43 @@ class BadlaScreenRepo {
     if(data.isEmpty){
       List<BadlaModel> items = [
      BadlaModel(badlaItemName: "البدلة الرسمية",),
+     //yes 0
      BadlaModel(badlaItemName: "قميص أبيض",),
+     //yes 1
      BadlaModel(badlaItemName: "فيست",),
+     //yes 2
      BadlaModel(badlaItemName: "بنطلون البدلة",),
+     //yes 3
      BadlaModel(badlaItemName: "ربطة عنق",),
+     //yes 4
      BadlaModel(badlaItemName: "منديل جيب",),
+     //yes 5
      BadlaModel(badlaItemName: "أزرار أكمام",),
+     //yes 6
      BadlaModel(badlaItemName: "دبوس ربطة عنق",),
+     //yes 7
      BadlaModel(badlaItemName: "حذاء رسمي",),
+     //yes 8
      BadlaModel(badlaItemName: "جوارب",),
+     //yes 9
      BadlaModel(badlaItemName: "تيشيرت داخلي قطن",),
+     //yes 10
      BadlaModel(badlaItemName: "بانتي",),
+     //yes 11
      BadlaModel(badlaItemName: "حزام",),
+     //yes 12
      BadlaModel(badlaItemName: "ساعة يد أنيقة",),
+     //yes 13
      BadlaModel(badlaItemName: "مشبك أو بروش صغير",),
-     BadlaModel(badlaItemName: "وردة العروة",),
+     //yes 14
      BadlaModel(badlaItemName: "نظارة شمسية",),
-     BadlaModel(badlaItemName: "روب أو بيجامة",),
+      //yes 14
      BadlaModel(badlaItemName: "عطر خاص",),
+    //yes 15
+     BadlaModel(badlaItemName: "وردة العروة",),
+     BadlaModel(badlaItemName: "روب أو بيجامة",),
      BadlaModel(badlaItemName: "مشبك حزام",),
-     BadlaModel(badlaItemName: "زجاجة عطر صغيرة",),
+     
       ];
       for(var x in items){
       hiive.addValue<BadlaModel>(boxName: BoxesNames.badlaitems, value: x);

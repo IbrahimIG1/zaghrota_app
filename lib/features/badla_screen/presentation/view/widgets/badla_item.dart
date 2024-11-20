@@ -5,54 +5,58 @@ import 'package:zaghrota_app/core/textstyles/textstyles.dart';
 import 'package:zaghrota_app/core/usable/sizedbox.dart';
 
 class BadlaItem extends StatelessWidget {
-  const BadlaItem({super.key, required this.itemName, required this.checked, this.deleteOnPressed, this.checkOnChanged});
+  const BadlaItem({super.key, required this.itemName, required this.checked, this.deleteOnPressed, this.checkOnChanged, this.onTapnav});
   final String itemName;
   final bool checked;
   final void Function()? deleteOnPressed;
   final void Function(bool?)? checkOnChanged;
+  final void Function()? onTapnav;
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-              padding: EdgeInsets.symmetric(vertical: 3.sp,horizontal: 5.sp),
-              decoration: BoxDecoration(
-                border: Border.all(color: AppColors.circleAvatarBorderColor)
+    return  GestureDetector(
+      onTap:onTapnav ,
+      child: Container(
+                padding: EdgeInsets.symmetric(vertical: 3.sp,horizontal: 5.sp),
+                decoration: BoxDecoration(
+                  border: Border.all(color: AppColors.circleAvatarBorderColor)
+                ),
+                width: 1.sw,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: 0.6.sw,
+                      child:Row(
+                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                         Transform.scale(scale: 1.sp,child: Image.asset('assets/images/badlascreen_images/Chec_Mark.png'),),
+                         HorizontalSizedBox(width: 10.sp),
+                         Container(
+                          constraints: BoxConstraints(maxWidth: 0.5.sw),
+                          child: Text(itemName,style: Textstyles.nameOfInvitedPeopleStyle,))
+                        ],
+                      ) ,
+                    ),
+                       Checkbox(
+                                       activeColor: AppColors.checkBoxActiveColor,
+                                       checkColor: AppColors.checkBoxCheckColor,
+                                       side: const BorderSide(color: AppColors.checkBoxActiveColor),
+                                       value: checked,
+                       
+                                      onChanged:checkOnChanged
+                                     ),
+            IconButton(
+            iconSize: 20.sp,
+            onPressed:deleteOnPressed
+            
+            , icon: const Icon(
+            
+            Icons.delete,color: AppColors.circleAvatarBorderColor,))
+                      
+                  ],
+                ),
               ),
-              width: 1.sw,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    width: 0.6.sw,
-                    child:Row(
-                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                       Transform.scale(scale: 1.sp,child: Image.asset('assets/images/badlascreen_images/Chec_Mark.png'),),
-                       HorizontalSizedBox(width: 10.sp),
-                       Container(
-                        constraints: BoxConstraints(maxWidth: 0.5.sw),
-                        child: Text(itemName,style: Textstyles.nameOfInvitedPeopleStyle,))
-                      ],
-                    ) ,
-                  ),
-                     Checkbox(
-                                     activeColor: AppColors.checkBoxActiveColor,
-                                     checkColor: AppColors.checkBoxCheckColor,
-                                     side: const BorderSide(color: AppColors.checkBoxActiveColor),
-                                     value: checked,
-                     
-                                    onChanged:checkOnChanged
-                                   ),
-          IconButton(
-          iconSize: 20.sp,
-          onPressed:deleteOnPressed
-          
-          , icon: const Icon(
-          
-          Icons.delete,color: AppColors.circleAvatarBorderColor,))
-                    
-                ],
-              ),
-            );
+    );
   }
 }
