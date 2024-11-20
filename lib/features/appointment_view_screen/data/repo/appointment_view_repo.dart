@@ -6,6 +6,7 @@ import 'package:zaghrota_app/core/dio_helper/dio_error_handler.dart';
 import 'package:zaghrota_app/core/shared_prefrence_helper/shared_prefrences_helper.dart';
 import 'package:zaghrota_app/features/appointment_view_screen/data/model/note_api_model.dart';
 import 'package:zaghrota_app/features/invited_people_screen/data/model/error_model.dart';
+import 'package:zaghrota_app/notification_service.dart';
 
 class AppointmentViewRepo {
   Future<Either<ErrorModel,void>> addApointment({
@@ -23,6 +24,7 @@ class AppointmentViewRepo {
         "hash": SharedPrefrenceHelper.sharedPreferences!.getString("hash"),
         "type": type
       });
+       await NotificationService.schduledNotification(id: 0,date: DateTime.parse(date),title: type,body: title);
       // log("added successsssfulllly");
       return right(null);
     }

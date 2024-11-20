@@ -14,32 +14,32 @@ class AppointmentGridview extends StatelessWidget {
       {
         "image": "assets/images/appointment_screen_images/flower.png",
         "title": "كتب الكتاب",
-        "type":"ketab"
+        "type":"تاريخ مهم لكتب الكتاب"
       },
       {
         "image": "assets/images/appointment_screen_images/do5la.png",
         "title": "الدخله",
-        "type":"do5la"
+        "type":"تاريخ مهم لليلة الدخلة"
       },
       {
         "image": "assets/images/appointment_screen_images/3sl.png",
         "title": "شهر العسل",
-        "type":"asal"
+        "type":"تاريخ مهم لشهر العسل"
       },
       {
         "image": "assets/images/appointment_screen_images/holidays.png",
         "title": "اول عيد معا",
-        "type":"eid"
+        "type":"تاريخ مهم لاول عيد معا "
       },
       {
         "image": "assets/images/appointment_screen_images/sanwy.png",
         "title": "الذكري السنويه للزواج",
-        "type":"sanwy"
+        "type":"تاريخ الذكري سنوية للزواج"
       },
       {
         "image": "assets/images/appointment_screen_images/map_mosque.png",
         "title": "اول رمضان معا",
-        "type":"ramadan"
+        "type":"اول رمضان معا"
       },
     ];
     return GridView.builder(
