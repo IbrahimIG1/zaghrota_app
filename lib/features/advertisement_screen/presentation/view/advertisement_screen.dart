@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zaghrota_app/core/colors/colors.dart';
 import 'package:zaghrota_app/core/navigation/control_navigation.dart';
 import 'package:zaghrota_app/core/textstyles/textstyles.dart';
@@ -19,7 +22,48 @@ class AdvertisementScreen extends StatelessWidget {
       appBar: const CustomAppBar(),
       body: GestureDetector(
         onTap: () {
+          log(imagePath);
+          if(imagePath=="assets/images/advertisementpage_images/dress.png"){
+            showDialog(context: context,
+             builder:(context) =>  AlertDialog(
+              backgroundColor: AppColors.scaffoldColor,
+              title: Center(child: Text("تنوية",style: Textstyles.advertisementStyle,)),
+              content: Padding(
+                padding:  EdgeInsets.symmetric(horizontal: 7.w),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                   Padding(
+                     padding: EdgeInsets.symmetric(vertical: 20.h),
+                     child: Text("هذا القسم يحتوي علي صور خاصة بالسيدات فاذا كنت رجلا تذكر ان الله امرك بغض البصر",
+                     style:Textstyles.darkTextStyle.copyWith(fontSize: 15.sp) ,),
+                   ),
+                   Padding(
+                     padding:  EdgeInsets.only(bottom: 20.h),
+                     child: Text(" قُل لِّلْمُؤْمِنِينَ يَغُضُّوا مِنْ أَبْصَارِهِمْ وَيَحْفَظُوا فُرُوجَهُمْ ۚ ذَٰلِكَ أَزْكَىٰ لَهُمْ ۗ إِنَّ اللَّهَ خَبِيرٌ بِمَا يَصْنَعُونَ",style: Textstyles.blackStroke,textAlign: TextAlign.center,),
+                   ),
+                   ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.circleAvatarBorderColor
+                    ),
+                    onPressed: () {
+                          ControlNavigation.navigationToController(pageName:pageName , context: context);
+                     
+                   }, child: Text("استكمال التصفح",style: Textstyles.weddingNames.copyWith(color: Colors.white),))
+                  ],
+                ),
+              ),
+              
+             ));
+
+          }
+          else{
+            // log("aha");
           ControlNavigation.navigationToController(pageName:pageName , context: context);
+
+          }
         },
         child: Center(
           child: Column(
