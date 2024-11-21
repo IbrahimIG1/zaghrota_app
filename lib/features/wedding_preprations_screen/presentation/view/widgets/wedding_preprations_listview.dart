@@ -73,7 +73,7 @@ class WeddingPreprationsListview extends StatelessWidget {
       "advImgHeight":300.h,
       "advImgWidth":326.w,
       "advSent":"افرحي يا عروسة وادفع يا عريس",
-      "nav":""
+      "nav":ScreenNames.zafaScreen
 
       }
     ];

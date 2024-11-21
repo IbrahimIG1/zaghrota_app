@@ -166,6 +166,9 @@ class ControlNavigation {
        case ScreenNames.appointmentScreen:
         Navigator.pushNamed(context, pageName);
         break;
+        case ScreenNames.zafaScreen:
+        Navigator.pushNamed(context, pageName);
+
         
         
         

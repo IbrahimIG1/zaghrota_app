@@ -100,6 +100,8 @@ import 'package:zaghrota_app/features/wedding_notes_screen/data/model/note_model
 import 'package:zaghrota_app/features/wedding_notes_screen/presentation/view/wedding_notes_screen.dart';
 import 'package:zaghrota_app/features/wedding_notes_screen/presentation/view_model/cubit/wedding_notes_screen_cubit.dart';
 import 'package:zaghrota_app/features/wedding_preprations_screen/presentation/view/wedding_preprations_screen.dart';
+import 'package:zaghrota_app/features/zafa_screen/presentation/view/zafa_screen.dart';
+import 'package:zaghrota_app/features/zafa_screen/presentation/view_model/cubit/zafa_images_cubit.dart';
 import 'package:zaghrota_app/generated/l10n.dart';
 import 'package:zaghrota_app/notification_service.dart';
 
@@ -109,7 +111,6 @@ void main() async {
   await NotificationService.init();
   await Hive.initFlutter();
   await SharedPrefrenceHelper.initSharedpref();
-
 
   Hive.registerAdapter(InvitedModelAdapter());
   Hive.registerAdapter(BadlaModelAdapter());
@@ -288,7 +289,6 @@ class MyApp extends StatelessWidget {
                     DevicesElectronicsScreenCubit()..getDaata(),
                 child: const ArosaDevicesElectronicsScreen(),
               ),
-          
           ScreenNames.invitedPeopleFathaScreen: (context) => BlocProvider(
                 create: (context) =>
                     FathaInvitedPeopleScreenCubit()..getInvitedPeople(),
@@ -370,11 +370,18 @@ class MyApp extends StatelessWidget {
                 create: (context) => ShabkaNotesScreenCubit()..getdata(),
                 child: const ShabkaNotesScreen(),
               ),
-          ScreenNames.appointmentScreen:(context)=> const AppointmentScreen()
+          ScreenNames.appointmentScreen: (context) => const AppointmentScreen(),
+          ScreenNames.zafaScreen: (context) =>  BlocProvider(
+                create: (context) => ZafaImagesCubit()..getImages(),
+                child: const ZafaScreen(),
+              )
         },
         title: 'Flutter Demo',
         theme: AppTheme.theme,
-        initialRoute:SharedPrefrenceHelper.sharedPreferences!.getString("hash")==null? ScreenNames.loginScreen:ScreenNames.homeScreen,
+        initialRoute:
+            SharedPrefrenceHelper.sharedPreferences!.getString("hash") == null
+                ? ScreenNames.loginScreen
+                : ScreenNames.homeScreen,
       ),
     );
   }
