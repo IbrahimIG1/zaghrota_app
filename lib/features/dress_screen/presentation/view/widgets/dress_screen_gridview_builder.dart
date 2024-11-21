@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zaghrota_app/core/colors/colors.dart';
+import 'package:zaghrota_app/features/badla_images_screen/presentation/view/badla_images_screen.dart';
+import 'package:zaghrota_app/features/badla_images_screen/presentation/view_model/cubit/badla_images_cubit.dart';
+import 'package:zaghrota_app/features/dress_images_screen/presentation/view/dress_images_screen.dart';
+import 'package:zaghrota_app/features/dress_images_screen/presentation/view_model/cubit/dress_images_cubit.dart';
 import 'package:zaghrota_app/features/dress_screen/presentation/view/widgets/dress_screen_item.dart';
 import 'package:zaghrota_app/features/dress_screen/presentation/view_model/cubit/dress_screen_cubit.dart';
 
@@ -14,54 +18,68 @@ class DressScreenGridviewBuilder extends StatelessWidget {
       {
         "img": "assets/images/dress_screen_images/dress2.png",
         "title": "فستان الزفاف"
+        // yes
       },
-      {"img": "assets/images/dress_screen_images/dress1.png", "title": "روب"},
-      {"img": "assets/images/dress_screen_images/tarha.png", "title": "الطرحة"},
+     
+
+      {"img": "assets/images/dress_screen_images/tarha.png", 
+      "title": "الطرحة"
+      // yes
+      },
       {
         "img": "assets/images/dress_screen_images/queen.png",
         "title": "تاج او اكليل"
+        // yes
       },
       {
         "img": "assets/images/dress_screen_images/forhair.png",
         "title": "مشبك للشعر"
+        // yes
       },
-      {"img": "assets/images/dress_screen_images/hands.png", "title": "قفازات"},
+      {"img": "assets/images/dress_screen_images/hands.png", 
+      "title": "قفازات"
+      //  yes
+      },
       {
         "img": "assets/images/dress_screen_images/booling.png",
-        "title": "أفراط"
+        "title": "أقراط"
+        // yes
       },
       {
         "img": "assets/images/dress_screen_images/3o2d.png",
         "title": "عقد أو قلادة"
+        // yes
       },
-      {"img": "assets/images/dress_screen_images/asawer.png", "title": "سوار"},
+      {"img": "assets/images/dress_screen_images/asawer.png",
+       "title": "سوار"
+      //   yes
+       },
       {
         "img": "assets/images/dress_screen_images/shoes.png",
         "title": "حذاء الزفاف"
+        // yes
       },
       {
         "img": "assets/images/dress_screen_images/shoes2.png",
         "title": "حذاء مريح"
+        //  yes
       },
-      {
-        "img": "assets/images/dress_screen_images/legs.png",
-        "title": "جوارب شفافة"
-      },
-      {
-        "img": "assets/images/dress_screen_images/pickene.png",
-        "title": "مشد أو كورسية"
-      },
+     
+    
       {
         "img": "assets/images/dress_screen_images/bag.png",
         "title": "حقيبة صغيرة"
+        // yes
       },
       {
         "img": "assets/images/dress_screen_images/images_34.png",
-        "title": "عطر خاص"
+        "title": "وشاح او شال"
+        // yes
       },
       {
         "img": "assets/images/dress_screen_images/images_33.png",
-        "title": "وشاح او شال"
+        "title": "عطر خاص"
+        // yes
       },
     ];
     return BlocConsumer<DressScreenCubit, DressScreenState>(
@@ -80,7 +98,6 @@ class DressScreenGridviewBuilder extends StatelessWidget {
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 childAspectRatio: 0.85,
                 crossAxisCount: 2,
-                // childAspectRatio: 0.7
                 crossAxisSpacing: 0,
                 mainAxisSpacing: 2.h),
             itemBuilder: (context, index) {
@@ -92,20 +109,28 @@ class DressScreenGridviewBuilder extends StatelessWidget {
                 value =false;
                 cubit.addData(value: value);
               }
-              return DressScreenItem(
-              value: value,
-              onChanged: (p0) {
-                if(index<state.dataChecks.length){
-                cubit.updateCheckedValue(index: index, value: p0!);
-                
-               }
-               else{
-                cubit.addData(value:p0! );
-               }
-              },
-              img: data[index]["img"],
-              title: data[index]["title"],
-            );},
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => BlocProvider(create: (context) => DressImagesCubit()..getImages(type: data[index]["title"]),
+                  child: DressImagesScreen(type: data[index]["title"]),
+                  ),));
+                },
+                child: DressScreenItem(
+                value: value,
+                onChanged: (p0) {
+                  if(index<state.dataChecks.length){
+                  cubit.updateCheckedValue(index: index, value: p0!);
+                  
+                 }
+                 else{
+                  cubit.addData(value:p0! );
+                 }
+                },
+                img: data[index]["img"],
+                title: data[index]["title"],
+                            ),
+              );},
             itemCount: data.length,
           ),
         );
