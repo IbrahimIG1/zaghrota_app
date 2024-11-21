@@ -32,13 +32,7 @@ class WeddingItemsChoicesListview extends StatelessWidget {
     "width":169.w,
     "navigation":ScreenNames.invitedPeopleScreen
     },
-    {
-    "title":"ديكورات",
-    "image":"assets/images/wedding_items_screen_images/Christmas_decorations_and_snow_globe.png",
-    "height":190.h,
-    "width":190.w,
-    "navigation":""
-    },
+  
     {
     "title":"نوتس",
     "image":"assets/images/wedding_items_screen_images/Taking_notes_with_pencil.png",

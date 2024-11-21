@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zaghrota_app/core/colors/colors.dart';
 import 'package:zaghrota_app/core/helper/get_current_lang.dart';
 import 'package:zaghrota_app/core/navigation/control_navigation.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/core/textstyles/textstyles.dart';
+import 'package:zaghrota_app/features/decoration_images_screen/presentation/view/decoration_images_screen.dart';
+import 'package:zaghrota_app/features/decoration_images_screen/presentation/view_model/cubit/decoration_images_cubit.dart';
 
 class HenaItemsChoicesListview extends StatelessWidget {
   const HenaItemsChoicesListview({super.key});
@@ -57,7 +60,17 @@ class HenaItemsChoicesListview extends StatelessWidget {
               itemBuilder: (context, index) =>Align(
                 alignment: isArabic()? index%2==0?AlignmentDirectional.centerEnd:AlignmentDirectional.centerStart :index%2==0?AlignmentDirectional.centerStart:AlignmentDirectional.centerEnd ,
                 child: GestureDetector(
-                  onTap: () {
+                  onTap:index==3?(){
+                     Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => BlocProvider(
+                              create: (context) => DecorationImagesCubit()..getImages(type: "الحنة"),
+                              child: const DecorationImagesScreen(
+                                  type: "الحنة"),
+                            ),
+                          ));
+                  }: () {
                     ControlNavigation.navigationToController(pageName: listviewData[index]["navigation"], context: context);
                   },
                   child: Container(

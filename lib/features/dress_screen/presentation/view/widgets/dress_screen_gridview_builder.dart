@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zaghrota_app/core/colors/colors.dart';
-import 'package:zaghrota_app/features/badla_images_screen/presentation/view/badla_images_screen.dart';
-import 'package:zaghrota_app/features/badla_images_screen/presentation/view_model/cubit/badla_images_cubit.dart';
 import 'package:zaghrota_app/features/dress_images_screen/presentation/view/dress_images_screen.dart';
 import 'package:zaghrota_app/features/dress_images_screen/presentation/view_model/cubit/dress_images_cubit.dart';
 import 'package:zaghrota_app/features/dress_screen/presentation/view/widgets/dress_screen_item.dart';

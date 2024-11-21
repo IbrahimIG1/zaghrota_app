@@ -22,11 +22,7 @@ class HomechoicesListview extends StatelessWidget {
       "image":"assets/images/homepage_images/Wedding_rings.png",
       "navigation":ScreenNames.shabkaScreen
       },
-      {
-      "title":"تجهيزات الفرح",
-      "image":"assets/images/homepage_images/wedding_couple_flat.png",
-      "navigation":ScreenNames.weddingPreprationsScreen
-      },
+     
       {
         "title":"الحنة",
       "image":"assets/images/homepage_images/Young_joyful_women.png",
@@ -36,6 +32,11 @@ class HomechoicesListview extends StatelessWidget {
       "title":"الفرح",
       "image":"assets/images/homepage_images/music_festival.png",
       "navigation":ScreenNames.weddingItemsScreen
+      },
+       {
+      "title":"تجهيزات الفرح",
+      "image":"assets/images/homepage_images/wedding_couple_flat.png",
+      "navigation":ScreenNames.weddingPreprationsScreen
       },
       {
         "title":"شهر العسل",
