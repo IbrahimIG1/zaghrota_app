@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:zaghrota_app/core/app_Themes/app_theme.dart';
 import 'package:zaghrota_app/core/database_helper/boxes_names.dart';
@@ -111,7 +112,7 @@ void main() async {
   await NotificationService.init();
   await Hive.initFlutter();
   await SharedPrefrenceHelper.initSharedpref();
-  // MobileAds.instance.initialize();
+  MobileAds.instance.initialize();
 
   Hive.registerAdapter(InvitedModelAdapter());
   Hive.registerAdapter(BadlaModelAdapter());

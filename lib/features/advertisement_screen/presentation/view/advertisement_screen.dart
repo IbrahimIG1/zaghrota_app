@@ -6,6 +6,7 @@ import 'package:zaghrota_app/core/colors/colors.dart';
 import 'package:zaghrota_app/core/navigation/control_navigation.dart';
 import 'package:zaghrota_app/core/textstyles/textstyles.dart';
 import 'package:zaghrota_app/core/usable/sizedbox.dart';
+import 'package:zaghrota_app/features/ads_view/presentation/view/ads_view.dart';
 import 'package:zaghrota_app/features/songs_screen/presentation/view/widgets/custom_app_bar.dart';
 
 class AdvertisementScreen extends StatelessWidget {
@@ -17,12 +18,14 @@ class AdvertisementScreen extends StatelessWidget {
  final String pageName;
   @override
   Widget build(BuildContext context) {
+    
     return  Scaffold(
       backgroundColor: AppColors.scaffoldColor,
       appBar: const CustomAppBar(),
       body: GestureDetector(
         onTap: () {
-          log(imagePath);
+          log(isloaded.toString());
+          if(isloaded){
           if(imagePath=="assets/images/advertisementpage_images/dress.png"){
             showDialog(context: context,
              builder:(context) =>  AlertDialog(
@@ -57,13 +60,15 @@ class AdvertisementScreen extends StatelessWidget {
               ),
               
              ));
-
+      
           }
           else{
             // log("aha");
           ControlNavigation.navigationToController(pageName:pageName , context: context);
-
+      
           }
+        }
+        
         },
         child: Center(
           child: Column(
@@ -79,7 +84,10 @@ class AdvertisementScreen extends StatelessWidget {
                 
               ),
               const VerticalSizedBox(height: 10),
-              Text(pageSentence,style:Textstyles.advertisementStyle )
+              Text(pageSentence,style:Textstyles.advertisementStyle ),
+              const Spacer(),
+              const AdsView()
+      
             ],
           ),
         ),
