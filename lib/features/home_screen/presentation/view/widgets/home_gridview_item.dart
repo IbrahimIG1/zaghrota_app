@@ -5,9 +5,11 @@ import 'package:zaghrota_app/core/colors/colors.dart';
 import 'package:zaghrota_app/core/textstyles/textstyles.dart';
 
 class HomeGridviewItem extends StatelessWidget {
-  const HomeGridviewItem({super.key, required this.img, required this.title});
+  const HomeGridviewItem({super.key, required this.img, required this.title, this.height, this.width});
  final String img;
  final String title;
+ final double? height;
+ final double? width;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,8 +22,8 @@ class HomeGridviewItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                  height: 100.h,
-                  width: 100.w,
+                  height:height?? 100.h,
+                  width: width?? 100.w,
                   decoration: BoxDecoration(
                     image: DecorationImage(image: AssetImage(img))
                   ),

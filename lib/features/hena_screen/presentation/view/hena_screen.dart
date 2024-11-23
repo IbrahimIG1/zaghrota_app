@@ -10,10 +10,10 @@ class HenaScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: AppColors.scaffoldColor,
-      appBar: CustomAppBar(),
-      body: SingleChildScrollView(
-        child: HenaItemsChoicesListview()
-        ),
+      appBar: CustomAppBar(
+        title: "الحنة",
+      ),
+      body: Center(child: HenaItemsChoicesListview()),
     );
   }
 }

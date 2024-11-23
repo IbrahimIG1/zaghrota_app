@@ -10,10 +10,8 @@ class FathaScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SafeArea(child: Scaffold(
       backgroundColor: AppColors.scaffoldColor,
-      appBar: CustomAppBar(),
-      body: SingleChildScrollView(
-        child: FathaListview()
-        ),
+      appBar: CustomAppBar(title: "قراءة الفاتحة",),
+      body: Center(child: FathaListview()),
     ));
   }
 }

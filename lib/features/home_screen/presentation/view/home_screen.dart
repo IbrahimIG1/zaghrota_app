@@ -9,7 +9,6 @@ import 'package:zaghrota_app/features/home_screen/presentation/view/widgets/home
 import 'package:zaghrota_app/features/home_screen/presentation/view_model/cubit/home_screen_cubit.dart';
 import 'package:zaghrota_app/features/login_screen/data/farah_model.dart';
 import 'package:zaghrota_app/features/login_screen/presentation/view/widgets/custom_datefield.dart';
-import 'package:zaghrota_app/features/login_screen/presentation/view/widgets/custom_login_appbar.dart';
 import 'package:zaghrota_app/features/login_screen/presentation/view/widgets/custom_text_field.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -27,21 +26,51 @@ String? arosName;
         physics: const NeverScrollableScrollPhysics(),
         child: Column(
           children: [
-            const CustomLoginAppbar(),
+            // const CustomLoginAppbar(),
             BlocConsumer<HomeScreenCubit, HomeScreenState>(
               listener: (context, state) {
                 
               },
               builder: (context, state) {
-                print(state.toString());
+                
                 if(state is HomeScreenSuccess){
                   var cubit = HomeScreenCubit.get(context);
-                 return HeartDrawer(
-                  onTap: () {
-                    showUpdateWeddingDialog(context, aresName, arosName, entrydate, cubit);
-              
-                  },
-                  data: state.data,);
+                 return Container(
+                  decoration: BoxDecoration(
+                    color: AppColors.heartColor,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(20.r),
+                      bottomRight: Radius.circular(20.r)
+                    )
+                  ),
+                  // height: 0.25.sh,
+                  width: 1.sw,
+                   child: Column(
+                     children: [
+                      
+                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                         children: [
+                          SizedBox(
+                    height: 70.h,
+                    width: 50.w,
+                    child: Image.asset("assets/images/login_images/wedding_couple_love.png",fit: BoxFit.fill,),),
+                           HeartDrawer(
+                            onTap: () {
+                              showUpdateWeddingDialog(context, aresName, arosName, entrydate, cubit);
+                                         
+                            },
+                            data: state.data,),
+
+                            SizedBox(
+                    height: 70.h,
+                    width: 50.w,
+                    child: Image.asset("assets/images/login_images/couple2.png",fit: BoxFit.fill,)),
+                         ],
+                       ),
+                     ],
+                   ),
+                 );
                 }
                 else{
                   return const CircularProgressIndicator(color: AppColors.circleAvatarBorderColor,);

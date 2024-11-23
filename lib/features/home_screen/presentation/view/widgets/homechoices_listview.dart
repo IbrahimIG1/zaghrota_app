@@ -60,10 +60,10 @@ class HomechoicesListview extends StatelessWidget {
     return  SizedBox(
       height:0.73.sh ,
       child:  Padding(
-      padding: EdgeInsets.symmetric(vertical: 20.sp,horizontal: 15.sp),
+      padding: EdgeInsets.only(right: 10.w,left: 10.w,bottom: 20.h),
       child: GridView.builder(
               shrinkWrap: true,
-              // physics: const NeverScrollableScrollPhysics(),
+              
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 childAspectRatio: 0.9,
                 mainAxisSpacing: 15.h,

@@ -26,11 +26,12 @@ class HeartDrawer extends StatelessWidget {
                     ),
                     fit: BoxFit.fill),
               ),
-              height: 0.20.sh,
-              width: 0.6.sw,
+              height: 0.25.sh,
+              width: 0.65.sw,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  
                   Text(
                     "${data[0].aresName} & ${data[0].arosaName}",
                     style: Textstyles.weddingNames,

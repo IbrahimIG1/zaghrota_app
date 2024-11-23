@@ -111,6 +111,7 @@ void main() async {
   await NotificationService.init();
   await Hive.initFlutter();
   await SharedPrefrenceHelper.initSharedpref();
+  // MobileAds.instance.initialize();
 
   Hive.registerAdapter(InvitedModelAdapter());
   Hive.registerAdapter(BadlaModelAdapter());

@@ -10,10 +10,10 @@ class ShabkaScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: AppColors.scaffoldColor,
-      appBar: CustomAppBar(),
-      body: SingleChildScrollView(
-        child: ShabkaItemsChoicesListview()
-        ),
+      appBar: CustomAppBar(
+        title: "الشبكة",
+      ),
+      body: Center(child: ShabkaItemsChoicesListview()),
     );
   }
 }
