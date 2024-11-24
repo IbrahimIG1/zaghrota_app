@@ -22,7 +22,7 @@ class HenaSongsListview extends StatelessWidget {
       builder: (context, state) {
         var cubit = HenaSongsCubit.get(context);
         if (state is HenaSongsScreenSuccess){
-        return ReorderableListView.builder(
+        return state.songs.isEmpty?Center(child: Text("لازلت لم تضف شيئا...",style: Textstyles.listViewTitles,),): ReorderableListView.builder(
             onReorder: (oldIndex, newIndex) {
               cubit.updateOrder(oldIndex: oldIndex, newIndex: newIndex,);
             },

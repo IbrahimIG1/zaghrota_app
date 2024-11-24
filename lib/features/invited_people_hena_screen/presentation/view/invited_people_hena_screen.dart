@@ -38,7 +38,7 @@ class InvitedPeopleHenaScreen extends StatelessWidget {
         child: BlocBuilder<InvitedPeopleHenaScreenCubit, InvitedPeopleHenaScreenState>(
           builder: (context, state) {
             if (state is GetInvitedPeopleHenaScreenSucess) {
-              return InvitedPeopleHenaAppbar(sumNum: state.numberOfComings,);
+              return  InvitedPeopleHenaAppbar(sumNum: state.numberOfComings,);
             }
             else{
               return const Text("");

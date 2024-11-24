@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zaghrota_app/core/colors/colors.dart';
+import 'package:zaghrota_app/features/ads_view/presentation/view/ads_view.dart';
 import 'package:zaghrota_app/features/shabka_screen/presentation/view/widgets/shabka_listview.dart';
 import 'package:zaghrota_app/features/songs_screen/presentation/view/widgets/custom_app_bar.dart';
 
@@ -13,7 +14,13 @@ class ShabkaScreen extends StatelessWidget {
       appBar: CustomAppBar(
         title: "الشبكة",
       ),
-      body: Center(child: ShabkaItemsChoicesListview()),
+      body: Center(child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          ShabkaItemsChoicesListview(),
+          AdsView()
+        ],
+      )),
     );
   }
 }

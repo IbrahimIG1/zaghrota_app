@@ -18,7 +18,7 @@ class WeddingNotesListview extends StatelessWidget {
       mainAxisSpacing: 10.h,
       crossAxisSpacing: 10.w
       ),
-          physics: const NeverScrollableScrollPhysics(),
+          
           shrinkWrap: true,
           // separatorBuilder: (context, index) => const VerticalSizedBox(height: 10),
           padding: EdgeInsets.symmetric(horizontal: 10.sp,vertical: 10.sp),
@@ -39,7 +39,7 @@ class WeddingNotesListview extends StatelessWidget {
               },
               title: data[index].title,
               content: data[index].content,
-              date: DateTime.parse(data[index].date) ,
+              date:   DateTime.parse(data[index].date.toString()) ,
             
             ),
           )

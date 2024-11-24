@@ -19,6 +19,7 @@ TextEditingController controlEditSongName = TextEditingController();
 TextEditingController controlOrder = TextEditingController();
 TextEditingController controlSongType = TextEditingController();
 TextEditingController controlEditSongType = TextEditingController();
+int add=0;
 
 Future<void> addSong()async{
     SongModel songModel = SongModel(
@@ -32,6 +33,10 @@ Future<void> addSong()async{
    result.fold((l){
     emit(FathaSongsScreenFailure(errormsg: l.errormsg));
    }, (r) {
+    // add++;
+    // if(add%3==0){
+    // AdsHelper().interstitialRewardedAdshow();
+    // }
     getSongs();
    } ,);
 

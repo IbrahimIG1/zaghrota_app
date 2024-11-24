@@ -36,32 +36,31 @@ class ShabkaNotesScreen extends StatelessWidget {
         },
       ),
       backgroundColor: AppColors.scaffoldColor,
-      body: SingleChildScrollView(
-          child: BlocConsumer<ShabkaNotesScreenCubit, ShabkaNotesScreenState>(
-        listener: (context, state) {
-          // TODO: implement listener
+      body: BlocConsumer<ShabkaNotesScreenCubit, ShabkaNotesScreenState>(
+              listener: (context, state) {
+      // TODO: implement listener
+              },
+              builder: (context, state) {
+              var cubit = ShabkaNotesScreenCubit.get(context);
+      
+               if (state is ShabkaNotesScreenSuccess){
+      return WeddingNotesListview(
+        onDeletePressed: (index){
+          deleteDialog(context, cubit, index);
         },
-        builder: (context, state) {
-                  var cubit = ShabkaNotesScreenCubit.get(context);
-
-         if (state is ShabkaNotesScreenSuccess){
-          return WeddingNotesListview(
-            onDeletePressed: (index){
-              deleteDialog(context, cubit, index);
-            },
-            data: state.notes,);
-         
-         }
-         else if (state is ShabkaNotesScreenFailure){
-          return Center(child: Text("error : ${state.errormsg}"),);
-         
-         }
-         else{
-          return const CircularProgressIndicator(color: AppColors.circleAvatarBorderColor,);
-         }
-         
-        },
-      )),
+        data: state.notes,);
+               
+               }
+               else if (state is ShabkaNotesScreenFailure){
+      return Center(child: Text("error : ${state.errormsg}"),);
+               
+               }
+               else{
+      return const CircularProgressIndicator(color: AppColors.circleAvatarBorderColor,);
+               }
+               
+              },
+            ),
     ));
   }
   

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zaghrota_app/core/colors/colors.dart';
+import 'package:zaghrota_app/features/ads_view/presentation/view/ads_view.dart';
 import 'package:zaghrota_app/features/songs_screen/presentation/view/widgets/custom_app_bar.dart';
 import 'package:zaghrota_app/features/wedding_items_screen/presentation/view/widgets/wedding_items_choices_listview.dart';
 
@@ -14,7 +15,13 @@ class WeddingItemsScreen extends StatelessWidget {
               title: "الفرح",
             ),
         backgroundColor: AppColors.scaffoldColor,
-        body: Center(child: WeddingItemsChoicesListview()),
+        body: Center(child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            WeddingItemsChoicesListview(),
+            AdsView()
+          ],
+        )),
       ),
     );
   }

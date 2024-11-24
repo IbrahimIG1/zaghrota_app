@@ -37,32 +37,32 @@ class FathaNotesScreen extends StatelessWidget {
         },
       ),
       backgroundColor: AppColors.scaffoldColor,
-      body: SingleChildScrollView(
-          child: BlocConsumer<FathaNotesScreenCubit, FathaNotesScreenState>(
-        listener: (context, state) {
-          // TODO: implement listener
+      body: BlocConsumer<FathaNotesScreenCubit, FathaNotesScreenState>(
+              listener: (context, state) {
+      // TODO: implement listener
+              },
+              builder: (context, state) {
+              var cubit = FathaNotesScreenCubit.get(context);
+      
+               if (state is FathaNotesScreenSuccess){
+      return state.notes.isEmpty?Center(child: Text("لازلت لم تضف شيئا...",style: Textstyles.listViewTitles,),):
+       WeddingNotesListview(
+        onDeletePressed: (index){
+          deleteDialog(context, cubit, index);
         },
-        builder: (context, state) {
-                  var cubit = FathaNotesScreenCubit.get(context);
-
-         if (state is FathaNotesScreenSuccess){
-          return WeddingNotesListview(
-            onDeletePressed: (index){
-              deleteDialog(context, cubit, index);
-            },
-            data: state.notes,);
-         
-         }
-         else if (state is FathaNotesScreenFailure){
-          return Center(child: Text("error : ${state.errormsg}"),);
-         
-         }
-         else{
-          return const CircularProgressIndicator(color: AppColors.circleAvatarBorderColor,);
-         }
-         
-        },
-      )),
+        data: state.notes,);
+               
+               }
+               else if (state is FathaNotesScreenFailure){
+      return Center(child: Text("error : ${state.errormsg}"),);
+               
+               }
+               else{
+      return const CircularProgressIndicator(color: AppColors.circleAvatarBorderColor,);
+               }
+               
+              },
+            ),
     ));
   }
    void deleteDialog(BuildContext context, FathaNotesScreenCubit cubit, int index) {

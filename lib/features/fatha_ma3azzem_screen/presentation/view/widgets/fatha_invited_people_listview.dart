@@ -25,6 +25,7 @@ class FathaInvitedPeopleListvieew extends StatelessWidget {
         else if(state is GetFathaInvitedPeopleScreenSucess){
           List<InvitedModel> data = state.invitedPeopleData;
         return ListView.separated(
+          physics: NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemBuilder: (context, index) => Padding(
             padding: EdgeInsets.all(10.sp),

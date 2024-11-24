@@ -36,32 +36,31 @@ class WeddingNotesScreen extends StatelessWidget {
         },
       ),
       backgroundColor: AppColors.scaffoldColor,
-      body: SingleChildScrollView(
-          child: BlocConsumer<WeddingNotesScreenCubit, WeddingNotesScreenState>(
-        listener: (context, state) {
-          // TODO: implement listener
+      body: BlocConsumer<WeddingNotesScreenCubit, WeddingNotesScreenState>(
+              listener: (context, state) {
+      // TODO: implement listener
+              },
+              builder: (context, state) {
+              var cubit = WeddingNotesScreenCubit.get(context);
+      
+               if (state is WeddingNotesScreenSuccess){
+      return state.notes.isEmpty?Center(child: Text("لازلت لم تضف شيئا...",style: Textstyles.listViewTitles,),): WeddingNotesListview(
+        onDeletePressed: (index){
+          deleteDialog(context, cubit, index);
         },
-        builder: (context, state) {
-                  var cubit = WeddingNotesScreenCubit.get(context);
-
-         if (state is WeddingNotesScreenSuccess){
-          return WeddingNotesListview(
-            onDeletePressed: (index){
-              deleteDialog(context, cubit, index);
-            },
-            data: state.notes,);
-         
-         }
-         else if (state is WeddingNotesScreenFailure){
-          return Center(child: Text("error : ${state.errormsg}"),);
-         
-         }
-         else{
-          return const CircularProgressIndicator(color: AppColors.circleAvatarBorderColor,);
-         }
-         
-        },
-      )),
+        data: state.notes,);
+               
+               }
+               else if (state is WeddingNotesScreenFailure){
+      return Center(child: Text("error : ${state.errormsg}"),);
+               
+               }
+               else{
+      return const CircularProgressIndicator(color: AppColors.circleAvatarBorderColor,);
+               }
+               
+              },
+            ),
     ));
   }
 

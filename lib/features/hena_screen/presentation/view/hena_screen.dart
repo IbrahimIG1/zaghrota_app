@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zaghrota_app/core/colors/colors.dart';
+import 'package:zaghrota_app/features/ads_view/presentation/view/ads_view.dart';
 import 'package:zaghrota_app/features/hena_screen/presentation/view/widgets/hena_listview.dart';
 import 'package:zaghrota_app/features/songs_screen/presentation/view/widgets/custom_app_bar.dart';
 
@@ -13,7 +14,13 @@ class HenaScreen extends StatelessWidget {
       appBar: CustomAppBar(
         title: "الحنة",
       ),
-      body: Center(child: HenaItemsChoicesListview()),
+      body: Center(child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          HenaItemsChoicesListview(),
+          AdsView()
+        ],
+      )),
     );
   }
 }

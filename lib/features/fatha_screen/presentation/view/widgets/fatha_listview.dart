@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zaghrota_app/core/ads_helper/ads_helper.dart';
 import 'package:zaghrota_app/core/navigation/control_navigation.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/features/decoration_images_screen/presentation/view/decoration_images_screen.dart';
@@ -50,17 +51,19 @@ class FathaListview extends StatelessWidget {
     return SizedBox(
       // height:0.56.sh ,
       child: GridView.builder(
+        
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           childAspectRatio: 1,
           crossAxisCount: 2,
           mainAxisSpacing: 20.h,
           crossAxisSpacing: 10.w
         ),
-        physics: const NeverScrollableScrollPhysics(),
+       
         padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 5.w),
         itemBuilder: (context, index) => GestureDetector(
           onTap: index == 2
               ? () {
+                 AdsHelper().interstitialRewardedAdshow();
                   Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -72,6 +75,8 @@ class FathaListview extends StatelessWidget {
                       ));
                 }
               : () {
+                 AdsHelper().interstitialAdshow();
+
                   ControlNavigation.navigationToController(
                       pageName: listviewData[index]["navigation"],
                       context: context);

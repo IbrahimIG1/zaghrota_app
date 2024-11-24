@@ -25,7 +25,8 @@ class InvitedPeopleShabkaListvieew extends StatelessWidget {
         }
         else if(state is GetInvitedPeopleScreenShabkaStateSucess){
           List<InvitedModel> data = state.invitedPeopleData;
-        return ListView.separated(
+        return state.invitedPeopleData.isEmpty?Center(child: Text("لازلت لم تضف شيئا...",style: Textstyles.listViewTitles,),): ListView.separated(
+          physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemBuilder: (context, index) => Padding(
             padding: EdgeInsets.all(10.sp),

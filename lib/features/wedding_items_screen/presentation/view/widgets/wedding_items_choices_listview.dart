@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zaghrota_app/core/ads_helper/ads_helper.dart';
 import 'package:zaghrota_app/core/navigation/control_navigation.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/features/home_screen/presentation/view/widgets/home_gridview_item.dart';
@@ -48,6 +49,7 @@ class WeddingItemsChoicesListview extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 20.h,horizontal: 3.w),
               itemBuilder: (context, index) =>GestureDetector(
                 onTap: () {
+                  AdsHelper().interstitialAdshow();
                   ControlNavigation.navigationToController(pageName: listviewData[index]["navigation"], context: context);
                 },
                 child:HomeGridviewItem(img: listviewData[index]["image"], 

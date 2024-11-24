@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zaghrota_app/core/ads_helper/ads_helper.dart';
 import 'package:zaghrota_app/core/navigation/control_navigation.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/features/decoration_images_screen/presentation/view/decoration_images_screen.dart';
@@ -57,6 +58,7 @@ class HenaItemsChoicesListview extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 15.h,horizontal: 3.w),
               itemBuilder: (context, index) =>GestureDetector(
                 onTap:index==2?(){
+                  AdsHelper().interstitialRewardedAdshow();
                    Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -67,6 +69,7 @@ class HenaItemsChoicesListview extends StatelessWidget {
                           ),
                         ));
                 }: () {
+                  AdsHelper().interstitialAdshow();
                   ControlNavigation.navigationToController(pageName: listviewData[index]["navigation"], context: context);
                 },
                 child: HomeGridviewItem(img:listviewData[index]["image"] ,

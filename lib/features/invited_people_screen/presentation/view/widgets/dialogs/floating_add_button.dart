@@ -23,6 +23,7 @@ class AddDataDialogue extends StatelessWidget {
   @override
   Widget build(context) {
     return FloatingActionButton(
+      mini: true,
         backgroundColor: AppColors.circleAvatarBorderColor,
         onPressed: () {
           showDialog(

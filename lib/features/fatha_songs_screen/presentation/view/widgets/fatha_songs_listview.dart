@@ -26,11 +26,11 @@ class FathaSongsListview extends StatelessWidget {
       builder: (context, state) {
         var cubit = FathaSongsScreenCubit.get(context);
         if (state is FathaSongsScreenSuccess){
-        return ReorderableListView.builder(
+        return state.songs.isEmpty? Center(child: Text("لازلت لم تضف شيئا...",style: Textstyles.listViewTitles,),):ReorderableListView.builder(
             onReorder: (oldIndex, newIndex) {
               cubit.updateOrder(oldIndex: oldIndex, newIndex: newIndex,);
             },
-            physics: const NeverScrollableScrollPhysics(),
+             
             shrinkWrap: true,
             itemBuilder: (context, index) => SongItem(
               editPressed: () {

@@ -23,11 +23,14 @@ class SongsListview extends StatelessWidget {
       builder: (context, state) {
         var cubit = FarahSongsScreenCubit.get(context);
         if (state is FarahSongsScreenSuccess){
-        return ReorderableListView.builder(
+        return state.songs.isEmpty?Padding(
+          padding:  EdgeInsets.only(top: 0.4.sh),
+          child: Center(child: Text("لازلت لم تضف شيئا...",style: Textstyles.listViewTitles,),),
+        ): ReorderableListView.builder(
             onReorder: (oldIndex, newIndex) {
               cubit.updateOrder(oldIndex: oldIndex, newIndex: newIndex,);
             },
-            physics: const NeverScrollableScrollPhysics(),
+            physics:const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemBuilder: (context, index) => SongItem(
               editPressed: () {
