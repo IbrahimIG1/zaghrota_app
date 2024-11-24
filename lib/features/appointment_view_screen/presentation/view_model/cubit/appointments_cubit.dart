@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:zaghrota_app/core/ads_helper/ads_helper.dart';
 import 'package:zaghrota_app/features/appointment_view_screen/data/model/note_api_model.dart';
 import 'package:zaghrota_app/features/appointment_view_screen/data/repo/appointment_view_repo.dart';
 
@@ -24,6 +25,7 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
     result.fold((l) {
       emit(AppointmentsFailure(errorMsg: l.errormsg));
     }, (r) {
+      AdsHelper().interstitialRewardedAdshow();
       getdata(type: type,useLoading: false);
     },);
   }

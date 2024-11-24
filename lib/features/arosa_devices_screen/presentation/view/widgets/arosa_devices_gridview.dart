@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zaghrota_app/core/ads_helper/ads_helper.dart';
 import 'package:zaghrota_app/core/navigation/control_navigation.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/features/arosa_devices_screen/presentation/view/widgets/arosa_gridview_item.dart';
@@ -49,6 +50,7 @@ class ArosaDevicesGridview extends StatelessWidget {
                 crossAxisCount: 2),
              itemBuilder: (context, index) => GestureDetector(
               onTap:() {
+                AdsHelper().interstitialAdshow();
                 ControlNavigation.navigationToController(pageName: data[index]["nav"], context: context);
               } ,
               child: ArosaGridviewItem(img: data[index]["img"], title: data[index]["title"])),

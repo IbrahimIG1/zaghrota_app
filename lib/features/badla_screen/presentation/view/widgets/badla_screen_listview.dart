@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zaghrota_app/core/ads_helper/ads_helper.dart';
 import 'package:zaghrota_app/core/colors/colors.dart';
 import 'package:zaghrota_app/core/textstyles/textstyles.dart';
 import 'package:zaghrota_app/core/usable/sizedbox.dart';
@@ -40,7 +41,9 @@ class BadlaScreenListview extends StatelessWidget {
               itemBuilder: (context, index) {
                 var data = state.badlaItems;
                 return BadlaItem(
+                  index: index,
                   onTapnav: () {
+                    AdsHelper().interstitialRewardedAdshow();
                     if (index < 17) {
                       if (index < 6) {
                     log(state.badlaItems[0].badlaItemName);

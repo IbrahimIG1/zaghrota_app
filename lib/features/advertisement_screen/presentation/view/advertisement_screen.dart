@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zaghrota_app/core/ads_helper/ads_helper.dart';
 import 'package:zaghrota_app/core/colors/colors.dart';
 import 'package:zaghrota_app/core/navigation/control_navigation.dart';
 import 'package:zaghrota_app/core/textstyles/textstyles.dart';
@@ -24,8 +25,7 @@ class AdvertisementScreen extends StatelessWidget {
       appBar: const CustomAppBar(),
       body: GestureDetector(
         onTap: () {
-          log(isloaded.toString());
-          if(isloaded){
+          log(imagePath);
           if(imagePath=="assets/images/advertisementpage_images/dress.png"){
             showDialog(context: context,
              builder:(context) =>  AlertDialog(
@@ -52,6 +52,7 @@ class AdvertisementScreen extends StatelessWidget {
                       backgroundColor: AppColors.circleAvatarBorderColor
                     ),
                     onPressed: () {
+                      Navigator.pop(context);
                           ControlNavigation.navigationToController(pageName:pageName , context: context);
                      
                    }, child: Text("استكمال التصفح",style: Textstyles.weddingNames.copyWith(color: Colors.white),))
@@ -62,12 +63,20 @@ class AdvertisementScreen extends StatelessWidget {
              ));
       
           }
+          else if (imagePath=="assets/images/advertisementpage_images/zafa.png"||
+          imagePath=="assets/images/advertisementpage_images/session.png"){
+            AdsHelper().interstitialRewardedAdshow();
+          ControlNavigation.navigationToController(pageName:pageName , context: context);
+            
+    
+          }
           else{
+            
             // log("aha");
           ControlNavigation.navigationToController(pageName:pageName , context: context);
       
           }
-        }
+        
         
         },
         child: Center(

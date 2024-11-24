@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zaghrota_app/core/ads_helper/ads_helper.dart';
 import 'package:zaghrota_app/core/colors/colors.dart';
 import 'package:zaghrota_app/core/textstyles/textstyles.dart';
 import 'package:zaghrota_app/features/ka3at_screen/presentation/view/ka3at_screen.dart';
@@ -28,6 +29,7 @@ class ModnGridview extends StatelessWidget {
                 mainAxisSpacing: 10.h),
             itemBuilder: (context, index) => MohafzatItem(
                 onTap: () {
+                  AdsHelper().interstitialRewardedAdshow();
                   Navigator.push(
                       context,
                       MaterialPageRoute(

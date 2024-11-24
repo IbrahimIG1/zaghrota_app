@@ -5,8 +5,8 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:zaghrota_app/core/ads_helper/ads_helper.dart';
 
 class AdsView extends StatefulWidget {
-  const AdsView({super.key});
-
+  const AdsView({super.key,this.size});
+  final AdSize? size;
   @override
   State<AdsView> createState() => _AdsViewState();
 }
@@ -16,7 +16,7 @@ bool isloaded= false;
 
 class _AdsViewState extends State<AdsView> {
   void loadAd(){
-  banner = BannerAd(size: AdSize.mediumRectangle, adUnitId: AdsHelper.bannerTestId, 
+  banner = BannerAd(size:widget.size?? AdSize.mediumRectangle, adUnitId: AdsHelper.bannerTestId, 
   listener: BannerAdListener(
     onAdLoaded: (ad) {
       

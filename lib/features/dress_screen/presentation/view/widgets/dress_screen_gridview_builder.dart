@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zaghrota_app/core/ads_helper/ads_helper.dart';
 import 'package:zaghrota_app/core/colors/colors.dart';
 import 'package:zaghrota_app/features/dress_images_screen/presentation/view/dress_images_screen.dart';
 import 'package:zaghrota_app/features/dress_images_screen/presentation/view_model/cubit/dress_images_cubit.dart';
@@ -109,6 +110,7 @@ class DressScreenGridviewBuilder extends StatelessWidget {
               }
               return GestureDetector(
                 onTap: () {
+                  AdsHelper().interstitialRewardedAdshow();
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context) => BlocProvider(create: (context) => DressImagesCubit()..getImages(type: data[index]["title"]),
                   child: DressImagesScreen(type: data[index]["title"]),

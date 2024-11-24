@@ -39,16 +39,14 @@ class AppointmentViewScreen extends StatelessWidget {
           AppointmentsCubit cubit = AppointmentsCubit.get(context);
           // AppointmentsCubit cubit = AppointmentsCubit.get(context);
           if(state is GetAppointmentsSuccess){
-          return CustomScrollView(
-            slivers: [
-              SliverToBoxAdapter(
-                  child: WeddingNotesListview(
+          return 
+             WeddingNotesListview(
                     onDeletePressed: (p0) {
                       cubit.deletedata(noteId: state.notes[p0].sId!, type: type);
                     },
-                    data:state.notes))
-            ],
-          );
+                    data:state.notes)
+            
+          ;
         }
         else if(state is AppointmentsFailure){
           return Center(child: Text(state.errorMsg),);

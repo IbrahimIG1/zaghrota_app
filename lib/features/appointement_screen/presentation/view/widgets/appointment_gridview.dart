@@ -43,8 +43,10 @@ class AppointmentGridview extends StatelessWidget {
       },
     ];
     return GridView.builder(
+      physics: const NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
       itemCount: data.length,
-      padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 0.12.sh),
+      padding: EdgeInsets.symmetric(horizontal: 25.w, ),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, mainAxisSpacing: 30.h, crossAxisSpacing: 35.w),
       itemBuilder: (context, index) => AppointmentGridItem(

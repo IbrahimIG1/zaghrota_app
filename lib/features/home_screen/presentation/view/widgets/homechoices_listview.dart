@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zaghrota_app/core/ads_helper/ads_helper.dart';
 import 'package:zaghrota_app/core/navigation/control_navigation.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/features/home_screen/presentation/view/widgets/home_gridview_item.dart';
@@ -46,7 +47,7 @@ class HomechoicesListview extends StatelessWidget {
       },
        {
         "title":"ليلة الدخلة",
-      "image":"assets/images/homepage_images/do5la.png",
+      "image":"assets/images/dress_screen_images/do5la.png",
       "navigation":ScreenNames.do5laScreen
 
       },
@@ -71,7 +72,15 @@ class HomechoicesListview extends StatelessWidget {
                 crossAxisCount: 2),
              itemBuilder: (context, index) => GestureDetector(
               onTap: () {
+               if(listviewData[index]["title"]=="شهر العسل"){
+                    AdsHelper().interstitialAdshow();
                 ControlNavigation.navigationToController(pageName: listviewData[index]["navigation"], context: context);
+
+               }
+               else{
+                ControlNavigation.navigationToController(pageName: listviewData[index]["navigation"], context: context);
+
+               }
               },
                child: HomeGridviewItem(
                 img: listviewData[index]["image"], title: listviewData[index]["title"]),
