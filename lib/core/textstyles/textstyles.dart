@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zaghrota_app/core/colors/colors.dart';
 import 'package:zaghrota_app/core/textstyles/weights.dart';
 
 
@@ -19,5 +20,10 @@ class Textstyles {
                   foreground: Paint()..style = PaintingStyle.stroke
                   .. strokeWidth = 1
                   .. color = Colors.black  ,
+                  fontSize: 15.sp,fontWeight: FontWeights.thin);
+  static TextStyle stroke = TextStyle(
+                  foreground: Paint()..style = PaintingStyle.stroke
+                  .. strokeWidth = 1.5
+                  .. color = AppColors.circleAvatarBorderColor  ,
                   fontSize: 15.sp,fontWeight: FontWeights.thin);
 }

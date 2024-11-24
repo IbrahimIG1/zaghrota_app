@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zaghrota_app/core/ads_helper/ads_helper.dart';
 import 'package:zaghrota_app/core/colors/colors.dart';
 import 'package:zaghrota_app/core/textstyles/textstyles.dart';
 import 'package:zaghrota_app/core/usable/sizedbox.dart';
@@ -53,9 +52,9 @@ String? arosName;
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                          children: [
                           SizedBox(
-                    height: 70.h,
-                    width: 50.w,
-                    child: Image.asset("assets/images/login_images/wedding_couple_love.png",fit: BoxFit.fill,),),
+                    height: 80.h,
+                    width: 60.w,
+                    child: Image.asset("assets/images/login_images/couple5.png",fit: BoxFit.fill,),),
                            HeartDrawer(
                             onTap: () {
                               showUpdateWeddingDialog(context, aresName, arosName, entrydate, cubit);
@@ -65,8 +64,8 @@ String? arosName;
 
                             SizedBox(
                     height: 70.h,
-                    width: 50.w,
-                    child: Image.asset("assets/images/login_images/couple2.png",fit: BoxFit.fill,)),
+                    width: 60.w,
+                    child: Image.asset("assets/images/login_images/couple4.png",fit: BoxFit.fill,)),
                          ],
                        ),
                      ],

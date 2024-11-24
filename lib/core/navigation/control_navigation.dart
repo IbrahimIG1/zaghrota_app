@@ -168,6 +168,10 @@ class ControlNavigation {
         break;
         case ScreenNames.zafaScreen:
         Navigator.pushNamed(context, pageName);
+        break;
+        case ScreenNames.splashScreen:
+        Navigator.pushNamed(context, pageName);
+        break;
 
         
         

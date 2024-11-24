@@ -96,6 +96,7 @@ import 'package:zaghrota_app/features/shabka_songs_screen/presentation/view_mode
 import 'package:zaghrota_app/features/songs_screen/data/models/song_model.dart';
 import 'package:zaghrota_app/features/songs_screen/presentation/view/songs_screen.dart';
 import 'package:zaghrota_app/features/songs_screen/presentation/view_model/cubit/farah_songs_screen_cubit.dart';
+import 'package:zaghrota_app/features/splash_screen/presentation/view/splash_screen.dart';
 import 'package:zaghrota_app/features/wedding_items_screen/presentation/view/wedding_items_screen.dart';
 import 'package:zaghrota_app/features/wedding_notes_screen/data/model/note_model.dart';
 import 'package:zaghrota_app/features/wedding_notes_screen/presentation/view/wedding_notes_screen.dart';
@@ -376,14 +377,15 @@ class MyApp extends StatelessWidget {
           ScreenNames.zafaScreen: (context) =>  BlocProvider(
                 create: (context) => ZafaImagesCubit()..getImages(),
                 child: const ZafaScreen(),
-              )
+              ),
+          ScreenNames.splashScreen:(context)=> const SplashScreen()
         },
         title: 'Flutter Demo',
         theme: AppTheme.theme,
-        initialRoute:
-            SharedPrefrenceHelper.sharedPreferences!.getString("hash") == null
-                ? ScreenNames.loginScreen
-                : ScreenNames.homeScreen,
+        initialRoute:ScreenNames.splashScreen
+            // SharedPrefrenceHelper.sharedPreferences!.getString("hash") == null
+            //     ? ScreenNames.loginScreen
+            //     : ScreenNames.homeScreen,
       ),
     );
   }
