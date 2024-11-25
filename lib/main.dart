@@ -5,14 +5,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:zaghrota_app/core/app_Themes/app_theme.dart';
-import 'package:zaghrota_app/core/database_helper/boxes_names.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/core/shared_prefrence_helper/shared_prefrences_helper.dart';
 import 'package:zaghrota_app/features/advertisement_screen/presentation/view/advertisement_screen.dart';
 import 'package:zaghrota_app/features/appointement_screen/presentation/view/appointment_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_accessories_screen/presentation/view/arosa_devices_accessories_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_accessories_screen/presentation/view_model/cubit/accessories_cubit.dart';
-import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/data/model/devices_model.dart';
 import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/presentation/view/arosa_devices_bath_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_bathroom_screen/presentation/view_model/cubit/devices_bath_screen_cubit.dart';
 import 'package:zaghrota_app/features/arosa_devices_centain_clothes_screen/presentation/view/arosa_devices_centian_screen.dart';
@@ -46,7 +44,6 @@ import 'package:zaghrota_app/features/arosa_devices_sports_clothes_screen/presen
 import 'package:zaghrota_app/features/arosa_devices_sports_clothes_screen/presentation/view_model/cubit/sports_clothes_cubit.dart';
 import 'package:zaghrota_app/features/arosa_devices_unformal_clothes_screen/presentation/view/arosa_devices_unformal_screen.dart';
 import 'package:zaghrota_app/features/arosa_devices_unformal_clothes_screen/presentation/view_model/cubit/unformal_clothes_cubit.dart';
-import 'package:zaghrota_app/features/badla_screen/data/model/badla_model.dart';
 import 'package:zaghrota_app/features/badla_screen/presentation/view/badla_screen.dart';
 import 'package:zaghrota_app/features/badla_screen/presentation/view_model/cubit/badla_screen_cubit.dart';
 import 'package:zaghrota_app/features/default_screen/default_screen.dart';
@@ -75,12 +72,10 @@ import 'package:zaghrota_app/features/home_screen/presentation/view/home_screen.
 import 'package:zaghrota_app/features/home_screen/presentation/view_model/cubit/home_screen_cubit.dart';
 import 'package:zaghrota_app/features/invited_people_hena_screen/presentation/view/invited_people_hena_screen.dart';
 import 'package:zaghrota_app/features/invited_people_hena_screen/presentation/view_model/cubit/invited_people_hena_screen_cubit.dart';
-import 'package:zaghrota_app/features/invited_people_screen/data/model/invited_model.dart';
 import 'package:zaghrota_app/features/invited_people_screen/presentation/view/invited_people_screeen.dart';
 import 'package:zaghrota_app/features/invited_people_screen/presentation/view_model/cubit/invited_people_cubit.dart';
 import 'package:zaghrota_app/features/invited_people_shabka_screen/presentation/view/invited_people_shabka_screen.dart';
 import 'package:zaghrota_app/features/invited_people_shabka_screen/presentation/view_model/cubit/invited_people_screen_shabka_cubit.dart';
-import 'package:zaghrota_app/features/login_screen/data/farah_model.dart';
 import 'package:zaghrota_app/features/login_screen/presentation/view/login_screen.dart';
 import 'package:zaghrota_app/features/login_screen/presentation/view_model/cubit/farah_data_cubit.dart';
 import 'package:zaghrota_app/features/mohafzat_screen/presentation/view/mohafzat_screen.dart';
@@ -93,12 +88,10 @@ import 'package:zaghrota_app/features/shabka_notes_screen/presentation/view_mode
 import 'package:zaghrota_app/features/shabka_screen/presentation/view/shabka_screen.dart';
 import 'package:zaghrota_app/features/shabka_songs_screen/presentation/view/shabka_songs_screen.dart';
 import 'package:zaghrota_app/features/shabka_songs_screen/presentation/view_model/cubit/shabka_songs_screen_cubit.dart';
-import 'package:zaghrota_app/features/songs_screen/data/models/song_model.dart';
 import 'package:zaghrota_app/features/songs_screen/presentation/view/songs_screen.dart';
 import 'package:zaghrota_app/features/songs_screen/presentation/view_model/cubit/farah_songs_screen_cubit.dart';
 import 'package:zaghrota_app/features/splash_screen/presentation/view/splash_screen.dart';
 import 'package:zaghrota_app/features/wedding_items_screen/presentation/view/wedding_items_screen.dart';
-import 'package:zaghrota_app/features/wedding_notes_screen/data/model/note_model.dart';
 import 'package:zaghrota_app/features/wedding_notes_screen/presentation/view/wedding_notes_screen.dart';
 import 'package:zaghrota_app/features/wedding_notes_screen/presentation/view_model/cubit/wedding_notes_screen_cubit.dart';
 import 'package:zaghrota_app/features/wedding_preprations_screen/presentation/view/wedding_preprations_screen.dart';
@@ -115,46 +108,7 @@ void main() async {
   await SharedPrefrenceHelper.initSharedpref();
   MobileAds.instance.initialize();
 
-  Hive.registerAdapter(InvitedModelAdapter());
-  Hive.registerAdapter(BadlaModelAdapter());
-  Hive.registerAdapter(SongModelAdapter());
-  Hive.registerAdapter(DevicesModelAdapter());
-  Hive.registerAdapter(FarahModelAdapter());
-  Hive.registerAdapter(NoteModelAdapter());
-
-  await Hive.openBox<FarahModel>(BoxesNames.farahBox);
-  await Hive.openBox<InvitedModel>(BoxesNames.invitedPeoples);
-  await Hive.openBox<InvitedModel>(BoxesNames.invitedPeopleHena);
-  await Hive.openBox<InvitedModel>(BoxesNames.invitedPeopleShabka);
-  await Hive.openBox<InvitedModel>(BoxesNames.invitedPeopleFatha);
-  await Hive.openBox<BadlaModel>(BoxesNames.badlaitems);
-  await Hive.openBox<DevicesModel>(BoxesNames.devicesBath);
-  await Hive.openBox<DevicesModel>(BoxesNames.devicesKitchen);
-  await Hive.openBox<DevicesModel>(BoxesNames.devicesMafrooshat);
-  await Hive.openBox<DevicesModel>(BoxesNames.devicesHoneyMoon);
-  await Hive.openBox<DevicesModel>(BoxesNames.devicesElectronics);
-  await Hive.openBox<DevicesModel>(BoxesNames.devicesDailyClothes);
-  await Hive.openBox<DevicesModel>(BoxesNames.devicesNoomClothes);
-  await Hive.openBox<DevicesModel>(BoxesNames.devicesHomeOccClothes);
-  await Hive.openBox<DevicesModel>(BoxesNames.devicesCentianClothes);
-  await Hive.openBox<DevicesModel>(BoxesNames.devicesFormalClothes);
-  await Hive.openBox<DevicesModel>(BoxesNames.devicesUnFormalClothes);
-  await Hive.openBox<DevicesModel>(BoxesNames.devicesSportsClothes);
-  await Hive.openBox<DevicesModel>(BoxesNames.devicesHarirClothes);
-  await Hive.openBox<DevicesModel>(BoxesNames.devicesAccessories);
-  await Hive.openBox<DevicesModel>(BoxesNames.devicesShoes);
-  await Hive.openBox<DevicesModel>(BoxesNames.devicesR2sClothes);
-  await Hive.openBox<bool>(BoxesNames.dressChecks);
-  await Hive.openBox<bool>(BoxesNames.clothesChecks);
-  await Hive.openBox<bool>(BoxesNames.sessionChecks);
-  await Hive.openBox<SongModel>(BoxesNames.songsFarah);
-  await Hive.openBox<SongModel>(BoxesNames.songshena);
-  await Hive.openBox<SongModel>(BoxesNames.songsShabka);
-  await Hive.openBox<SongModel>(BoxesNames.songsFatha);
-  await Hive.openBox<NoteModel>(BoxesNames.weddingNotesBox);
-  await Hive.openBox<NoteModel>(BoxesNames.fathaNotesBox);
-  await Hive.openBox<NoteModel>(BoxesNames.henaNotesBox);
-  await Hive.openBox<NoteModel>(BoxesNames.shabkaNotesBox);
+  
   runApp(const MyApp());
 }
 
