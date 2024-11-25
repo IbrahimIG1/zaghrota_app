@@ -47,7 +47,23 @@ String? arosName;
                   width: 1.sw,
                    child: Column(
                      children: [
-                      
+                      GestureDetector(
+                        onTap:() {
+                          showUpdateWeddingDialog(context, aresName, arosName, entrydate, cubit);
+                        } ,
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 6,top: 5),
+                          child: Align(
+                            alignment: Alignment.centerRight,
+                            child: SizedBox(
+                            child: Icon(Icons.edit,size: 20.sp,color: AppColors.scaffoldColor,),
+                            ),
+                          ),
+                        ),
+                      ),
+                      //  IconButton(onPressed: () {
+                         
+                      //  }, icon: Icon(Icons.edit_outlined)),
                        Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                          children: [

@@ -12,6 +12,11 @@ class HomechoicesListview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List listviewData= [
+       {
+      "title":"تجهيزات الفرح",
+      "image":"assets/images/homepage_images/wedding_couple_flat.png",
+      "navigation":ScreenNames.weddingPreprationsScreen
+      },
       {
       "title":"قرأة الفاتحة",
       "image":"assets/images/homepage_images/man's_hand_holding_woman's_hand.png",
@@ -34,11 +39,7 @@ class HomechoicesListview extends StatelessWidget {
       "image":"assets/images/homepage_images/music_festival.png",
       "navigation":ScreenNames.weddingItemsScreen
       },
-       {
-      "title":"تجهيزات الفرح",
-      "image":"assets/images/homepage_images/wedding_couple_flat.png",
-      "navigation":ScreenNames.weddingPreprationsScreen
-      },
+      
       {
         "title":"شهر العسل",
       "image":"assets/images/homepage_images/St_Valentine_Day.png",
@@ -59,14 +60,14 @@ class HomechoicesListview extends StatelessWidget {
     ];
     //  final args = ModalRoute.of(context)?.settings.arguments as DateTime;
     return  SizedBox(
-      height:0.73.sh ,
+      height:0.7.sh ,
       child:  Padding(
-      padding: EdgeInsets.only(right: 10.w,left: 10.w,bottom: 20.h),
+      padding: EdgeInsets.only(right: 5.w,left: 5.w,bottom: 20.h),
       child: GridView.builder(
               shrinkWrap: true,
               
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                childAspectRatio: 0.9,
+                childAspectRatio: 0.95,
                 mainAxisSpacing: 15.h,
                 crossAxisSpacing: 10.w,
                 crossAxisCount: 2),

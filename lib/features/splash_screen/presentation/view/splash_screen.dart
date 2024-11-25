@@ -95,7 +95,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          AnimatedAlign(alignment:move?AlignmentDirectional.bottomEnd: AlignmentDirectional.bottomStart , duration:const  Duration(milliseconds: 4800),
+          AnimatedAlign(alignment:move?AlignmentDirectional.bottomEnd: AlignmentDirectional.bottomStart , duration:const  Duration(milliseconds: 4500),
           child: SizedBox(
             height: 160.h,
             width: 160.w,

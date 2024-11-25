@@ -14,7 +14,7 @@ class HeartDrawer extends StatelessWidget {
    
     // List args = ModalRoute.of(context)?.settings.arguments as List;
     return Padding(
-      padding: EdgeInsets.only(top: 7.sp),
+      padding: const EdgeInsets.only(top:0),
       child: 
  GestureDetector(
             onTap: onTap,
