@@ -21,7 +21,7 @@ result.fold(
     emit(DevicesElectronicsScreenFailure(errormsg: l.errormsg));
   }
   , (r) {
-    print(r.length.toString());
+    
     emit(DevicesElectronicsScreenSuccess(electronicsDevices: r));
   },);
 }
@@ -31,7 +31,7 @@ void addData()async {
 result.fold((l) {
   emit(DevicesElectronicsScreenFailure(errormsg: l.errormsg));
 }, (r) {
-  print("add success");
+  
   
   getDaata();
 },);

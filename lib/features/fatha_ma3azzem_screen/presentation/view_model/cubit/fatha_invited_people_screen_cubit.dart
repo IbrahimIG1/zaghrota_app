@@ -30,17 +30,17 @@ TextEditingController controlNumber = TextEditingController();
   } 
 
   getInvitedPeople(){
-      print("get item Start====>>>> ");
+      
 
     emit(GetFathaInvitedPeopleScreenLoading());
     var result = repo.getInvitedPeople();
     result.fold((l) {
-      print("get item failure====>>>> ");
+      
 
       emit(GetFathaInvitedPeopleScreenFailure(errormsg:l.errormsg ));
     },
      (r) {
-      print("get item Success====>>>> ");
+      
 
       int total = 0;
       for(int x=0;x<r.length;x++){
@@ -61,14 +61,13 @@ TextEditingController controlNumber = TextEditingController();
     },);
   }
     deleteItem({required int index})async {
-      print("Delete item Start====>>>> ");
+     
     var result = await repo.deleteValue(index: index,);
     result.fold((l) {
-      print("Delete item fail====>>>> ");
-      
+     
       emit(GetFathaInvitedPeopleScreenFailure(errormsg: l.errormsg));
     },(r) {
-      print("Delete item Success====>>>> ");
+      
 
       getInvitedPeople();
     },);

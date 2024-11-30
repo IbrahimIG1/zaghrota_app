@@ -21,7 +21,7 @@ result.fold(
     emit(DevicesBathScreenFailure(errormsg: l.errormsg));
   }
   , (r) {
-    print(r.length.toString());
+    
     emit(DevicesBathScreenSuccess(bathDevices: r));
   },);
 }
@@ -31,7 +31,7 @@ void addData()async {
 result.fold((l) {
   emit(DevicesBathScreenFailure(errormsg: l.errormsg));
 }, (r) {
-  print("add success");
+  
   getData();
 },);
 }

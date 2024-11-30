@@ -21,7 +21,7 @@ result.fold(
     emit(UnformalClothesFailure(errormsg: l.errormsg));
   }
   , (r) {
-    print(r.length.toString());
+    
     emit(UnformalClothesSuccess(electronicsDevices: r));
   },);
 }
@@ -31,7 +31,7 @@ void addData()async {
 result.fold((l) {
   emit(UnformalClothesFailure(errormsg: l.errormsg));
 }, (r) {
-  print("add success");
+  
   
   getDaata();
 },);

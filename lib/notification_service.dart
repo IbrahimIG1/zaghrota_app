@@ -42,7 +42,7 @@ iOS: DarwinNotificationDetails()
  static Future<void> schduledNotification({required int id,required String title,required DateTime date,String? body})async{
     tz.initializeTimeZones();
   
-    // print(tz.local);
+    
     await flutterLocalNotificationsPlugin.zonedSchedule(id, title, body,
      tz.TZDateTime(tz.getLocation("Africa/Cairo"), date.year, date.month,date.day, date.hour, date.minute+5),
       const NotificationDetails(

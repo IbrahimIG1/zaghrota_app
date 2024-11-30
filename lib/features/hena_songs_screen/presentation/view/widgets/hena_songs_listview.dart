@@ -110,7 +110,7 @@ void editSongDialog(BuildContext context, GlobalKey<FormState> keey, HenaSongsCu
                       AppColors.circleAvatarBorderColor),
               onPressed: () async {
                  if(keey.currentState!.validate()){
-                  // print(cubit.controlEditSingerName.text);
+                  
                   cubit.updateData(index: index, song:
                    SongModel(singerName:cubit.controlEditSingerName.text , songName: cubit.controlEditSongName.text, songType: cubit.controlEditSongTypeName.text));
                    cubit.controlEditSongName.clear();

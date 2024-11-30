@@ -41,17 +41,17 @@ Future<void> addSong()async{
   } 
 
   void getSongs(){
-      print("get item Start====>>>> ");
+      
 
     
     var result = repo.getSongs();
     result.fold((l) {
-      print("get item failure====>>>> ");
+      
 
       emit(ShabkaSongsScreenFailure(errormsg:l.errormsg ));
     },
      (r) {
-      print("get item Success====>>>> ");
+      
       emit(ShabkaSongsScreenSuccess(songs:r,));
     },);
   }
@@ -77,14 +77,14 @@ Future<void> addSong()async{
     },);
   }
     void deleteItem({required int index})async {
-      print("Delete item Start====>>>> ");
+      
     var result = await repo.deleteValue(index: index,);
     result.fold((l) {
-      print("Delete item fail====>>>> ");
+      
       
       emit(ShabkaSongsScreenFailure(errormsg: l.errormsg));
     },(r) {
-      print("Delete item Success====>>>> ");
+      
 
       getSongs();
     },);

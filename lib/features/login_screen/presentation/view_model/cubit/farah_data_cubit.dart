@@ -23,15 +23,15 @@ class FarahDataCubit extends Cubit<FarahDataState> {
   void addData(context,FarahModel model)async{
     var result = await repo.addFarahData(farahmodel:model );
     result.fold((l) {
-      print("we are in add failure :${l.errormsg}");
+      
       FarahDataFailure(errormsg: l.errormsg);
     }, 
     (r) {
-      print("we added it and navigate");
-      // getdata();
+     
+      
       emit(FarahDataSuccess());
       ControlNavigation.navigationToController(pageName: ScreenNames.homeScreen, context: context);
-      // getdata();
+      
     },);
   }
 

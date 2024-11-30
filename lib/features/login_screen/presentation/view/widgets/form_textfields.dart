@@ -92,13 +92,7 @@ class _FormTextfieldsState extends State<FormTextfields> {
             const VerticalSizedBox(height: 30),
             BlocListener<FarahDataCubit, FarahDataState>(
               listener: (context, state) {
-                if (state is FarahDataSuccess) {
-                  print("msm333333333333333333333");
-                }
-                else{
-                  print(state.toString());
-                }
-                
+              
                              },
               child: SignInButton(
                 onPressed: () async {

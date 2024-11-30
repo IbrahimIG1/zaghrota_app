@@ -21,7 +21,7 @@ result.fold(
     emit(SportsClothesFailure(errormsg: l.errormsg));
   }
   , (r) {
-    print(r.length.toString());
+    
     emit(SportsClothesSuccess(electronicsDevices: r));
   },);
 }
@@ -31,7 +31,7 @@ void addData()async {
 result.fold((l) {
   emit(SportsClothesFailure(errormsg: l.errormsg));
 }, (r) {
-  print("add success");
+ 
   
   getDaata();
 },);

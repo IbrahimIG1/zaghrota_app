@@ -23,7 +23,7 @@ result.fold(
     emit(DevicesKitchenScreenFailure(errormsg: l.errormsg));
   }
   , (r) {
-    print(r.length.toString());
+    
     emit(DevicesKitchenScreenSuccess(kitchenDevices: r));
   },);
 }
@@ -33,7 +33,7 @@ void addData()async {
 result.fold((l) {
   emit(DevicesKitchenScreenFailure(errormsg: l.errormsg));
 }, (r) {
-  print("add success");
+ 
   
   getDaata();
 },);

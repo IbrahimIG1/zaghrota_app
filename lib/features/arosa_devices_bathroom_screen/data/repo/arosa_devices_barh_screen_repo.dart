@@ -47,14 +47,14 @@ class ArosaDevicesBarhScreenRepo {
       hiive.addValue<DevicesModel>(boxName: BoxesNames.devicesBath, value: x);
       }
     data =  hiive.getBoxValues<DevicesModel>(boxName: BoxesNames.devicesBath) as List<DevicesModel>;
-      print("fullllllllkhhhhhhhvgggggcggccgcgll");
+      
     
     return right(data);
     
 
     }
     else{
-      print("Noooooooooooooooot Empty");
+      
 
       return right(data);
     }

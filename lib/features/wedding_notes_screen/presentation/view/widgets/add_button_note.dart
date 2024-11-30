@@ -115,7 +115,7 @@ class AddNoteDataDialogue extends StatelessWidget {
                   set(() {
                     
                   },);
-                  print(entrydate!.year);
+                  
                 },
                 hintText: entrydate == null
                     ? '${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}'

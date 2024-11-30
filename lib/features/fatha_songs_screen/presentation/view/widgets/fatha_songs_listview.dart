@@ -151,7 +151,7 @@ class FathaSongsListview extends StatelessWidget {
                       AppColors.circleAvatarBorderColor),
               onPressed: () async {
                  if(keey.currentState!.validate()){
-                  // print(cubit.controlEditSingerName.text);
+                 
                   cubit.updateData(index: index, song:
                    SongModel(singerName:cubit.controlEditSingerName.text , songName: cubit.controlEditSongName.text, songType: cubit.controlEditSongType.text));
                   cubit.controlEditSongName.clear();

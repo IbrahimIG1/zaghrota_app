@@ -112,7 +112,7 @@ class ShabkaSongsListview extends StatelessWidget {
                       AppColors.circleAvatarBorderColor),
               onPressed: () async {
                  if(keey.currentState!.validate()){
-                  // print(cubit.controlEditSingerName.text);
+                  
                   cubit.updateData(index: index, song:
                    SongModel(singerName:cubit.controlSingerEditName.text , songName: cubit.controlSongEditName.text, songType: cubit.controlEditType.text));
                    cubit.controlSongEditName.clear();

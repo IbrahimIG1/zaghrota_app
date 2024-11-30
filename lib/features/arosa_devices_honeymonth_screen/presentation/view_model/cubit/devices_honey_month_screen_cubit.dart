@@ -21,7 +21,7 @@ result.fold(
     emit(DevicesHoneyMonthScreenFailure(errormsg: l.errormsg));
   }
   , (r) {
-    print(r.length.toString());
+    
     emit(DevicesHoneyMonthScreenSuccess(honeyMonthDevices: r));
   },);
 }
@@ -31,7 +31,7 @@ void addData()async {
 result.fold((l) {
   emit(DevicesHoneyMonthScreenFailure(errormsg: l.errormsg));
 }, (r) {
-  print("add success");
+  
   
   getDaata();
 },);

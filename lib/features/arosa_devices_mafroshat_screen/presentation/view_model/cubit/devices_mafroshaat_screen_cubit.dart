@@ -20,7 +20,7 @@ result.fold(
     emit(DevicesMafroshaatScreenFailure(errormsg: l.errormsg));
   }
   , (r) {
-    print(r.length.toString());
+    
     emit(DevicesMafroshaatScreenSuccess(mafroshaatDevices: r));
   },);
 }
@@ -30,7 +30,6 @@ void addData()async {
 result.fold((l) {
   emit(DevicesMafroshaatScreenFailure(errormsg: l.errormsg));
 }, (r) {
-  print("add success");
   
   getDaata();
 },);
