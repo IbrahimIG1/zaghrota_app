@@ -9,7 +9,7 @@ class DecorationImagesScreenRepo {
     Future<Either<ErrorModel,List<DressImageModel>>> getImages({required String type})async{
 
  try{
-  var response = await Dio().get("https://zaghrota.aiotgroups.com/api/decorations/",data: {
+  var response = await Dio().get("https://leilatelomr.aiotgroups.com/api/decorations/",data: {
     "description":type
   });
 

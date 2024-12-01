@@ -8,7 +8,7 @@ class ModnScreenRepo {
   Future<Either<ErrorModel,List<MadinaModel>>> getModn({required String mohafzaId})async{
 
    try{
-    var response = await Dio().get("https://zaghrota.aiotgroups.com/api/cities/province/$mohafzaId");
+    var response = await Dio().get("https://leilatelomr.aiotgroups.com/api/cities/province/$mohafzaId");
     List<MadinaModel> data = [];
     for(var x in response.data){
       data.add(MadinaModel.fromJson(x));

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:zaghrota_app/core/colors/colors.dart';
+import 'package:zaghrota_app/core/textstyles/textstyles.dart';
 import 'package:zaghrota_app/core/usable/sizedbox.dart';
 import 'package:zaghrota_app/features/login_screen/presentation/view/widgets/custom_login_appbar.dart';
 import 'package:zaghrota_app/features/login_screen/presentation/view/widgets/form_textfields.dart';
@@ -22,7 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
           decoration:const  BoxDecoration(
             gradient : AppColors.logInGradient
           ),
-          child:const SingleChildScrollView(
+          child:SingleChildScrollView(
             child: Directionality(
               textDirection: TextDirection.rtl,
               child: Column(
@@ -36,6 +38,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   VerticalSizedBox(height: 60),
                  FormTextfields(
                   useStyle2: false,),
+                  GestureDetector(
+                    onTap: () {
+                      launchUrl(Uri.parse("https://leilatelomr.aiotgroups.com/privacy-policy"));
+                    },
+                    child: Text("Privacy Policies Terms",style: Textstyles.blackStroke.copyWith(decoration: TextDecoration.underline),))
                   
                 ],
               ),

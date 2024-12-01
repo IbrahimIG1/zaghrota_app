@@ -9,7 +9,7 @@ class BadlaImagesScreenRepo {
   Future<Either<ErrorModel,List<BadlaImageModel>>> getImages({required String type})async{
 
  try{
-  var response = await Dio().get("https://zaghrota.aiotgroups.com/api/bridegrooms/$type");
+  var response = await Dio().get("https://leilatelomr.aiotgroups.com/api/bridegrooms/$type");
 
   List<BadlaImageModel> data = [];
   for (var x in response.data){

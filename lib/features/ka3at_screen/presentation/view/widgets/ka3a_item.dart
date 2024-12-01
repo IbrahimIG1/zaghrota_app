@@ -28,7 +28,7 @@ class Ka3aItem extends StatelessWidget {
                   
                   itemCount: 3,
                   itemBuilder: (context, index, realIndex) => CachedNetworkImage(
-                    imageUrl: "https://zaghrota.aiotgroups.com//wedding-halls//$image/${index+1}.jpg",
+                    imageUrl: "https://leilatelomr.aiotgroups.com//wedding-halls//$image/${index+1}.jpg",
                     errorWidget: (context, url, error) => const Center(child: Icon(Icons.error),),
                     placeholder:(context, url) =>  const Center(child: CircularProgressIndicator(color: AppColors.circleAvatarBorderColor,),),
                     imageBuilder:(context, imageProvider) =>  Container(

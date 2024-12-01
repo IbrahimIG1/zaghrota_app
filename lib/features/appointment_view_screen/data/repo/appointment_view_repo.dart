@@ -16,7 +16,7 @@ class AppointmentViewRepo {
     required String type
   })async{
     try{
-       await Dio().post("https://zaghrota.aiotgroups.com/api/calendars",
+       await Dio().post("https://leilatelomr.aiotgroups.com/api/calendars",
       data: {
          "date": date,
         "title": title,
@@ -51,7 +51,7 @@ class AppointmentViewRepo {
 
    Future<Either<ErrorModel,List<NotaApiModel>>> getData({required String type})async{
     try{
-       var response = await Dio().get("https://zaghrota.aiotgroups.com//api/calendars",
+       var response = await Dio().get("https://leilatelomr.aiotgroups.com//api/calendars",
        data:{
         "hash": SharedPrefrenceHelper.sharedPreferences!.getString("hash"),
         "type": type
@@ -88,7 +88,7 @@ class AppointmentViewRepo {
 
    Future<Either<ErrorModel,void>> deleteNote({required String noteId})async{
     try{
-     await Dio().delete("https://zaghrota.aiotgroups.com/api/calendars/$noteId");
+     await Dio().delete("https://leilatelomr.aiotgroups.com/api/calendars/$noteId");
      return right(null);
     }
     on DioException catch (e){

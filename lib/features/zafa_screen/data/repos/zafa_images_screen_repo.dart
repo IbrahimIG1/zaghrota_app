@@ -8,7 +8,7 @@ class ZafaImagesScreenRepo {
       Future<Either<ErrorModel,List<ZafaImageModel>>> getImages()async{
 
  try{
-  var response = await Dio().get("https://zaghrota.aiotgroups.com/api/cardecorations");
+  var response = await Dio().get("https://leilatelomr.aiotgroups.com/api/cardecorations");
 
   List<ZafaImageModel> data = [];
   for (var x in response.data){

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:zaghrota_app/core/colors/colors.dart';
 import 'package:zaghrota_app/core/textstyles/textstyles.dart';
 import 'package:zaghrota_app/core/usable/sizedbox.dart';
@@ -52,12 +53,19 @@ String? arosName;
                           showUpdateWeddingDialog(context, aresName, arosName, entrydate, cubit);
                         } ,
                         child: Padding(
-                          padding: const EdgeInsets.only(right: 6,top: 5),
-                          child: Align(
-                            alignment: Alignment.centerRight,
-                            child: SizedBox(
-                            child: Icon(Icons.edit,size: 20.sp,color: AppColors.scaffoldColor,),
-                            ),
+                          padding: const EdgeInsets.only(right: 6,top: 5,left: 5),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SizedBox(
+                              child: Icon(Icons.edit,size: 20.sp,color: AppColors.scaffoldColor,),
+                              ),
+                                   GestureDetector(
+                    onTap: () {
+                      launchUrl(Uri.parse("https://leilatelomr.aiotgroups.com/privacy-policy"));
+                    },
+                    child: Text("Privacy Policies Terms",style: Textstyles.blackStroke.copyWith(fontSize: 10.sp,decoration: TextDecoration.underline),))
+                            ],
                           ),
                         ),
                       ),

@@ -9,7 +9,7 @@ class MohafzatScreenRepo {
   Future<Either<ErrorModel,List<MohafzaModel>>> getMohafzat()async{
   
    try{
-    var response = await Dio().get("https://zaghrota.aiotgroups.com/api/provinces");
+    var response = await Dio().get("https://leilatelomr.aiotgroups.com/api/provinces");
     List<MohafzaModel> data = [];
     for (var x in response.data){
      data.add(MohafzaModel.fromJson(x));

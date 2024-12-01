@@ -7,7 +7,7 @@ import 'package:zaghrota_app/features/ka3at_screen/data/model/ka3a_model.dart';
 class Ka3atScreenRepo {
   Future<Either<ErrorModel,List<Ka3aModel>>> getKa3at({required String madinaId})async{
     try{
-      var response = await Dio().get("https://zaghrota.aiotgroups.com/api/halls/city/$madinaId");
+      var response = await Dio().get("https://leilatelomr.aiotgroups.com/api/halls/city/$madinaId");
       List<Ka3aModel> data = [];
       for (var x in response.data){
         data.add(Ka3aModel.fromJson(x));

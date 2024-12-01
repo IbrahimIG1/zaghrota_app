@@ -9,7 +9,7 @@ class DressImageScreenRepo {
     Future<Either<ErrorModel,List<DressImageModel>>> getImages({required String type})async{
 
  try{
-  var response = await Dio().get("https://zaghrota.aiotgroups.com/api/brides",data: {
+  var response = await Dio().get("https://leilatelomr.aiotgroups.com/api/brides",data: {
     "description":type
   });
 
