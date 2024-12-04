@@ -1,4 +1,4 @@
-package com.example.zaghrota_app
+package com.aiot.zaghrota_app
 
 import io.flutter.embedding.android.FlutterActivity
 
