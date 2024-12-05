@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "315909250101",
+    "project_id": "zagh-dc34f",
+    "storage_bucket": "zagh-dc34f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315909250101:android:36c53b9437149ee0de657c",
+        "android_client_info": {
+          "package_name": "com.aiot.zaghrota_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqWvmNu8sGscfI07MI1pKCPQU_0fmq3-g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

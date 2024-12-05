@@ -57,4 +57,34 @@ iOS: DarwinNotificationDetails()
  static Future<void> cancelNotification({required int index})async{
   await flutterLocalNotificationsPlugin.cancel(index);
  }
+
+ static Future<void> sendNotificationAfterOneMinute() async {
+    tz.initializeTimeZones();
+
+    // Get current time in Cairo timezone
+    tz.TZDateTime now = tz.TZDateTime.now(tz.getLocation('Africa/Cairo'));
+
+    // Add 1 minute to the current time
+    tz.TZDateTime scheduledTime = now.add(Duration(seconds: 20));
+
+    // Schedule the notification after 1 minute
+    await flutterLocalNotificationsPlugin.zonedSchedule(
+      0, // Notification ID
+      'Khalid', // Title
+      'This notification was scheduled for 1 minute later', // Content/Body
+      scheduledTime, // Scheduled time (1 minute later)
+      const NotificationDetails(
+        android: AndroidNotificationDetails(
+          '1', // Channel ID
+          'Notifications', // Channel Name
+          importance: Importance.max,
+          priority: Priority.max,
+        ),
+        iOS: DarwinNotificationDetails(),
+      ),
+      uiLocalNotificationDateInterpretation:
+          UILocalNotificationDateInterpretation.absoluteTime,
+      androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+    );
+  }
 }

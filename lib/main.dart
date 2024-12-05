@@ -1,9 +1,11 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:zaghrota_app/core/app_Themes/app_theme.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/core/shared_prefrence_helper/shared_prefrences_helper.dart';
@@ -97,6 +99,7 @@ import 'package:zaghrota_app/features/wedding_notes_screen/presentation/view_mod
 import 'package:zaghrota_app/features/wedding_preprations_screen/presentation/view/wedding_preprations_screen.dart';
 import 'package:zaghrota_app/features/zafa_screen/presentation/view/zafa_screen.dart';
 import 'package:zaghrota_app/features/zafa_screen/presentation/view_model/cubit/zafa_images_cubit.dart';
+import 'package:zaghrota_app/firebase_options.dart';
 import 'package:zaghrota_app/generated/l10n.dart';
 import 'package:zaghrota_app/notification_service.dart';
 
@@ -106,10 +109,23 @@ void main() async {
   await NotificationService.init();
   await Hive.initFlutter();
   await SharedPrefrenceHelper.initSharedpref();
-  MobileAds.instance.initialize();
+  await MobileAds.instance.initialize();
+  await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+);
+
+  await SentryFlutter.init(
+    (options) {
+      options.dsn = 'https://47e4613cedc58f2345d39799089efb3b@o4508414852136960.ingest.us.sentry.io/4508414854627328';
+      // Set tracesSampleRate to 1.0 to capture 100% of transactions for tracing.
+      // We recommend adjusting this value in production.
+      options.tracesSampleRate = 0.01;
+     
+    },
+    appRunner: () => runApp(const MyApp()),
+  );
 
   
-  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -118,6 +134,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+  
     return ScreenUtilInit(
       designSize: const Size(360, 800),
       child: MaterialApp(

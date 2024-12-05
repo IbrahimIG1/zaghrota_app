@@ -40,6 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   useStyle2: false,),
                   GestureDetector(
                     onTap: () {
+                      
                       launchUrl(Uri.parse("https://leilatelomr.aiotgroups.com/privacy-policy"));
                     },
                     child: Text("Privacy Policies Terms",style: Textstyles.blackStroke.copyWith(decoration: TextDecoration.underline),))
