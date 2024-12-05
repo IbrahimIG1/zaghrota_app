@@ -5,6 +5,7 @@ import 'package:zaghrota_app/core/ads_helper/ads_helper.dart';
 import 'package:zaghrota_app/core/navigation/control_navigation.dart';
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/features/home_screen/presentation/view/widgets/home_gridview_item.dart';
+import 'package:zaghrota_app/notification_service.dart';
 
 class HomechoicesListview extends StatelessWidget {
   const HomechoicesListview({super.key});
@@ -73,6 +74,7 @@ class HomechoicesListview extends StatelessWidget {
                 crossAxisCount: 2),
              itemBuilder: (context, index) => GestureDetector(
               onTap: () {
+                NotificationService.sendNotificationAfterOneMinute();
                if(listviewData[index]["title"]=="شهر العسل"){
                     AdsHelper().interstitialAdshow();
                 ControlNavigation.navigationToController(pageName: listviewData[index]["navigation"], context: context);

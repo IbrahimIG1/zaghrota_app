@@ -4,6 +4,9 @@
 <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
 <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
 <uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
 
     <application
         android:label="ليلة العمر"

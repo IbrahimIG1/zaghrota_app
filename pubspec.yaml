@@ -42,7 +42,7 @@ dependencies:
   dartz: ^0.10.1
   flutter_bloc: ^8.1.6
   carousel_slider: ^5.0.0
-  flutter_local_notifications: ^17.2.4
+  flutter_local_notifications: ^18.0.1
   timezone: ^0.9.4
   dio: ^5.7.0
   cached_network_image: ^3.4.1
