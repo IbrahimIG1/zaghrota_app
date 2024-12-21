@@ -89,43 +89,45 @@ Future<void> updateDialog(BuildContext context, String? newval, DevicesBathScree
     return showDialog(context: context, builder: (context) => AlertDialog(
                 backgroundColor: AppColors.scaffoldColor,
                 title: Center(child: Text("تعديل الرقم",style: Textstyles.nameOfInvitedPeopleStyle)),
-                content: Column(
-                  mainAxisSize:  MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                     Customtextfield(  
-                      onChanged: (p0) {
-                        newval=p0;
-                      },                       
-                          hintText: "عدد القطع",
-                          useStyle2: false,
-                          keyboardType: TextInputType.number,
-                        ),
-                        const VerticalSizedBox(height: 10),
-                           ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    AppColors.circleAvatarBorderColor),
-                            onPressed: ()  {
-                             if(newval!=null){
-                              state.bathDevices[index].number = newval!;
-                              cubit.updateCheck(
-                                  index: index,
-                                  model: DevicesModel(
-                                      deviceName: state.bathDevices[index].deviceName,
-                                      number: state.bathDevices[index].number,
-                                      checked: state.bathDevices[index].checked));
-                                      Navigator.pop(context);
-                             }
-                             else{
-                              Navigator.pop(context);
-                             }
-                            },
-                            child: Text(
-                              "اضافة",
-                              style: Textstyles.songsTopTitleStyle,
-                            ))
-                  ],
+                content: SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize:  MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                       Customtextfield(  
+                        onChanged: (p0) {
+                          newval=p0;
+                        },                       
+                            hintText: "عدد القطع",
+                            useStyle2: false,
+                            keyboardType: TextInputType.number,
+                          ),
+                          const VerticalSizedBox(height: 10),
+                             ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor:
+                                      AppColors.circleAvatarBorderColor),
+                              onPressed: ()  {
+                               if(newval!=null){
+                                state.bathDevices[index].number = newval!;
+                                cubit.updateCheck(
+                                    index: index,
+                                    model: DevicesModel(
+                                        deviceName: state.bathDevices[index].deviceName,
+                                        number: state.bathDevices[index].number,
+                                        checked: state.bathDevices[index].checked));
+                                        Navigator.pop(context);
+                               }
+                               else{
+                                Navigator.pop(context);
+                               }
+                              },
+                              child: Text(
+                                "اضافة",
+                                style: Textstyles.songsTopTitleStyle,
+                              ))
+                    ],
+                  ),
                 ),
               ),);
               }
@@ -133,36 +135,38 @@ Future<void> updateDialog(BuildContext context, String? newval, DevicesBathScree
        void deleteDialog(BuildContext context, DevicesBathScreenCubit cubit, int index) {
             showDialog(context: context, builder: (context) => AlertDialog(
           title: Center(child: Text("تأكيد الحذف",style: Textstyles.nameOfInvitedPeopleStyle,)),
-          content: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: [
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+              SizedBox(
+                width: 0.5.sw,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green
+                  ),
+                  onPressed: () {
+                    cubit.deleteItem(index: index);
+                    // ignore: use_build_context_synchronously
+                    Navigator.pop(context);
+                  },
+                   child: Text("نعم",style: Textstyles.songsTopTitleStyle,)),
+              ),
+            const VerticalSizedBox(height: 1),
             SizedBox(
               width: 0.5.sw,
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green
-                ),
-                onPressed: () {
-                  cubit.deleteItem(index: index);
-                  // ignore: use_build_context_synchronously
-                  Navigator.pop(context);
-                },
-                 child: Text("نعم",style: Textstyles.songsTopTitleStyle,)),
-            ),
-          const VerticalSizedBox(height: 1),
-          SizedBox(
-            width: 0.5.sw,
-            child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red
-                ),
-                onPressed: () {
-              Navigator.pop(context);
-            }, child: Text("لا",style: Textstyles.songsTopTitleStyle,)),
-          )
-          
-          ],),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red
+                  ),
+                  onPressed: () {
+                Navigator.pop(context);
+              }, child: Text("لا",style: Textstyles.songsTopTitleStyle,)),
+            )
+            
+            ],),
+          ),
         ),);
   }
 }

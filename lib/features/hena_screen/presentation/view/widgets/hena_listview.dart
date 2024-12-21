@@ -58,7 +58,7 @@ class HenaItemsChoicesListview extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 15.h,horizontal: 3.w),
               itemBuilder: (context, index) =>GestureDetector(
                 onTap:index==2?(){
-                  AdsHelper().interstitialRewardedAdshow();
+                  AdsHelper().interstitialAdshow();
                    Navigator.push(
                         context,
                         MaterialPageRoute(

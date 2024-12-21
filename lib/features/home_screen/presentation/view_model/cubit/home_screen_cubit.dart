@@ -29,7 +29,7 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
       emit(HomeScreenFailure(errormsg: l.errormsg));
       
     }, (r) {
-      AdsHelper().interstitialRewardedAdshow();
+      AdsHelper().interstitialAdshow();
 
       getdata();
     },);

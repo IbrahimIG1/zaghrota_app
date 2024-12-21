@@ -33,43 +33,45 @@ class BadlaScreenFloatingButton extends StatelessWidget {
                     backgroundColor: AppColors.scaffoldColor,
                     content: Form(
                       key: formKey,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Customtextfield(
-                              controller: namecontroller,
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return "من فضلك ادخل اسم القطعة";
-                                }
-                                return null;
-                              },
-                              // onChanged: (p0) {
-                              // onChanged(p0);
-                              // },
-                              hintText: "اسم القطعة",
-                              useStyle2: false),
-                          const VerticalSizedBox(height: 15),
-                         
-                          const VerticalSizedBox(height: 15),
-                          ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor:
-                                      AppColors.circleAvatarBorderColor),
-                              onPressed: () async {
-                                if (formKey.currentState!.validate()) {
-                                  addData();
-                                  namecontroller!.clear();
-                                  Navigator.pop(context);
-                                  
-                                }
-                              },
-                              child: Text(
-                                "اضافة",
-                                style: Textstyles.songsTopTitleStyle,
-                              ))
-                        ],
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Customtextfield(
+                                controller: namecontroller,
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return "من فضلك ادخل اسم القطعة";
+                                  }
+                                  return null;
+                                },
+                                // onChanged: (p0) {
+                                // onChanged(p0);
+                                // },
+                                hintText: "اسم القطعة",
+                                useStyle2: false),
+                            const VerticalSizedBox(height: 15),
+                           
+                            const VerticalSizedBox(height: 15),
+                            ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor:
+                                        AppColors.circleAvatarBorderColor),
+                                onPressed: () async {
+                                  if (formKey.currentState!.validate()) {
+                                    addData();
+                                    namecontroller!.clear();
+                                    Navigator.pop(context);
+                                    
+                                  }
+                                },
+                                child: Text(
+                                  "اضافة",
+                                  style: Textstyles.songsTopTitleStyle,
+                                ))
+                          ],
+                        ),
                       ),
                     ),
                   ));

@@ -4,7 +4,8 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class AdsHelper {
   static const String bannerTestId = "ca-app-pub-6783789872524961/3099215367";
-  static const String interstialTestId = "ca-app-pub-6783789872524961/2252704418";
+  static const String interstialTestId = "ca-app-pub-3940256099942544/1033173712";
+  // ca-app-pub-6783789872524961/2252704418
   static const String rewardedInterstialTestId = "ca-app-pub-6783789872524961/6028570964";
   InterstitialAd? _interstitialAd;
   RewardedAd? rewardedAd;

@@ -2,10 +2,11 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:zaghrota_app/core/navigation/control_navigation.dart';
+
 import 'package:zaghrota_app/core/navigation/screen_names.dart';
 import 'package:zaghrota_app/features/login_screen/data/farah_model.dart';
 import 'package:zaghrota_app/features/login_screen/data/farah_repo.dart';
+import 'package:zaghrota_app/notification_service.dart';
 
 part 'farah_data_state.dart';
 
@@ -30,7 +31,8 @@ class FarahDataCubit extends Cubit<FarahDataState> {
      
       
       emit(FarahDataSuccess());
-      ControlNavigation.navigationToController(pageName: ScreenNames.homeScreen, context: context);
+      NotificationService.sendNotificationAfterOneMinute();
+      Navigator.pushReplacementNamed(context,ScreenNames.homeScreen);
       
     },);
   }

@@ -110,7 +110,7 @@ class DressScreenGridviewBuilder extends StatelessWidget {
               }
               return GestureDetector(
                 onTap: () {
-                  AdsHelper().interstitialRewardedAdshow();
+                  AdsHelper().interstitialAdshow();
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context) => BlocProvider(create: (context) => DressImagesCubit()..getImages(type: data[index]["title"]),
                   child: DressImagesScreen(type: data[index]["title"]),

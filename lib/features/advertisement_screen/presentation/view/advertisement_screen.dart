@@ -33,30 +33,32 @@ class AdvertisementScreen extends StatelessWidget {
               title: Center(child: Text("تنوية",style: Textstyles.advertisementStyle,)),
               content: Padding(
                 padding:  EdgeInsets.symmetric(horizontal: 7.w),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                   Padding(
-                     padding: EdgeInsets.symmetric(vertical: 20.h),
-                     child: Text("هذا القسم يحتوي علي صور خاصة بالسيدات فاذا كنت رجلا تذكر ان الله امرك بغض البصر",
-                     style:Textstyles.darkTextStyle.copyWith(fontSize: 15.sp) ,),
-                   ),
-                   Padding(
-                     padding:  EdgeInsets.only(bottom: 20.h),
-                     child: Text(" قُل لِّلْمُؤْمِنِينَ يَغُضُّوا مِنْ أَبْصَارِهِمْ وَيَحْفَظُوا فُرُوجَهُمْ ۚ ذَٰلِكَ أَزْكَىٰ لَهُمْ ۗ إِنَّ اللَّهَ خَبِيرٌ بِمَا يَصْنَعُونَ",style: Textstyles.blackStroke,textAlign: TextAlign.center,),
-                   ),
-                   ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.circleAvatarBorderColor
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                          ControlNavigation.navigationToController(pageName:pageName , context: context);
-                     
-                   }, child: Text("استكمال التصفح",style: Textstyles.weddingNames.copyWith(color: Colors.white),))
-                  ],
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                     Padding(
+                       padding: EdgeInsets.symmetric(vertical: 20.h),
+                       child: Text("هذا القسم يحتوي علي صور خاصة بالسيدات فاذا كنت رجلا تذكر ان الله امرك بغض البصر",
+                       style:Textstyles.darkTextStyle.copyWith(fontSize: 15.sp) ,),
+                     ),
+                     Padding(
+                       padding:  EdgeInsets.only(bottom: 20.h),
+                       child: Text(" قُل لِّلْمُؤْمِنِينَ يَغُضُّوا مِنْ أَبْصَارِهِمْ وَيَحْفَظُوا فُرُوجَهُمْ ۚ ذَٰلِكَ أَزْكَىٰ لَهُمْ ۗ إِنَّ اللَّهَ خَبِيرٌ بِمَا يَصْنَعُونَ",style: Textstyles.blackStroke,textAlign: TextAlign.center,),
+                     ),
+                     ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.circleAvatarBorderColor
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                            ControlNavigation.navigationToController(pageName:pageName , context: context);
+                       
+                     }, child: Text("استكمال التصفح",style: Textstyles.weddingNames.copyWith(color: Colors.white),))
+                    ],
+                  ),
                 ),
               ),
               
@@ -65,7 +67,7 @@ class AdvertisementScreen extends StatelessWidget {
           }
           else if (imagePath=="assets/images/advertisementpage_images/zafa.png"||
           imagePath=="assets/images/advertisementpage_images/session.png"){
-            AdsHelper().interstitialRewardedAdshow();
+            AdsHelper().interstitialAdshow();
           ControlNavigation.navigationToController(pageName:pageName , context: context);
             
     

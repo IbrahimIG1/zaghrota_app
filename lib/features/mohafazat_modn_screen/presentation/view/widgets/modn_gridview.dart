@@ -29,7 +29,7 @@ class ModnGridview extends StatelessWidget {
                 mainAxisSpacing: 10.h),
             itemBuilder: (context, index) => MohafzatItem(
                 onTap: () {
-                  AdsHelper().interstitialRewardedAdshow();
+                  AdsHelper().interstitialAdshow();
                   Navigator.push(
                       context,
                       MaterialPageRoute(

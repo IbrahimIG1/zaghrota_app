@@ -35,7 +35,7 @@ Future<void> addSong()async{
    }, (r) {
     // add++;
     // if(add%3==0){
-    // AdsHelper().interstitialRewardedAdshow();
+    // AdsHelper().interstitialAdshow();
     // }
     getSongs();
    } ,);

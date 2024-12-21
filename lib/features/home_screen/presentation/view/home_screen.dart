@@ -122,85 +122,87 @@ String? arosName;
     ),
     content: Form(
       key: keeey,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Customtextfield(
-            onChanged: (p0) {
-              aresName = p0;
-            },
-            // controller: aressName,
-            validator: (p0) {
-              if (p0!.isEmpty || p0 == "") {
-                return "من فضلك أدخل اسم العريس";
-              }
-              return null;
-            },
-            useStyle2: false, hintText: "اسم العريس ",
-          ),
-          const VerticalSizedBox(height: 10),
-          Customtextfield(
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Customtextfield(
               onChanged: (p0) {
-                arosName = p0;
+                aresName = p0;
               },
-              // controller:arosaName ,
+              // controller: aressName,
               validator: (p0) {
                 if (p0!.isEmpty || p0 == "") {
-                  return "من فضلك أدخل اسم العروسة";
+                  return "من فضلك أدخل اسم العريس";
                 }
                 return null;
               },
-              useStyle2: false,
-              hintText: "اسم العروسة"),
-          const VerticalSizedBox(height: 10),
-          StatefulBuilder(
-            builder: (context,set) {
-              return CustomDatefield(
-
-                
+              useStyle2: false, hintText: "اسم العريس ",
+            ),
+            const VerticalSizedBox(height: 10),
+            Customtextfield(
+                onChanged: (p0) {
+                  arosName = p0;
+                },
+                // controller:arosaName ,
                 validator: (p0) {
-                  if (entrydate == null) {
-                    return "من فضلك أدخل تاريخ الزواج";
+                  if (p0!.isEmpty || p0 == "") {
+                    return "من فضلك أدخل اسم العروسة";
                   }
                   return null;
                 },
                 useStyle2: false,
-                onTap: () async {
-                  entrydate = await showDatePicker(
-                    context: context,
-                    initialDate: DateTime.now(),
-                    firstDate: DateTime(2023),
-                    lastDate: DateTime(2090),
-                  );
-                  entrydate ??= DateTime.now();
-                  // setState(() {});
-                  set(() {
-                    
-                  },);
+                hintText: "اسم العروسة"),
+            const VerticalSizedBox(height: 10),
+            StatefulBuilder(
+              builder: (context,set) {
+                return CustomDatefield(
+        
+                  
+                  validator: (p0) {
+                    if (entrydate == null) {
+                      return "من فضلك أدخل تاريخ الزواج";
+                    }
+                    return null;
+                  },
+                  useStyle2: false,
+                  onTap: () async {
+                    entrydate = await showDatePicker(
+                      context: context,
+                      initialDate: DateTime.now(),
+                      firstDate: DateTime(2023),
+                      lastDate: DateTime(2090),
+                    );
+                    entrydate ??= DateTime.now();
+                    // setState(() {});
+                    set(() {
+                      
+                    },);
+                  },
+                  hintText: entrydate == null
+                      ? '${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}'
+                      : '${entrydate!.day}/${entrydate!.month}/${entrydate!.year}',
+                );
+              }
+            ),
+            const VerticalSizedBox(height: 10),
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.scaffoldColor),
+                onPressed: () async {
+                  if (keeey.currentState!.validate()) {
+                    cubit.updateFarahItem(
+                      model: FarahModel(aresName: aresName!, arosaName: arosName!, farahTime: entrydate!));
+                    Navigator.pop(context);
+                  }
                 },
-                hintText: entrydate == null
-                    ? '${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}'
-                    : '${entrydate!.day}/${entrydate!.month}/${entrydate!.year}',
-              );
-            }
-          ),
-          const VerticalSizedBox(height: 10),
-          ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.scaffoldColor),
-              onPressed: () async {
-                if (keeey.currentState!.validate()) {
-                  cubit.updateFarahItem(
-                    model: FarahModel(aresName: aresName!, arosaName: arosName!, farahTime: entrydate!));
-                  Navigator.pop(context);
-                }
-              },
-              child: Text(
-                "تعديل",
-                style: TextStyle(
-                    color: Colors.green, fontSize: 11.sp),
-              ))
-        ],
+                child: Text(
+                  "تعديل",
+                  style: TextStyle(
+                      color: Colors.green, fontSize: 11.sp),
+                ))
+          ],
+        ),
       ),
     ),
                       ),

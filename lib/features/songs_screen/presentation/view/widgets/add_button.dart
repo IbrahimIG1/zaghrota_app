@@ -48,71 +48,73 @@ class AddSongDataDialogue extends StatelessWidget {
               backgroundColor: AppColors.scaffoldColor,
               content: Form(
                 key: formKey,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Customtextfield(
-                        controller: songNamecontroller,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "من فضلك ادخل الأغنية";
-                          }
-                          return null;
-                        },
-                        // onChanged: (p0) {
-                        // onChanged(p0);
-                        // },
-                        hintText: "اسم الأغنية",
-                        useStyle2: false),
-                    const VerticalSizedBox(height: 15),
-                    Customtextfield(
-                        controller: singerNamecontroller,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "من فضلك ادخل المغني";
-                          }
-                          return null;
-                        },
-                        // onChanged: (p0) {
-                        // onChanged(p0);
-                        // },
-                        hintText: "اسم المغني",
-                        useStyle2: false),
-                    const VerticalSizedBox(height: 15),
-                    Customtextfield(
-                        controller: notecontroller,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "من فضلك ادخل نوع الأغنية";
-                          }
-                          return null;
-                        },
-                        // onChanged: (p0) {
-                        // onChanged(p0);
-                        // },
-                        hintText: "ادخل نوع الأغنية( سلو- مهرجان)",
-                        useStyle2: false),
-                  
-                    const VerticalSizedBox(height: 15),
-                    ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                AppColors.circleAvatarBorderColor),
-                        onPressed: () async {
-                          if (formKey.currentState!.validate()) {
-                            addData();
-                            songNamecontroller!.clear();
-                            singerNamecontroller!.clear();
-                            notecontroller!.clear();
-                            Navigator.pop(context);
-                          }
-                        },
-                        child: Text(
-                          "اضافة",
-                          style: Textstyles.songsTopTitleStyle,
-                        ))
-                  ],
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Customtextfield(
+                          controller: songNamecontroller,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return "من فضلك ادخل الأغنية";
+                            }
+                            return null;
+                          },
+                          // onChanged: (p0) {
+                          // onChanged(p0);
+                          // },
+                          hintText: "اسم الأغنية",
+                          useStyle2: false),
+                      const VerticalSizedBox(height: 15),
+                      Customtextfield(
+                          controller: singerNamecontroller,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return "من فضلك ادخل المغني";
+                            }
+                            return null;
+                          },
+                          // onChanged: (p0) {
+                          // onChanged(p0);
+                          // },
+                          hintText: "اسم المغني",
+                          useStyle2: false),
+                      const VerticalSizedBox(height: 15),
+                      Customtextfield(
+                          controller: notecontroller,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return "من فضلك ادخل نوع الأغنية";
+                            }
+                            return null;
+                          },
+                          // onChanged: (p0) {
+                          // onChanged(p0);
+                          // },
+                          hintText: "ادخل نوع الأغنية( سلو- مهرجان)",
+                          useStyle2: false),
+                    
+                      const VerticalSizedBox(height: 15),
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  AppColors.circleAvatarBorderColor),
+                          onPressed: () async {
+                            if (formKey.currentState!.validate()) {
+                              addData();
+                              songNamecontroller!.clear();
+                              singerNamecontroller!.clear();
+                              notecontroller!.clear();
+                              Navigator.pop(context);
+                            }
+                          },
+                          child: Text(
+                            "اضافة",
+                            style: Textstyles.songsTopTitleStyle,
+                          ))
+                    ],
+                  ),
                 ),
               ),
             ));

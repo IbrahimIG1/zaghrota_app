@@ -15,6 +15,7 @@ import 'package:zaghrota_app/features/login_screen/data/farah_model.dart';
 import 'package:zaghrota_app/features/songs_screen/data/models/song_model.dart';
 import 'package:zaghrota_app/features/wedding_notes_screen/data/model/note_model.dart';
 
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 

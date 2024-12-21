@@ -25,7 +25,7 @@ class AppointmentsCubit extends Cubit<AppointmentsState> {
     result.fold((l) {
       emit(AppointmentsFailure(errorMsg: l.errormsg));
     }, (r) {
-      AdsHelper().interstitialRewardedAdshow();
+      AdsHelper().interstitialAdshow();
       getdata(type: type,useLoading: false);
     },);
   }

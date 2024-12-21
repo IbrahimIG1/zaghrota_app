@@ -68,36 +68,38 @@ class ShabkaNotesScreen extends StatelessWidget {
   void deleteDialog(BuildContext context, ShabkaNotesScreenCubit cubit, int index) {
             showDialog(context: context, builder: (context) => AlertDialog(
           title: Center(child: Text("تأكيد الحذف",style: Textstyles.nameOfInvitedPeopleStyle,)),
-          content: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: [
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+              SizedBox(
+                width: 0.5.sw,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green
+                  ),
+                  onPressed: ()async {
+                    cubit.deleteData(index: index);
+                    // ignore: use_build_context_synchronously
+                    Navigator.pop(context);
+                  },
+                   child: Text("نعم",style: Textstyles.songsTopTitleStyle,)),
+              ),
+            const VerticalSizedBox(height: 1),
             SizedBox(
               width: 0.5.sw,
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green
-                ),
-                onPressed: ()async {
-                  cubit.deleteData(index: index);
-                  // ignore: use_build_context_synchronously
-                  Navigator.pop(context);
-                },
-                 child: Text("نعم",style: Textstyles.songsTopTitleStyle,)),
-            ),
-          const VerticalSizedBox(height: 1),
-          SizedBox(
-            width: 0.5.sw,
-            child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red
-                ),
-                onPressed: () {
-              Navigator.pop(context);
-            }, child: Text("لا",style: Textstyles.songsTopTitleStyle,)),
-          )
-          
-          ],),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red
+                  ),
+                  onPressed: () {
+                Navigator.pop(context);
+              }, child: Text("لا",style: Textstyles.songsTopTitleStyle,)),
+            )
+            
+            ],),
+          ),
         ),);
   }
 }

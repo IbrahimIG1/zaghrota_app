@@ -37,63 +37,65 @@ class AddDataDialogue extends StatelessWidget {
                     backgroundColor: AppColors.scaffoldColor,
                     content: Form(
                       key: formKey,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Customtextfield(
-                              controller: namecontroller,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Customtextfield(
+                                controller: namecontroller,
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return "من فضلك ادخل اسم المعزوم";
+                                  }
+                                  return null;
+                                },
+                                // onChanged: (p0) {
+                                // onChanged(p0);
+                                // },
+                                hintText: "اسم المعزوم",
+                                useStyle2: false),
+                            const VerticalSizedBox(height: 15),
+                            Customtextfield(
+                              controller: numbercontroller,
                               validator: (value) {
-                                if (value!.isEmpty) {
-                                  return "من فضلك ادخل اسم المعزوم";
+                                if (value!.isEmpty && num == 0) {
+                                  return "من فضلك ادخل عدد المعزومين";
                                 }
                                 return null;
                               },
                               // onChanged: (p0) {
-                              // onChanged(p0);
+                              //   String z = p0;
+                              //   if(z!=""){
+                              //     num = int.parse(z);
+                              //   }
+                              //   else{
+                              //     num = 0;
+                              //   }
                               // },
-                              hintText: "اسم المعزوم",
-                              useStyle2: false),
-                          const VerticalSizedBox(height: 15),
-                          Customtextfield(
-                            controller: numbercontroller,
-                            validator: (value) {
-                              if (value!.isEmpty && num == 0) {
-                                return "من فضلك ادخل عدد المعزومين";
-                              }
-                              return null;
-                            },
-                            // onChanged: (p0) {
-                            //   String z = p0;
-                            //   if(z!=""){
-                            //     num = int.parse(z);
-                            //   }
-                            //   else{
-                            //     num = 0;
-                            //   }
-                            // },
-                            hintText: "عدد المعزومين",
-                            useStyle2: false,
-                            keyboardType: TextInputType.number,
-                          ),
-                          const VerticalSizedBox(height: 15),
-                          ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor:
-                                      AppColors.circleAvatarBorderColor),
-                              onPressed: () async {
-                                if (formKey.currentState!.validate()) {
-                                  addData();
-                                  namecontroller!.clear();
-                                  numbercontroller!.clear();
-                                  Navigator.pop(context);
-                                }
-                              },
-                              child: Text(
-                                "اضافة",
-                                style: Textstyles.songsTopTitleStyle,
-                              ))
-                        ],
+                              hintText: "عدد المعزومين",
+                              useStyle2: false,
+                              keyboardType: TextInputType.number,
+                            ),
+                            const VerticalSizedBox(height: 15),
+                            ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor:
+                                        AppColors.circleAvatarBorderColor),
+                                onPressed: () async {
+                                  if (formKey.currentState!.validate()) {
+                                    addData();
+                                    namecontroller!.clear();
+                                    numbercontroller!.clear();
+                                    Navigator.pop(context);
+                                  }
+                                },
+                                child: Text(
+                                  "اضافة",
+                                  style: Textstyles.songsTopTitleStyle,
+                                ))
+                          ],
+                        ),
                       ),
                     ),
                   ));

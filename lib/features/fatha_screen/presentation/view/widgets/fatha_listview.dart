@@ -63,7 +63,7 @@ class FathaListview extends StatelessWidget {
         itemBuilder: (context, index) => GestureDetector(
           onTap: index == 2
               ? () {
-                 AdsHelper().interstitialRewardedAdshow();
+                 AdsHelper().interstitialAdshow();
                   Navigator.push(
                       context,
                       MaterialPageRoute(

@@ -43,7 +43,7 @@ class BadlaScreenListview extends StatelessWidget {
                 return BadlaItem(
                   index: index,
                   onTapnav: () {
-                    AdsHelper().interstitialRewardedAdshow();
+                    AdsHelper().interstitialAdshow();
                     if (index < 17) {
                       if (index < 6) {
                     log(state.badlaItems[0].badlaItemName);
@@ -114,39 +114,41 @@ class BadlaScreenListview extends StatelessWidget {
           "تأكيد الحذف",
           style: Textstyles.nameOfInvitedPeopleStyle,
         )),
-        content: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SizedBox(
-              width: 0.5.sw,
-              child: ElevatedButton(
-                  style:
-                      ElevatedButton.styleFrom(backgroundColor: Colors.green),
-                  onPressed: () async {
-                    await cubit.deleteItem(index: index);
-                    // ignore: use_build_context_synchronously
-                    Navigator.pop(context);
-                  },
-                  child: Text(
-                    "نعم",
-                    style: Textstyles.songsTopTitleStyle,
-                  )),
-            ),
-            const VerticalSizedBox(height: 1),
-            SizedBox(
-              width: 0.5.sw,
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text(
-                    "لا",
-                    style: Textstyles.songsTopTitleStyle,
-                  )),
-            )
-          ],
+        content: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(
+                width: 0.5.sw,
+                child: ElevatedButton(
+                    style:
+                        ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                    onPressed: () async {
+                      await cubit.deleteItem(index: index);
+                      // ignore: use_build_context_synchronously
+                      Navigator.pop(context);
+                    },
+                    child: Text(
+                      "نعم",
+                      style: Textstyles.songsTopTitleStyle,
+                    )),
+              ),
+              const VerticalSizedBox(height: 1),
+              SizedBox(
+                width: 0.5.sw,
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text(
+                      "لا",
+                      style: Textstyles.songsTopTitleStyle,
+                    )),
+              )
+            ],
+          ),
         ),
       ),
     );

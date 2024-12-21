@@ -9,7 +9,7 @@ class NotificationService {
   static void onrecive(NotificationResponse details){} 
  static Future<void> init()async{
   InitializationSettings settings = const InitializationSettings(
-    android: AndroidInitializationSettings("@mipmap/ic_launcher"),
+    android: AndroidInitializationSettings("@mipmap/launcher_icon"),
     iOS: DarwinInitializationSettings()
   );
    await flutterLocalNotificationsPlugin.initialize(
@@ -74,8 +74,8 @@ iOS: DarwinNotificationDetails()
     // Schedule the notification after 1 minute
     await flutterLocalNotificationsPlugin.zonedSchedule(
       0, // Notification ID
-      'Khalid', // Title
-      'This notification was scheduled for 1 minute later', // Content/Body
+      'مرحبا بك!', // Title
+      'يسعدنا انضمامك, قم بترتيب كل ما تريد معنا..', // Content/Body
       scheduledTime, // Scheduled time (1 minute later)
       const NotificationDetails(
         android: AndroidNotificationDetails(
