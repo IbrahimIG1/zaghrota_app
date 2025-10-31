@@ -10,6 +10,8 @@ buildscript {
         classpath 'com.android.tools.build:gradle:8.2.1'
         // new
         // Add any other classpath dependencies here if needed
+        classpath 'com.android.tools.build:gradle:8.4.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.0"
     }
 }
 

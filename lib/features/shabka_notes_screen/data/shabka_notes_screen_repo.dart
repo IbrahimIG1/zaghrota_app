@@ -27,8 +27,8 @@ class ShabkaNotesScreenRepo {
   Future<Either<ErrorModel,void>> addData({required NoteModel note})async{
     try{
        await hiive.addValue<NoteModel>(boxName: BoxesNames.shabkaNotesBox, value: note);
-        List<NoteModel> data =  hiive.getBoxValues<NoteModel>(boxName:BoxesNames.shabkaNotesBox) as List<NoteModel>;
-       await NotificationService.schduledNotification(date: note.date,id: data.length+1,title: note.title);
+      hiive.getBoxValues<NoteModel>(boxName:BoxesNames.shabkaNotesBox) as List<NoteModel>;
+      //  await NotificationService.schduledNotification(date: note.date,id: data.length+1,title: note.title);
        return right(null);
     }
 

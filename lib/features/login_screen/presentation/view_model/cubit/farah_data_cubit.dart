@@ -31,7 +31,7 @@ class FarahDataCubit extends Cubit<FarahDataState> {
      
       
       emit(FarahDataSuccess());
-      NotificationService.sendNotificationAfterOneMinute();
+      // NotificationService.sendNotificationAfterOneMinute();
       Navigator.pushReplacementNamed(context,ScreenNames.homeScreen);
       
     },);

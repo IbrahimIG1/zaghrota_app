@@ -98,12 +98,11 @@ import 'package:zaghrota_app/features/wedding_preprations_screen/presentation/vi
 import 'package:zaghrota_app/features/zafa_screen/presentation/view/zafa_screen.dart';
 import 'package:zaghrota_app/features/zafa_screen/presentation/view_model/cubit/zafa_images_cubit.dart';
 import 'package:zaghrota_app/generated/l10n.dart';
-import 'package:zaghrota_app/notification_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await ScreenUtil.ensureScreenSize();
-  await NotificationService.init();
+  // await NotificationService.init();
   await Hive.initFlutter();
   await SharedPrefrenceHelper.initSharedpref();
   MobileAds.instance.initialize();
@@ -334,7 +333,7 @@ class MyApp extends StatelessWidget {
               ),
           ScreenNames.splashScreen:(context)=> const SplashScreen()
         },
-        title: 'Flutter Demo',
+        title: 'Zaghrota App',
         theme: AppTheme.theme,
         initialRoute:ScreenNames.splashScreen
             // SharedPrefrenceHelper.sharedPreferences!.getString("hash") == null

@@ -24,7 +24,7 @@ class AppointmentViewRepo {
         "hash": SharedPrefrenceHelper.sharedPreferences!.getString("hash"),
         "type": type
       });
-       await NotificationService.schduledNotification(id: 0,date: DateTime.parse(date),title: type,body: title);
+      //  await NotificationService.schduledNotification(id: 0,date: DateTime.parse(date),title: type,body: title);
       // log("added successsssfulllly");
       return right(null);
     }

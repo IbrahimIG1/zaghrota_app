@@ -28,8 +28,8 @@ class WeddingNotesScreenRepo {
     try{
        
        await hiive.addValue<NoteModel>(boxName: BoxesNames.weddingNotesBox, value: note);
-       List<NoteModel> data =  hiive.getBoxValues<NoteModel>(boxName:BoxesNames.weddingNotesBox) as List<NoteModel>;
-       await NotificationService.schduledNotification(date: note.date,id: data.length+1,title: note.title);
+  hiive.getBoxValues<NoteModel>(boxName:BoxesNames.weddingNotesBox) as List<NoteModel>;
+      //  await NotificationService.schduledNotification(date: note.date,id: data.length+1,title: note.title);
        
        return right(null);
     }
